@@ -1,0 +1,32 @@
+{
+  "name": "geospatialMetadata",
+  "main": "geospatialMetadata.js",
+  "version": "0.0.0",
+  "authors": [
+    "WSDOT-GIS"
+  ],
+  "description": "A JavaScript library for parsing and converting Geospatial metadata XML",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "GIS",
+    "geospatial",
+    "metadata",
+    "XML"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "*.csproj",
+    "*.sln",
+    "bin",
+    "obj"
+  ]
+}
