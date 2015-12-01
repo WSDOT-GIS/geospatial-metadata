@@ -6,10 +6,6 @@
     "WSDOT-GIS"
   ],
   "description": "A JavaScript library for parsing and converting Geospatial metadata XML",
-  "moduleType": [
-    "amd",
-    "globals"
-  ],
   "keywords": [
     "GIS",
     "geospatial",
@@ -28,5 +24,10 @@
     "*.sln",
     "bin",
     "obj"
+  ],
+  "homepage": "https://github.com/WSDOT-GIS/geospatialMetadata",
+  "moduleType": [
+    "amd",
+    "globals"
   ]
 }
