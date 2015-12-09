@@ -47,6 +47,7 @@
                     heading.textContent = currentNode.nodeName;
 
                     section = document.createElement("section");
+                    section.classList.add(currentNode.nodeName);
                     section.appendChild(heading);
                     section.appendChild(toHtmlFragment(currentNode));
                     output.appendChild(section);
