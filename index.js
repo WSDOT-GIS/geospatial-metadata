@@ -14,6 +14,7 @@
 
         request.onloadend = function (e) {
             var xml = (e.target || e.currentTarget || e.originalTarget).responseXML;
+            console.debug("xml", xml);
             var frag = gisMetadata.toHtmlFragment(xml);
             document.body.appendChild(frag);
         };

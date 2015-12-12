@@ -1,7 +1,30 @@
-﻿section {
-    margin-left: 1em;
+﻿body > header >h1 {
+    text-align: center;
+}
+
+
+section {
+    margin: 0 1em 0 1em;
     padding: 0 0 1em 1em;
     border: 1px solid black;
+    border-radius: 0;
+}
+
+section:first-of-type {
+    border-radius: 1em 1em 0 0;
+}
+
+section:last-of-type {
+    border-radius: 0 0 1em 1em;
+}
+
+section:only-of-type {
+    border-radius: 1em;
+}
+
+body > section {
+    margin: 0;
+    padding: 0;
 }
 
 .metadata {
@@ -10,4 +33,19 @@
 
 section > h1 {
     color: blue;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 0.5em;
+}
+
+table tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+table td {
+    border: 1px inset gray;
+    padding: 0.4em;
 }
