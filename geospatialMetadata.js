@@ -7,12 +7,12 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(factory);
+        define(["./fgdcAliases"], factory);
     } else {
         // Browser globals
-        root.gisMetadata = factory();
+        root.gisMetadata = factory(root.fgdcAliases);
     }
-}(this, function () {
+}(this, function (fgdcAliases) {
     var dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal))date)|(?:metd)/;
 
     /**
@@ -55,6 +55,37 @@
     }
 
     /**
+     * Formats the Contact Address (cntattr) node.
+     * @param {XMLDocument|Element} node
+     * @returns {HTMLDocumentFragment}
+     */
+    function formatAddress(node) {
+        var output = document.createElement("section");
+        if (node.nodeName !== "cntaddr") {
+            throw new Error("Expected cntaddr node");
+        }
+        var addrtype = node.querySelector("addrtype");
+        addrtype = addrtype.textContent || "";
+        var label = document.createElement("h1");
+        if (addrtype) {
+            label.textContent = [addrtype, "address"].join(" ");
+            output.appendChild(label);
+        }
+        
+        var parts = {};
+        ["address", "city", "state", "postal", "country"].forEach(function (propName) {
+            var element = node.querySelector(propName);
+            if (element) {
+                parts[propName] = element.textContent;
+            }
+        });
+        var p = document.createElement("p");
+        p.innerHTML = [parts.address, "<br />", parts.city, " ", parts.state, "&nbsp;&nbsp", "parts.postal", "<br />", parts.country].join(" ");
+        output.appendChild(p);
+        return output;
+    }
+
+    /**
      * 
      * @param {XMLDocument|Element} node
      */
@@ -64,7 +95,7 @@
         table.classList.add("attributes-table");
         table.createCaption().textContent = "Attributes for " + node.querySelector("detailed > enttyp > enttypl").textContent;
         var head = table.createTHead();
-        head.innerHTML = "<tr><th>Label</th><th>Definition</th><th>attrdefs</th><th>attrdomv</th></tr>";
+        head.innerHTML = "<tr><th>Label</th><th>Definition</th><th>Definition Source</th><th>Domain Values</th></tr>";
         var attrArray = Array.from(attrNodes, function (attrNode) {
             var row = table.insertRow(-1);
             var label = attrNode.querySelector("attrlabl");
@@ -89,9 +120,50 @@
                 cell = row.insertCell(-1);
                 cell.textContent = attrdomv.firstChild.textContent;
             }
-        })
+        });
 
         return table;
+    }
+
+    /**
+     * 
+     * @param {XMLDocument|Element} node - XML node
+     */
+    function createKeywordsLists(node) {
+        if (node.nodeName !== "keywords") {
+            node = node.querySelector("keywords");
+        }
+
+        var section = document.createElement("section");
+        section.classList.add("keywords");
+        var heading = document.createElement("h1");
+        heading.textContent = "Keywords";
+        section.appendChild(heading);
+        /**
+         * 
+         * @param {Element} keywordNode
+         */
+        Array.from(node.childNodes, function (keywordNode) {
+            var frag = document.createDocumentFragment();
+            var rootName = keywordNode.nodeName;
+            var heading = document.createElement("h2");
+            var keyword_thesaurus = keywordNode.querySelector(rootName + "kt");
+            heading.textContent = rootName;
+            frag.appendChild(heading);
+
+            var list = document.createElement("ul");
+            var keys = keywordNode.querySelectorAll(rootName + "key");
+            Array.from(keys, function (keyNode) {
+                var item = document.createElement("li");
+                item.textContent = keyNode.textContent;
+                list.appendChild(item);
+            });
+            frag.appendChild(list);
+            section.appendChild(frag);
+        });
+
+
+        return section;
     }
 
     function toHtmlFragment(node) {
@@ -117,13 +189,17 @@
                 currentNode = node.childNodes[i];
                 if (currentNode.nodeName === "eainfo") {
                     output.appendChild(createAttributesTable(currentNode));
+                } else if (currentNode.nodeName === "cntaddr") {
+                    output.appendChild(formatAddress(currentNode));
+                } else if (currentNode.nodeName === "keywords") {
+                    output.appendChild(createKeywordsLists(currentNode));
                 } else if (currentNode instanceof Text) {
                     output.appendChild(document.createTextNode(currentNode.textContent));
                 } else {
                     // Create the section header if this is not the root element.
                     if (currentNode.parentElement) {
                         heading = document.createElement("h1");
-                        heading.textContent = currentNode.nodeName;
+                        heading.textContent = fgdcAliases[currentNode.nodeName] || currentNode.nodeName;
                     } else {
                         heading = null;
                     }
