@@ -1,25 +1,21 @@
-﻿body > header >h1 {
+﻿body > header > h1 {
     text-align: center;
 }
 
 
 section {
-    margin: 0 1em 0 1em;
-    padding: 0 0 1em 1em;
+    margin: 0.3em;
+    padding: 0.5em;
     border: 1px solid black;
-    border-radius: 0;
-}
-
-section:first-of-type {
-    border-radius: 1em 1em 0 0;
-}
-
-section:last-of-type {
-    border-radius: 0 0 1em 1em;
-}
-
-section:only-of-type {
     border-radius: 1em;
+}
+
+.spref section, .sdtsterm  section, .spdom section{
+    display: inline-block;
+}
+
+.metainfo > section {
+    border: none;
 }
 
 body > section {
@@ -31,8 +27,13 @@ body > section {
     border: none;
 }
 
-section > h1 {
+section > h1, h2 {
     color: blue;
+    font-size: 1em;
+}
+
+.cntinfo > h1 {
+    display: inline;
 }
 
 table {
@@ -41,11 +42,49 @@ table {
     margin: 0.5em;
 }
 
-table tr:nth-child(even) {
-    background-color: lightgray;
+    table tr:nth-child(even) {
+        background-color: lightgray;
+    }
+
+    table td {
+        border: 1px inset gray;
+        padding: 0.4em;
+    }
+
+        table td:empty:after {
+            content: 'N/A';
+            color: #e1d9d9;
+        }
+
+        table tr:nth-child(even) td:empty:after {
+            content: 'N/A';
+            color: gray;
+        }
+
+        table td:empty {
+            font-style: italic;
+            text-align: center;
+            vertical-align: central;
+        }
+
+.spref {
+    font-size: 8pt;
 }
 
-table td {
-    border: 1px inset gray;
-    padding: 0.4em;
+section:scope {
+    background-color: red;
+}
+
+.cntinfo, .cntinfo section {
+    border: none;
+    margin: auto;
+    padding: 0;
+}
+
+.cntinfo h1 {
+    display: none;
+}
+
+.distinfo section {
+    border: none;
 }

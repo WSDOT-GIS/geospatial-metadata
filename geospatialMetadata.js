@@ -13,6 +13,7 @@
         root.gisMetadata = factory(root.fgdcAliases);
     }
 }(this, function (fgdcAliases) {
+    "use strict";
     var dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal))date)|(?:metd)/;
 
     /**
@@ -80,7 +81,7 @@
             }
         });
         var p = document.createElement("p");
-        p.innerHTML = [parts.address, "<br />", parts.city, " ", parts.state, "&nbsp;&nbsp", "parts.postal", "<br />", parts.country].join(" ");
+        p.innerHTML = [parts.address, "<br />", parts.city, ", ", parts.state, "&nbsp;&nbsp", parts.postal, "<br />", parts.country].join("");
         output.appendChild(p);
         return output;
     }
@@ -113,11 +114,13 @@
                 cell.textContent = def.textContent || "";
             }
 
-            if (attrdefs || attrdomv) {
-                cell = row.insertCell(-1);
+            cell = row.insertCell(-1);
+            if (attrdefs) {
                 cell.textContent = attrdefs.textContent;
+            }
 
-                cell = row.insertCell(-1);
+            cell = row.insertCell(-1);
+            if (attrdomv) {
                 cell.textContent = attrdomv.firstChild.textContent;
             }
         });
