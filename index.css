@@ -88,3 +88,15 @@ section:scope {
 .distinfo section {
     border: none;
 }
+
+.country-us .address, .country-us .country {
+    display: block;
+}
+
+.country-us .city:after{
+    content: ', '
+}
+
+.country-us .postal:before {
+    content: '  '
+}

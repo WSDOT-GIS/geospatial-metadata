@@ -73,15 +73,24 @@
             output.appendChild(label);
         }
         
-        var parts = {};
+        var p = document.createElement("p");
+        p.classList.add("address");
+        p.classList.add("mailing");
         ["address", "city", "state", "postal", "country"].forEach(function (propName) {
             var element = node.querySelector(propName);
+            var span;
             if (element) {
-                parts[propName] = element.textContent;
+                span = document.createElement("span");
+                span.classList.add(propName);
+                span.textContent = element.textContent;
+                p.appendChild(span);
             }
         });
-        var p = document.createElement("p");
-        p.innerHTML = [parts.address, "<br />", parts.city, ", ", parts.state, "&nbsp;&nbsp", parts.postal, "<br />", parts.country].join("");
+        var country = node.querySelector("country");
+        if (country) {
+            country = country.textContent;
+            p.classList.add(["country", country].join("-").toLowerCase());
+        }
         output.appendChild(p);
         return output;
     }
@@ -169,6 +178,21 @@
         return section;
     }
 
+    /**
+     * 
+     * @param {string} s
+     */
+    function capitalizeFirstCharacter(s) {
+        var output = Array.from(s, function (char, i) {
+            if (i === 0) {
+                return char.toUpperCase();
+            } else {
+                return char;
+            }
+        });
+        return output.join("");
+    }
+
     function toHtmlFragment(node) {
         var output;
         var currentNode;
@@ -202,7 +226,7 @@
                     // Create the section header if this is not the root element.
                     if (currentNode.parentElement) {
                         heading = document.createElement("h1");
-                        heading.textContent = fgdcAliases[currentNode.nodeName] || currentNode.nodeName;
+                        heading.textContent = fgdcAliases[currentNode.nodeName] || capitalizeFirstCharacter(currentNode.nodeName);
                     } else {
                         heading = null;
                     }
