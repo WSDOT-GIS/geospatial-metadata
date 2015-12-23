@@ -14,24 +14,79 @@
     }
 }(this, function (fgdcAliases) {
     "use strict";
-    var dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal))date)|(?:metd)/;
+    var dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
+
+    var dateFmt = new Intl.DateTimeFormat();
 
     /**
      * Parses a yyyyMMdd date string into a date object.
-     * @param {string} yyyyMMdd - Date string
-     * @returns {(Date|string)} Returns the date if successful, the original input string otherwise.
+     * @param {string} yyyyMMdd - Date string - Parts can optionally be separated by dashes or slashes.
+     * @param {string} [hhmmss] - Time string
+     * @returns {Date} Returns a date object equivalent to the input date and time strings.
      */
-    function parseDate(yyyyMMdd) {
-        var re = /(\d{4})(\d{2})(\d{2})/i;
+    function parseDate(yyyyMMdd, hhmmss) {
+        var re = /(\d{4})[-\/]?(\d{2})[-\/]?(\d{2})/i;
         var match = yyyyMMdd.match(re);
         if (match) {
-            //match = match.slice(1).map(parseInt);
+            // Remove the first element, which is the entire matched part of the string.
+            // We only want the digit groups.
             match = match.slice(1);
             //match = match.map(function (s) { return parseInt(s, 10); });
         }
-        return match.join("-"); //match ? new Date(match[0], match[1], match[2]) : yyyyMMdd;
+        var timeMatch;
+        if (hhmmss) {
+            // Match each occurance of a number
+            re = /\d+/g;
+            timeMatch = hhmmss.match(re);
+            if (timeMatch) {
+                match = match.concat(timeMatch);
+            }
+        }
+
+        //var parts = match.map(parseInt);
+        var parts = match.map(function (p) {
+            return parseInt(p, 10);
+        });
+
+
+        //var date = new Date(...parts); // ES6 - doesn't work in IE.
+        function createDate(a, b, c, d, e, f) {
+            d = d || 0;
+            e = e || 0;
+            f = f || 0;
+            return new Date(a, b, c, d, e, f);
+        }
+        var date = createDate.apply(null, parts);
+
+        return date;
     }
 
+    /**
+     * Converts a Date into a <time> element
+     * @param {string} dateString - A Date object
+     * @param {string} [time] - An optional time string.
+     * @return {HTMLTimeElement|HTMLUnknownElement} - If the browser supports it, an HTMLTimeElement will be returned. Otherwise an HTMLUnknownElement will be returned.
+     */
+    function toTimeNode(dateString, time) {
+        var output = document.createElement("time");
+        var date;
+        if (!(time && !/Unknown/i.test(time))) {
+            date = parseDate(dateString);
+            output.setAttribute("datetime", date.toISOString().replace(/T.+$/, ""));
+            output.textContent = date.toLocaleDateString();
+        } else {
+            date = parseDate(dateString, time);
+            output.setAttribute("datetime", date.toISOString());
+            output.textContent = date.toLocaleString();
+        }
+        return output;
+    }
+
+    /**
+     * Converts an XML element into an object.
+     * @param {Element} node - XML Element
+     * @returns {Object} - An object representation of the XML element.
+     */
     function toObject(node) {
         var output;
         var currentNode;
@@ -41,10 +96,10 @@
             for (var i = 0; i < node.childNodes.length; i++) {
                 currentNode = node.childNodes[i];
                 if (currentNode instanceof Text) {
-
                     output = currentNode.textContent;
                 } else {
                     output[currentNode.nodeName] = toObject(currentNode);
+                    
                 }
 
             }
@@ -56,9 +111,33 @@
     }
 
     /**
+     * Formats a single date element.
+     * @param {Element} sngDateElement - A metadata element containing caldate and time elements.
+     * @returns {HTMLElement} Returns an HTML element.
+     */
+    function formatSngdate(sngDateElement) {
+        var dateString = sngDateElement.querySelector("caldate").textContent;
+        var time = sngDateElement.querySelector("time");
+        time = time && time.textContent ? time.textContent : undefined;
+        return toTimeNode(dateString, time);
+        //var output = document.createElement("time");
+        //var date;
+        //if (/Unknown/i.test(time.textContent)) {
+        //    date = parseDate(dateString);
+        //    output.setAttribute("datetime", date.toISOString().replace(/T.+$/, ""));
+        //    output.textContent = date.toLocaleDateString();
+        //} else {
+        //    date = parseDate(dateString, time.textContent);
+        //    output.setAttribute("datetime", date.toISOString());
+        //    output.textContent = date.toLocaleString();
+        //}
+        //return output;
+    }
+
+    /**
      * Formats the Contact Address (cntattr) node.
-     * @param {XMLDocument|Element} node
-     * @returns {HTMLDocumentFragment}
+     * @param {XMLDocument|Element} node - A <cntattr> XML node
+     * @returns {HTMLDocumentFragment} - Returns an HTML document fragment.
      */
     function formatAddress(node) {
         var output = document.createElement("section");
@@ -96,8 +175,9 @@
     }
 
     /**
-     * 
-     * @param {XMLDocument|Element} node
+     * Creates a table of attributes
+     * @param {XMLDocument|Element} node - An <eainfo> XML node.
+     * @returns {HTMLTableElement} A table of the contents of the attributes.
      */
     function createAttributesTable(node) {
         var attrNodes = node.querySelectorAll("attr");
@@ -138,8 +218,9 @@
     }
 
     /**
-     * 
-     * @param {XMLDocument|Element} node - XML node
+     * Converts a <keywords> XML element into a section containing lists.
+     * @param {XMLDocument|Element} node - XML node: Either a <keywords> element or its parent.
+     * @returns {HTMLSectionElement} Returns a <section> containing keyword lists.
      */
     function createKeywordsLists(node) {
         if (node.nodeName !== "keywords") {
@@ -179,8 +260,9 @@
     }
 
     /**
-     * 
-     * @param {string} s
+     * Capitalizes the first character in a string.
+     * @param {string} s - A string
+     * @returns {string} - A copy of the input string, but with the first character capitalized.
      */
     function capitalizeFirstCharacter(s) {
         var output = Array.from(s, function (char, i) {
@@ -193,6 +275,32 @@
         return output.join("");
     }
 
+    /**
+     * Creates a document fragment from at text element, inserting <br> elements where there were newlines.
+     * @param {string|Text} text - Either an XML text node or a string.
+     * @returns {DocumentFragment} - An HTML document fragment.
+     */
+    function insertBreaksAtNewlines(text) {
+        var newLineRe = /[\r\n]+/g;
+        var paragraphs = text.split(newLineRe);
+        var docFrag = document.createDocumentFragment();
+        if (paragraphs.length === 1) {
+            return document.createTextNode(text);
+        } else {
+            paragraphs.forEach(function (s) {
+                var p = document.createElement("p");
+                p.textContent = s;
+                docFrag.appendChild(p);
+            });
+        }
+        return docFrag;
+    }
+
+    /**
+     * Converts an XML document or node into an HTML document fragment.
+     * @param {XMLDocument|Element} node - Either an XML document or one of its children.
+     * @returns {DocumentFragment} An HTML document fragment
+     */
     function toHtmlFragment(node) {
         var output;
         var currentNode;
@@ -220,8 +328,21 @@
                     output.appendChild(formatAddress(currentNode));
                 } else if (currentNode.nodeName === "keywords") {
                     output.appendChild(createKeywordsLists(currentNode));
+                } else if (currentNode.nodeName === "sngdate") {
+                    (function () {
+                        var timeNode = formatSngdate(currentNode);
+                        console.debug("timeNode", timeNode);
+                        output.appendChild(timeNode);
+                    }())
+                } else if (currentNode.nodeName === "cntemail") {
+                    (function (email) {
+                        var a = document.createElement("a");
+                        a.href = "mailto:" + email;
+                        a.textContent = email;
+                        output.appendChild(a);
+                    }(currentNode.textContent));
                 } else if (currentNode instanceof Text) {
-                    output.appendChild(document.createTextNode(currentNode.textContent));
+                    output.appendChild(insertBreaksAtNewlines(currentNode.textContent));
                 } else {
                     // Create the section header if this is not the root element.
                     if (currentNode.parentElement) {
@@ -237,9 +358,9 @@
                         section.appendChild(heading);
                     }
 
+                    // Handle date nodes
                     if (dateNodeNamesRe.test(currentNode.nodeName)) {
-                        date = parseDate(currentNode.textContent);
-                        section.appendChild(document.createTextNode(date));
+                        section.appendChild(toTimeNode(currentNode.textContent));
                     } else {
                         section.appendChild(toHtmlFragment(currentNode));
                     }

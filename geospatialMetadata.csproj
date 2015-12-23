@@ -56,6 +56,7 @@
     <Content Include="index.html" />
     <Content Include="index.js" />
     <Content Include="bower.json" />
+    <Content Include="Sample - 2014 LRS Increase Metadata.xml" />
     <None Include="UNLICENSE" />
   </ItemGroup>
   <ItemGroup>
