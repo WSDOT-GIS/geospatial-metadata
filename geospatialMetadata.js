@@ -344,7 +344,7 @@
                     output.appendChild(insertBreaksAtNewlines(currentNode.textContent));
                 } else {
                     // Create the section header if this is not the root element.
-                    if (currentNode.parentElement !== null) {
+                    if (currentNode.parentElement !== null) { // In IE, the parentElement property will be undefined.
                         heading = document.createElement("h1");
                         heading.textContent = fgdcAliases[currentNode.nodeName] || capitalizeFirstCharacter(currentNode.nodeName);
                     } else {

@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+/* Hide the h1 in the outermost section. This will probably only even be present in IE. */
+body > section > h1 {
+    display: none;
+}
 
 section {
     margin: 0.3em;
