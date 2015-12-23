@@ -331,7 +331,6 @@
                 } else if (currentNode.nodeName === "sngdate") {
                     (function () {
                         var timeNode = formatSngdate(currentNode);
-                        console.debug("timeNode", timeNode);
                         output.appendChild(timeNode);
                     }())
                 } else if (currentNode.nodeName === "cntemail") {
@@ -345,7 +344,7 @@
                     output.appendChild(insertBreaksAtNewlines(currentNode.textContent));
                 } else {
                     // Create the section header if this is not the root element.
-                    if (currentNode.parentElement) {
+                    if (currentNode.parentElement !== null) {
                         heading = document.createElement("h1");
                         heading.textContent = fgdcAliases[currentNode.nodeName] || capitalizeFirstCharacter(currentNode.nodeName);
                     } else {
