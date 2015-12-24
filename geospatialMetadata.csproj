@@ -50,6 +50,7 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="reference\fgdc.txt" />
     <Content Include="fgdcAliases.js" />
     <Content Include="geospatialMetadata.js" />
     <Content Include="index.css" />

@@ -10,6 +10,9 @@
     return {
         accconst: "Access Constraints",
 
+        attracc: "Attribute Accuracy",
+        attraccr: "Attribute Accuracy Report",
+
         bounding: "Bounding Coordinates",
             westbc: "West Bounding Coordinate",
             eastbc: "East Bounding Coordinate",
@@ -42,6 +45,9 @@
         mettc: "Metadata Time Convention",
         native: "Native Data Set Environment",
         origin: "Originator",
+        posacc: "Positional Accuracy",
+            horizpa: "Horizontal Positional Accuracy",
+            horizpar: "Horizontal Positional Accuracy Report",
         ptcontac: "Point of Contact",
         proccont: "Process Contact",
         procdate: "Process Date",
