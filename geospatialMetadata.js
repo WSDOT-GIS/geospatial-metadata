@@ -317,6 +317,11 @@
         return docFrag;
     }
 
+    /**
+     * Converts and email address into a link to an email address (with u-email microdata class).
+     * @param {Node|string} email - An email address or an XML node containing an email address as its text content.
+     * @returns {HTMLAnchorElement} An anchor element linking to an email address.
+     */
     function formatEmail(email) {
         var a = document.createElement("a");
         var email = email.textContent || email;
@@ -328,8 +333,8 @@
 
     /**
      * Converts a phone number string into an <a href="tel:..."> link.
-     * @param {string} phone - A phone number.
-     * @returns {HTMLAnchorElement} An anchor element with a link to the input phone number.
+     * @param {Node|string} phone - A phone number.
+     * @returns {HTMLAnchorElement} An anchor element with a link to the input phone number. Microdata class "p-tel" is also added.
      */
     function formatPhoneNumber(phone) {
         var re = /\d+/g;
@@ -338,9 +343,9 @@
         var unseparatedPhone = parts.join("");
         var url;
         if (unseparatedPhone.length === 10) {
-            url = ["tel:+1", phone].join("");
+            url = ["tel:+1-", phone].join("");
         } else {
-            url = ["tel:", phone].join("");
+            url = "tel:" + phone;
         }
         var a = document.createElement("a");
         a.textContent = phone;
@@ -348,6 +353,16 @@
         a.classList.add("p-tel");
         return a;
     }
+
+    // Create a mapping of node names to formatting functions.
+    var nodeNameToFunction = {
+        eainfo: createAttributesTable,
+        cntaddr: formatAddress,
+        keywords: createKeywordsLists,
+        sngdate: formatSngdate,
+        cntemail: formatEmail,
+        cntvoice: formatPhoneNumber
+    };
 
     /**
      * Converts an XML document or node into an HTML document fragment.
@@ -375,21 +390,8 @@
 
             for (var i = 0; i < node.childNodes.length; i++) {
                 currentNode = node.childNodes[i];
-                if (currentNode.nodeName === "eainfo") {
-                    output.appendChild(createAttributesTable(currentNode));
-                } else if (currentNode.nodeName === "cntaddr") {
-                    output.appendChild(formatAddress(currentNode));
-                } else if (currentNode.nodeName === "keywords") {
-                    output.appendChild(createKeywordsLists(currentNode));
-                } else if (currentNode.nodeName === "sngdate") {
-                    (function () {
-                        var timeNode = formatSngdate(currentNode);
-                        output.appendChild(timeNode);
-                    }())
-                } else if (currentNode.nodeName === "cntemail") {
-                    output.appendChild(formatEmail(currentNode));
-                } else if (currentNode.nodeName === "cntvoice") {
-                    output.appendChild(formatPhoneNumber(currentNode));
+                if (nodeNameToFunction.hasOwnProperty(currentNode.nodeName)) {
+                    output.appendChild(nodeNameToFunction[currentNode.nodeName](currentNode));
                 } else if (currentNode instanceof Text) {
                     output.appendChild(insertBreaksAtNewlines(currentNode.textContent));
                 } else {

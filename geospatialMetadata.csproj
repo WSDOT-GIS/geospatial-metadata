@@ -50,13 +50,13 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="reference\fgdc.txt" />
-    <Content Include="fgdcAliases.js" />
+    <Content Include="csdgmAliases.js" />
     <Content Include="geospatialMetadata.js" />
     <Content Include="index.css" />
     <Content Include="index.html" />
     <Content Include="index.js" />
     <Content Include="bower.json" />
+    <Content Include="reference\csdgm.txt" />
     <Content Include="Sample - 2014 LRS Increase Metadata.xml" />
     <None Include="UNLICENSE" />
   </ItemGroup>
@@ -70,16 +70,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>28904</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:28904/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
