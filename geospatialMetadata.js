@@ -16,7 +16,19 @@
     "use strict";
     var dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
 
-    var dateFmt = new Intl.DateTimeFormat();
+    var microFormats = {
+        address: "p-street-address",
+        city: "p-locality",
+        state: "p-region",
+        postal: "p-postal-code",
+        country: "p-country-name",
+        cntvoice: "p-tel",
+        cntpos: "p-job-title",
+        cntorg: "p-org",
+        cntvoice: ["p-tel", "p-tel-voice", "p-tel-work"],
+        cntinfo: "h-card",
+        cntemail: "u-email",
+    };
 
     /**
      * Parses a yyyyMMdd date string into a date object.
@@ -138,12 +150,16 @@
      * Formats the Contact Address (cntattr) node.
      * @param {XMLDocument|Element} node - A <cntattr> XML node
      * @returns {HTMLDocumentFragment} - Returns an HTML document fragment.
+     * @throws {Error} Throws an error if node is not a cntaddr node.
      */
     function formatAddress(node) {
-        var output = document.createElement("section");
         if (node.nodeName !== "cntaddr") {
             throw new Error("Expected cntaddr node");
         }
+
+        // TODO: use different microformat for PO BOX vs. street address.
+
+        var output = document.createElement("section");
         var addrtype = node.querySelector("addrtype");
         addrtype = addrtype.textContent || "";
         var label = document.createElement("h1");
@@ -153,14 +169,19 @@
         }
         
         var p = document.createElement("p");
-        p.classList.add("address");
-        p.classList.add("mailing");
+        p.setAttribute("class", "h-addr address");
+        p.classList.add(addrtype);
+        p.classList.add("h-addr-" + addrtype);
+
+
+
         ["address", "city", "state", "postal", "country"].forEach(function (propName) {
             var element = node.querySelector(propName);
             var span;
             if (element) {
                 span = document.createElement("span");
                 span.classList.add(propName);
+                span.classList.add(microFormats[propName]);
                 span.textContent = element.textContent;
                 p.appendChild(span);
             }
@@ -296,6 +317,38 @@
         return docFrag;
     }
 
+    function formatEmail(email) {
+        var a = document.createElement("a");
+        var email = email.textContent || email;
+        a.href = "mailto:" + email;
+        a.textContent = email;
+        a.classList.add("u-email");
+        return a;
+    }
+
+    /**
+     * Converts a phone number string into an <a href="tel:..."> link.
+     * @param {string} phone - A phone number.
+     * @returns {HTMLAnchorElement} An anchor element with a link to the input phone number.
+     */
+    function formatPhoneNumber(phone) {
+        var re = /\d+/g;
+        var phone = phone.textContent || phone;
+        var parts = phone.match(re);
+        var unseparatedPhone = parts.join("");
+        var url;
+        if (unseparatedPhone.length === 10) {
+            url = ["tel:+1", phone].join("");
+        } else {
+            url = ["tel:", phone].join("");
+        }
+        var a = document.createElement("a");
+        a.textContent = phone;
+        a.href = url;
+        a.classList.add("p-tel");
+        return a;
+    }
+
     /**
      * Converts an XML document or node into an HTML document fragment.
      * @param {XMLDocument|Element} node - Either an XML document or one of its children.
@@ -334,12 +387,9 @@
                         output.appendChild(timeNode);
                     }())
                 } else if (currentNode.nodeName === "cntemail") {
-                    (function (email) {
-                        var a = document.createElement("a");
-                        a.href = "mailto:" + email;
-                        a.textContent = email;
-                        output.appendChild(a);
-                    }(currentNode.textContent));
+                    output.appendChild(formatEmail(currentNode));
+                } else if (currentNode.nodeName === "cntvoice") {
+                    output.appendChild(formatPhoneNumber(currentNode));
                 } else if (currentNode instanceof Text) {
                     output.appendChild(insertBreaksAtNewlines(currentNode.textContent));
                 } else {
