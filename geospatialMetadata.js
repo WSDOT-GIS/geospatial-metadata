@@ -22,12 +22,11 @@
         state: "p-region",
         postal: "p-postal-code",
         country: "p-country-name",
-        cntvoice: "p-tel",
         cntpos: "p-job-title",
         cntorg: "p-org",
         cntvoice: ["p-tel", "p-tel-voice", "p-tel-work"],
         cntinfo: "h-card",
-        cntemail: "u-email",
+        cntemail: "u-email"
     };
 
     /**
@@ -309,9 +308,13 @@
             return document.createTextNode(text);
         } else {
             paragraphs.forEach(function (s) {
-                var p = document.createElement("p");
-                p.textContent = s;
-                docFrag.appendChild(p);
+                var p;
+                // Filter out empty strings and strings with only space characters.
+                if (s && s.length && /\S/.test(s)) {
+                    p = document.createElement("p");
+                    p.textContent = s;
+                    docFrag.appendChild(p);
+                }
             });
         }
         return docFrag;
@@ -324,7 +327,7 @@
      */
     function formatEmail(email) {
         var a = document.createElement("a");
-        var email = email.textContent || email;
+        email = email.textContent || email;
         a.href = "mailto:" + email;
         a.textContent = email;
         a.classList.add("u-email");
@@ -338,7 +341,7 @@
      */
     function formatPhoneNumber(phone) {
         var re = /\d+/g;
-        var phone = phone.textContent || phone;
+        phone = phone.textContent || phone;
         var parts = phone.match(re);
         var unseparatedPhone = parts.join("");
         var url;
@@ -365,6 +368,36 @@
     };
 
     /**
+     * Creates a list of an XML node's attributes. Attributes with names starting with "xmlns", and "codeList..." and "codeSpace" will be omitted.
+     * @param {Node} node - XML node
+     * @returns {HTMLDListElement} List of attributes. If there were no attributes, null will be returned.
+     */
+    function createAttributeDL(node) {
+        var i, l, attr, dl, dt, dd;
+        var ignoredAttributes = /(^xmlns(?:\:\w+)?)|(codeList(Value)?)|(codeSpace)/;
+        if (node.attributes && node.attributes.length > 0) {
+            dl = document.createElement("dl");
+            for (i = 0, l = node.attributes.length; i < l; i++) {
+                attr = node.attributes.item(i);
+                if (attr.name.match(ignoredAttributes)) {
+                    continue;
+                }
+                dt = document.createElement("dt");
+                dt.textContent = attr.name;
+                dl.appendChild(dt);
+                dd = document.createElement("dd");
+                dd.textContent = attr.value;
+                dl.appendChild(dd);
+            }
+            // Nullify the output list if it has no children.
+            if (dl.childNodes.length <= 0) {
+                dl = null;
+            }
+        }
+        return dl || null;
+    }
+
+    /**
      * Converts an XML document or node into an HTML document fragment.
      * @param {XMLDocument|Element} node - Either an XML document or one of its children.
      * @returns {DocumentFragment} An HTML document fragment
@@ -373,7 +406,7 @@
         var output;
         var currentNode;
 
-        var heading, section, title, date, attributesTable;
+        var heading, section, title, date, attributesTable, frag, i, l, attrList;
 
 
         // Add page title if this is the root element.
@@ -384,15 +417,28 @@
             document.body.appendChild(heading);
         }
 
+        //if (!node || !node.attributes || !node.childNodes) {
+        //    return;
+        //}
+
+        output = document.createDocumentFragment();
+
+        attrList = createAttributeDL(node);
+        if (attrList) {
+            output.appendChild(attrList);
+        }
+
         if (node.childNodes && node.childNodes.length > 0) {
-            output = document.createDocumentFragment();
 
 
-            for (var i = 0; i < node.childNodes.length; i++) {
+            for (i = 0; i < node.childNodes.length; i++) {
                 currentNode = node.childNodes[i];
+                if (!currentNode || currentNode instanceof Comment) {
+                    continue;
+                }
                 if (nodeNameToFunction.hasOwnProperty(currentNode.nodeName)) {
                     output.appendChild(nodeNameToFunction[currentNode.nodeName](currentNode));
-                } else if (currentNode instanceof Text) {
+                } else if (currentNode instanceof Text || currentNode.nodeName.match(/characterstring/i)) {
                     output.appendChild(insertBreaksAtNewlines(currentNode.textContent));
                 } else {
                     // Create the section header if this is not the root element.
@@ -412,14 +458,17 @@
                     // Handle date nodes
                     if (dateNodeNamesRe.test(currentNode.nodeName)) {
                         section.appendChild(toTimeNode(currentNode.textContent));
-                    } else {
-                        section.appendChild(toHtmlFragment(currentNode));
+                    } else if (currentNode) {
+                        frag = toHtmlFragment(currentNode);
+                        if (frag) {
+                            section.appendChild(frag);
+                        }
                     }
                     output.appendChild(section);
                 }
 
             }
-        } else {
+        } else if (currentNode && currentNode.textContent) {
             output = document.createTextNode(currentNode.textContent);
         }
 

@@ -57,7 +57,9 @@
     <Content Include="index.js" />
     <Content Include="bower.json" />
     <Content Include="reference\csdgm.txt" />
-    <Content Include="Sample - 2014 LRS Increase Metadata.xml" />
+    <Content Include="sample\2014 LRS Increase converted to ESRI ISO.xml" />
+    <Content Include="sample\2014 LRS Increase converted to ISO 19139.xml" />
+    <Content Include="sample\2014 LRS Increase Metadata.xml" />
     <None Include="UNLICENSE" />
   </ItemGroup>
   <ItemGroup>

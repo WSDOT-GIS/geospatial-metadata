@@ -1,0 +1,902 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <Esri>
+    <CreaDate>20151228</CreaDate>
+    <CreaTime>12452000</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdContact>
+    <rpIndName>Thomas A. Blake</rpIndName>
+    <rpOrgName>Washington State Department of Transportation</rpOrgName>
+    <rpPosName>GIS Data Products Supervisor</rpPosName>
+    <rpCntInfo>
+      <cntPhone>
+        <voiceNum>360-570-2363</voiceNum>
+      </cntPhone>
+      <cntAddress addressType="physical">
+        <delPoint>7345 Linderson Way SW</delPoint>
+        <city>Tumwater</city>
+        <adminArea>WA</adminArea>
+        <postCode>98501</postCode>
+        <country>US</country>
+        <eMailAdd>blaket@wsdot.wa.gov</eMailAdd>
+      </cntAddress>
+    </rpCntInfo>
+    <role>
+      <RoleCd value="007" />
+    </role>
+  </mdContact>
+  <mdDateSt>20150429</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <spatRepInfo>
+    <VectSpatRep>
+      <geometObjs>
+        <geoObjTyp>
+          <GeoObjTypCd value="002" />
+        </geoObjTyp>
+        <geoObjCnt>760</geoObjCnt>
+      </geometObjs>
+    </VectSpatRep>
+  </spatRepInfo>
+  <spatRepInfo>
+    <Indref>State Route and Accumulated Route Mileage</Indref>
+  </spatRepInfo>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>State Routes of Washington State 1:24,000 (2014), Routes in the Increasing Direction</resTitle>
+      <date>
+        <pubDate>2015-04-15</pubDate>
+      </date>
+      <citRespParty>
+        <rpOrgName>Washington State Department of Transportation<!-- WARNING: translation from FGDC is ambiguous, this may require correction --></rpOrgName>
+        <rpCntInfo>
+          <cntAddress>
+            <delPoint>Olympia, Washington<!-- WARNING: translation from FGDC is ambiguous, this may require correction --></delPoint>
+          </cntAddress>
+        </rpCntInfo>
+        <role>
+          <RoleCd value="010" />
+        </role>
+      </citRespParty>
+      <citRespParty>
+        <rpOrgName>Washington State Department of Transportation<!-- WARNING: translation from FGDC is ambiguous, this may require correction --></rpOrgName>
+        <role>
+          <RoleCd value="006" />
+        </role>
+      </citRespParty>
+      <presForm>
+        <PresFormCd value="005" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>vector digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>State Routes are depicted as lines with State Route identifiers and route measure attributes. Routes in this featureclass are for the increasing side of the highway mileposting.</idAbs>
+    <idPurp>This data set is used: 1) for general-purpose base mapping; 2) as a Linear Referencing System (LRS); 3) for locating features on the State Route network by State Route Accumulated Route Mileage (dynamic segmentation). This dataset is a snapshot of the roadway system, effective 12/31/2014, also known as the 2014 LRS.</idPurp>
+    <idCredit>Washington State Department of Transportation</idCredit>
+    <idStatus>
+      <ProgCd value="001" />
+    </idStatus>
+    <idPoC>
+      <rpIndName>Thomas A. Blake</rpIndName>
+      <rpOrgName>Washington State Department of Transportation</rpOrgName>
+      <rpPosName>GIS Data Products Supervisor</rpPosName>
+      <rpCntInfo>
+        <cntPhone>
+          <voiceNum>360-570-2363</voiceNum>
+        </cntPhone>
+        <cntAddress addressType="postal">
+          <delPoint>PO Box 47384</delPoint>
+          <city>Olympia</city>
+          <adminArea>WA</adminArea>
+          <postCode>98504-7384</postCode>
+          <country>US</country>
+          <eMailAdd>blaket@wsdot.wa.gov</eMailAdd>
+        </cntAddress>
+      </rpCntInfo>
+      <role>
+        <RoleCd value="007" />
+      </role>
+    </idPoC>
+    <resMaint>
+      <maintFreq>
+        <MaintFreqCd value="008" />
+      </maintFreq>
+    </resMaint>
+    <placeKeys>
+      <keyword>Washington</keyword>
+      <keyword>United States</keyword>
+      <keyword>Pacific Northwest</keyword>
+      <keyword>USA</keyword>
+      <keyword>WA</keyword>
+    </placeKeys>
+    <themeKeys>
+      <keyword>state route</keyword>
+      <keyword>LRS</keyword>
+      <keyword>highway</keyword>
+      <keyword>SR</keyword>
+    </themeKeys>
+    <searchKeys>
+      <keyword>Washington</keyword>
+      <keyword>state route</keyword>
+      <keyword>United States</keyword>
+      <keyword>LRS</keyword>
+      <keyword>Pacific Northwest</keyword>
+      <keyword>highway</keyword>
+      <keyword>USA</keyword>
+      <keyword>WA</keyword>
+      <keyword>SR</keyword>
+    </searchKeys>
+    <resConst>
+      <LegConsts>
+        <useLimit>The Washington State Department of Transportation shall not be liable for any activity involving this data with regard to lost profits or savings or any other consequential damages; or the fitness for use of the data for a particular purpose; or the installation of the data, its use, or the results obtained.</useLimit>
+      </LegConsts>
+    </resConst>
+    <resConst>
+      <Consts>
+        <useLimit>The Washington State Department of Transportation shall not be liable for any activity involving this data with regard to lost profits or savings or any other consequential damages; or the fitness for use of the data for a particular purpose; or the installation of the data, its use, or the results obtained.</useLimit>
+      </Consts>
+    </resConst>
+    <spatRpType>
+      <SpatRepTypCd value="001" />
+    </spatRpType>
+    <dataLang>
+      <languageCode value="eng" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.3.0.4322</envirDesc>
+    <dataExt>
+      <geoEle>
+        <GeoBndBox>
+          <westBL>-124.674937</westBL>
+          <eastBL>-116.861308</eastBL>
+          <southBL>45.504776</southBL>
+          <northBL>49.042695</northBL>
+        </GeoBndBox>
+      </geoEle>
+    </dataExt>
+    <dataExt>
+      <exDesc>ground condition</exDesc>
+      <tempEle>
+        <TempExtent>
+          <exTemp>
+            <TM_Instant>
+              <tmPosition time="unknown">2014-12-31</tmPosition>
+            </TM_Instant>
+          </exTemp>
+        </TempExtent>
+      </tempEle>
+    </dataExt>
+    <suppInfo>San Juan County contains no State Routes. This release of the State Highway LRS, continues with the road alignments being matched to orthoimagery and the GPS/LRS.</suppInfo>
+  </dataIdInfo>
+  <distInfo>
+    <distributor>
+      <distorCont>
+        <rpIndName>Jordyn Mitchell</rpIndName>
+        <rpOrgName>Washington State Department of Transportation, Office of Information Technology</rpOrgName>
+        <rpPosName>GIS Database Administrator</rpPosName>
+        <rpCntInfo>
+          <cntPhone>
+            <voiceNum>360-705-7645</voiceNum>
+          </cntPhone>
+          <cntAddress addressType="postal">
+            <delPoint>PO Box 47430</delPoint>
+            <city>Olympia</city>
+            <adminArea>WA</adminArea>
+            <postCode>98504-7430</postCode>
+            <country>US</country>
+            <eMailAdd>mitchejo@wsdot.wa.gov</eMailAdd>
+          </cntAddress>
+        </rpCntInfo>
+        <role>
+          <RoleCd value="005" />
+        </role>
+      </distorCont>
+      <distorOrdPrc>
+        <resFees>none</resFees>
+        <ordInstr>Download individual data sets from http://www.wsdot.wa.gov/mapsdata/geodatacatalog/default.htm</ordInstr>
+      </distorOrdPrc>
+    </distributor>
+  </distInfo>
+  <dqInfo>
+    <dqScope>
+      <scpLvl>
+        <ScopeCd value="005" />
+      </scpLvl>
+    </dqScope>
+    <report type="DQConcConsis">
+      <measDesc>These data form a network representing the connectivity of State Routes (SR's) for Washington state. Nodes occur at SR endpoints and at points of intersection with other SR's, ramps, bridges, and county boundaries. This includes all State Routes, US Routes, Interstates, Frontage Roads, Local Access ramps, Ferry Terminals and some Proposed routes located within the TRIPS database.</measDesc>
+    </report>
+    <report type="DQCompOm">
+      <measDesc>The data set contains all of the state routes in the state of Washington.</measDesc>
+    </report>
+    <report type="DQQuanAttAcc">
+      <measDesc>State Route numbers and Accumulated Route Mileage values were obtained from the State Highway Log.</measDesc>
+    </report>
+    <report type="DQAbsExtPosAcc" dimension="horizontal">
+      <measDesc>Positional accuracy of this data set has not been determined.</measDesc>
+    </report>
+    <dataLineage>
+      <prcStep>
+        <stepDesc>01/01/1996 - Marci Carte The source file was digitized from 7.5 minute USGS quadrangles using Intergraph's Microstation software. The Microstation DGN file was converted to an Arc/Info coverage with the Arc command "IGDSARC" and transformed to geographic coordinates with Arc commands "PROJECTDEFINE" and "PROJECT." Attributes were added to the linework and routes were created with the "ARCSECTION" command based on Accumulated Route Mileage. 10/01/2000 - Thomas A. Blake The route and section tables were deleted from a copy of the existing state route files. Graphic and attribute updating were done using Desktop ArcInfo 8's ArcMap with WSDOT 7.5 minute quads for reference. New routes were created using aml's in ArcInfo. 11/28/2003 - Jordyn Mitchell Existing lines from the previous LRS (Washington State Highways, 2000) were realigned to match orthoimagery. Three columns were added to the table of attributes. They are: Display, Rt_typeA, &amp; Rt_typeB. A .dbf file containing values to be used was joined and the attribute values for the new columns were calculated. Routes were calculated while the coverage was in Washington State Plane South NAD 83 coordinate system. The coverage was then projected into Geographic NAD83. 12/01/2004 - Heather Spates Updates to the ramps and portions of the mainlines were completed in a geodatabase. Polylines were then broken out by direction and built into routes when the geodatabase was in Washington State Plane South NAD 83 coordinate system. The routes were then projected into Geographic NAD83. Frontage Roads and Local access roads were included in this edition. 01/16/2006 - Heather Spates Ferry Terminals located in the TRIPS system and selected Proposed routes( found both in TRIPS and other records) are included in this edition. Ferry terminals were located via orthophotos or the end of cartographically drawn ferry routes. Proposed route linework are compiled from paper contract sheets. 07/24/2006 - Jordyn Mitchell Four new attributes were added with the 2005B update. SRID, RID, RRT, RRQ. These were added to enable easier sorting and selecting of records. These were derived from the SR field. 05/21/2008 - Julie Fogde The 2007 LRS is an update of the 2006 LRS. A copy of the Lines file of the 2006 LRS was updated using the 2007 Highway Log, GPS LRS, orthophotos, highway contract plans, and WSDOT project websites. Polylines were then broken out by direction and built into routes. 06/03/2009 - Derek Drake The LRS data was edited to reflect changes in the state highway system according to the 2008 Washington State Road Log. 05/25/2010 - Thomas A. Blake The LRS data was edited to reflect changes in the state highway system according to the 2009 Washington State Road Log. A new attribute LRS Date was added to indicate the valid date of the measures (ARMs) used to update the data set. 03/31/2011 - Thomas A. Blake The LRS data was edited to reflect changes in the state highway system according to the 2010 Washington State Road Log. 11/15/2011 - Thomas A. Blake The LRS data was edited to reflect changes in the state highway system according to the Washington State Highway Log as of 9/30/2011. 04/15/2012 - Thomas A. Blake The LRS data was edited to reflect changes in the state highway system according to the 2011 Washington State Road Log. 03/15/2013 - Thomas A. Blake The LRS data was edited to reflect changes in the state highway system according to the 2012 Washington State Road Log. 04/5/2014 - Thomas A. Blake The LRS data was edited to reflect changes in the state highway system according to the 2013 Washington State Road Log. 04/1/2015 - Thomas A. Blake The LRS data was edited to reflect changes in the state highway system according to the 2014 Washington State Road Log.</stepDesc>
+        <stepDateTm>2015-04-01</stepDateTm>
+        <stepProc>
+          <rpIndName>Thomas A. Blake</rpIndName>
+          <rpOrgName>Washington State Department of Transportation</rpOrgName>
+          <rpPosName>GIS Data Products Supervisor</rpPosName>
+          <rpCntInfo>
+            <cntPhone>
+              <voiceNum>360-570-2363</voiceNum>
+            </cntPhone>
+            <cntAddress addressType="postal">
+              <delPoint>PO Box 47384</delPoint>
+              <city>Olympia</city>
+              <adminArea>WA</adminArea>
+              <postCode>98504-7384</postCode>
+              <country>US</country>
+              <eMailAdd>blaket@wsdot.wa.gov</eMailAdd>
+            </cntAddress>
+          </rpCntInfo>
+          <role>
+            <RoleCd value="009" />
+          </role>
+        </stepProc>
+      </prcStep>
+      <dataSource>
+        <srcDesc>Geometry depicting Washington State Highways, attributes, and measure values to create the various 24k LRSs. These sources have included: USGS 7.5 Minute Quadrangles WSDOT Interchange Diagrams WSDOT State Highway Log GPS Based LRS Orthoimagery from DNR, Nies Mapping Group, Inc., NAIP, and the WSDOT Photogrammerty Office For more detailed information about these sources refer to the metadata for the 2009 version of this data set or contact the data steward.</srcDesc>
+      </dataSource>
+    </dataLineage>
+  </dqInfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>LRS.DBO.sr24kIncrease_20141231</enttypl>
+        <enttypd>Washington State Department of Transportation (WSDOT) highways, including interstate, U.S., and state routes.</enttypd>
+        <enttypds>State Highway Log</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>RelRouteQual</attrlabl>
+        <attrdef>Related Roadway Qualifier - a six character field that uniquely identifies the RRT since there may be more than one of the same types of RRT for a route (same as RRQ column)</attrdef>
+        <attrdefs>WSDOT Road Log</attrdefs>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>LRS_Date</attrlabl>
+        <attrdef>The date the measure values (ARMs) used to update the data set were valid in the TRIPS system.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>SHAPE.STLength()</attrlabl>
+      </attr>
+      <attr>
+        <attrlabl>StateRouteNumber</attrlabl>
+        <attrdef>State Route Number - a three character number assigned to every State Route (same as RID column)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Coordinates defining the features.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RT_TYPEB</attrlabl>
+        <attrdef>Route Type (integer)</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>2</edomv>
+            <edomvd>US Route</edomvd>
+          </edom>
+          <edom>
+            <edomv>7</edomv>
+            <edomvd>Connector - a segment used to connect state routes to other routes/roadways for future use in a geometric network.</edomvd>
+          </edom>
+          <edom>
+            <edomv>6</edomv>
+            <edomvd>Proposed Routes (PR)</edomvd>
+          </edom>
+          <edom>
+            <edomv>4</edomv>
+            <edomvd>Local Access approach (LX) Frontage Roads (FD, FI)</edomvd>
+          </edom>
+          <edom>
+            <edomv>5</edomv>
+            <edomvd>Ferry Terminals (FT)</edomvd>
+          </edom>
+          <edom>
+            <edomv>1</edomv>
+            <edomvd>Interstate Route</edomvd>
+          </edom>
+          <edom>
+            <edomv>3</edomv>
+            <edomvd>Ramp</edomvd>
+          </edom>
+          <edom>
+            <edomv>0</edomv>
+            <edomvd>State Route</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RouteID</attrlabl>
+        <attrdef>Route ID - a unique Route identifier assigned by WSDOT's GIS and Roadway Data Office. Every WSDOT highway in Washington State is assigned a unique Route ID, including interstates and U.S. Routes.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>DISPLAY</attrlabl>
+        <attrdef>Labels for shields. Ferry terminals are labeled FT.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>RT_TYPEA</attrlabl>
+        <attrdef>Route Type (text)</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>US</edomv>
+            <edomvd>US Route</edomvd>
+          </edom>
+          <edom>
+            <edomv>RA</edomv>
+            <edomvd>Ramp</edomvd>
+          </edom>
+          <edom>
+            <edomv>SR</edomv>
+            <edomvd>State Route</edomvd>
+          </edom>
+          <edom>
+            <edomv>FT</edomv>
+            <edomvd>Ferry Terminal</edomvd>
+            <edomvds>Compiled from TRIPS database.</edomvds>
+          </edom>
+          <edom>
+            <edomv>LC</edomv>
+            <edomvd>Local Road either frontage road of Local access approach.</edomvd>
+          </edom>
+          <edom>
+            <edomv>CN</edomv>
+            <edomvd>Connector - a segment used to connect state routes to other routes/roadways for future use in a geometric network.</edomvd>
+          </edom>
+          <edom>
+            <edomv>PR</edomv>
+            <edomvd>Proposed Route</edomvd>
+            <edomvds>Compiled from TRIPS database with selected records that are not currently in the TRIPS database.</edomvds>
+          </edom>
+          <edom>
+            <edomv>IS</edomv>
+            <edomvd>Interstate Route</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RelRouteType</attrlabl>
+        <attrdef>Related Roadway Type - a two character abbreviation for a type of roadway (same as RRT column)</attrdef>
+        <attrdefs>WSDOT Road Log</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>FD</edomv>
+            <edomvd>Frontage Road Decreasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>R1-R9</edomv>
+            <edomvd>Off Ramp Decreasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>CD</edomv>
+            <edomvd>Collector Distributor Decreasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>TB</edomv>
+            <edomvd>Turnback</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>FI</edomv>
+            <edomvd>Frontage Road Increasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>CO</edomv>
+            <edomvd>Couplet</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>LX</edomv>
+            <edomvd>Crossroad within Interchange</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>RL</edomv>
+            <edomvd>Reversible Lane</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>Null</edomv>
+            <edomvd>Mainline</edomvd>
+          </edom>
+          <edom>
+            <edomv>HI</edomv>
+            <edomvd>Grade-Seperated HOV Increasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>FU</edomv>
+            <edomvd>Future Route</edomvd>
+          </edom>
+          <edom>
+            <edomv>SP</edomv>
+            <edomvd>Spur</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>HD</edomv>
+            <edomvd>Grade-Seperated HOV Decreasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>FT</edomv>
+            <edomvd>Ferry Terminal</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>AR</edomv>
+            <edomvd>Alternate Route</edomvd>
+          </edom>
+          <edom>
+            <edomv>P1-P9</edomv>
+            <edomvd>Off Ramp, Increasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>S1-S9</edomv>
+            <edomvd>On Ramp Decreasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>CI</edomv>
+            <edomvd>Collector Distributor Increasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>Q1-Q9</edomv>
+            <edomvd>On Ramp Increasing</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+          <edom>
+            <edomv>PR</edomv>
+            <edomvd>Proposed Route</edomvd>
+            <edomvds>Washington State Highway Log</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <overview>
+      <eaover>The data set contains State Route numbers, direction, Beginning Accumulated Route Mileage, and Ending Accumulated Route Mileage for graphics depicting the state routes and ramps.</eaover>
+    </overview>
+  </eainfo>
+  <Binary>
+    <Enclosure>
+      <Descript>original metadata</Descript>
+      <Data SourceMetadata="yes" OriginalFileName="source_metadata.xml" SourceMetadataDigest="c0e57284f66154f4465de33d581f873a" EsriPropertyType="Base64" SourceMetadataSchema="fgdc">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxtZXRhZGF0YSB4bWxuczp4
+cz0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOmZuPSJodHRwOi8vd3d3
+LnczLm9yZy8yMDA1L3hwYXRoLWZ1bmN0aW9ucyIgeG1sbnM6eGR0PSJodHRwOi8vd3d3LnczLm9y
+Zy8yMDA1L3hwYXRoLWRhdGF0eXBlcyI+DQogIDxpZGluZm8+DQogICAgPGNpdGF0aW9uPg0KICAg
+ICAgPGNpdGVpbmZvPg0KICAgICAgICA8b3JpZ2luPldhc2hpbmd0b24gU3RhdGUgRGVwYXJ0bWVu
+dCBvZiBUcmFuc3BvcnRhdGlvbjwvb3JpZ2luPg0KICAgICAgICA8cHViZGF0ZT4yMDE1MDQxNTwv
+cHViZGF0ZT4NCiAgICAgICAgPHRpdGxlPlN0YXRlIFJvdXRlcyBvZiBXYXNoaW5ndG9uIFN0YXRl
+IDE6MjQsMDAwICgyMDE0KSwgUm91dGVzIGluIHRoZSBJbmNyZWFzaW5nIERpcmVjdGlvbjwvdGl0
+bGU+DQogICAgICAgIDxnZW9mb3JtPnZlY3RvciBkaWdpdGFsIGRhdGE8L2dlb2Zvcm0+DQogICAg
+ICAgIDxwdWJpbmZvPg0KICAgICAgICAgIDxwdWJwbGFjZT5PbHltcGlhLCBXYXNoaW5ndG9uPC9w
+dWJwbGFjZT4NCiAgICAgICAgICA8cHVibGlzaD5XYXNoaW5ndG9uIFN0YXRlIERlcGFydG1lbnQg
+b2YgVHJhbnNwb3J0YXRpb248L3B1Ymxpc2g+DQogICAgICAgIDwvcHViaW5mbz4NCiAgICAgIDwv
+Y2l0ZWluZm8+DQogICAgPC9jaXRhdGlvbj4NCiAgICA8ZGVzY3JpcHQ+DQogICAgICA8YWJzdHJh
+Y3Q+U3RhdGUgUm91dGVzIGFyZSBkZXBpY3RlZCBhcyBsaW5lcyB3aXRoIFN0YXRlIFJvdXRlIGlk
+ZW50aWZpZXJzIGFuZCByb3V0ZSBtZWFzdXJlIGF0dHJpYnV0ZXMuIFJvdXRlcyBpbiB0aGlzIGZl
+YXR1cmVjbGFzcyBhcmUgZm9yIHRoZSBpbmNyZWFzaW5nIHNpZGUgb2YgdGhlIGhpZ2h3YXkgbWls
+ZXBvc3RpbmcuPC9hYnN0cmFjdD4NCiAgICAgIDxwdXJwb3NlPlRoaXMgZGF0YSBzZXQgaXMgdXNl
+ZDogMSkgZm9yIGdlbmVyYWwtcHVycG9zZSBiYXNlIG1hcHBpbmc7IDIpIGFzIGEgTGluZWFyIFJl
+ZmVyZW5jaW5nIFN5c3RlbSAoTFJTKTsgMykgZm9yIGxvY2F0aW5nIGZlYXR1cmVzIG9uIHRoZSBT
+dGF0ZSBSb3V0ZSBuZXR3b3JrIGJ5IFN0YXRlIFJvdXRlIEFjY3VtdWxhdGVkIFJvdXRlIE1pbGVh
+Z2UgKGR5bmFtaWMgc2VnbWVudGF0aW9uKS4gVGhpcyBkYXRhc2V0IGlzIGEgc25hcHNob3Qgb2Yg
+dGhlIHJvYWR3YXkgc3lzdGVtLCBlZmZlY3RpdmUgMTIvMzEvMjAxNCwgYWxzbyBrbm93biBhcyB0
+aGUgMjAxNCBMUlMuPC9wdXJwb3NlPg0KICAgICAgPHN1cHBsaW5mPlNhbiBKdWFuIENvdW50eSBj
+b250YWlucyBubyBTdGF0ZSBSb3V0ZXMuIFRoaXMgcmVsZWFzZSBvZiB0aGUgU3RhdGUgSGlnaHdh
+eSBMUlMsIGNvbnRpbnVlcyB3aXRoIHRoZSByb2FkIGFsaWdubWVudHMgYmVpbmcgbWF0Y2hlZCB0
+byBvcnRob2ltYWdlcnkgYW5kIHRoZSBHUFMvTFJTLjwvc3VwcGxpbmY+DQogICAgPC9kZXNjcmlw
+dD4NCiAgICA8dGltZXBlcmQ+DQogICAgICA8dGltZWluZm8+DQogICAgICAgIDxzbmdkYXRlPg0K
+ICAgICAgICAgIDxjYWxkYXRlPjIwMTQxMjMxPC9jYWxkYXRlPg0KICAgICAgICAgIDx0aW1lPnVu
+a25vd248L3RpbWU+DQogICAgICAgIDwvc25nZGF0ZT4NCiAgICAgIDwvdGltZWluZm8+DQogICAg
+ICA8Y3VycmVudD5ncm91bmQgY29uZGl0aW9uPC9jdXJyZW50Pg0KICAgIDwvdGltZXBlcmQ+DQog
+ICAgPHN0YXR1cz4NCiAgICAgIDxwcm9ncmVzcz5Db21wbGV0ZTwvcHJvZ3Jlc3M+DQogICAgICA8
+dXBkYXRlPkFubnVhbGx5PC91cGRhdGU+DQogICAgPC9zdGF0dXM+DQogICAgPHNwZG9tPg0KICAg
+ICAgPGJvdW5kaW5nPg0KICAgICAgICA8d2VzdGJjPi0xMjQuNjc0OTM3PC93ZXN0YmM+DQogICAg
+ICAgIDxlYXN0YmM+LTExNi44NjEzMDg8L2Vhc3RiYz4NCiAgICAgICAgPG5vcnRoYmM+NDkuMDQy
+Njk1PC9ub3J0aGJjPg0KICAgICAgICA8c291dGhiYz40NS41MDQ3NzY8L3NvdXRoYmM+DQogICAg
+ICA8L2JvdW5kaW5nPg0KICAgIDwvc3Bkb20+DQogICAgPGtleXdvcmRzPg0KICAgICAgPHRoZW1l
+Pg0KICAgICAgICA8dGhlbWVrdD5Ob25lPC90aGVtZWt0Pg0KICAgICAgICA8dGhlbWVrZXk+TFJT
+PC90aGVtZWtleT4NCiAgICAgICAgPHRoZW1la2V5PnN0YXRlIHJvdXRlPC90aGVtZWtleT4NCiAg
+ICAgICAgPHRoZW1la2V5PlNSPC90aGVtZWtleT4NCiAgICAgICAgPHRoZW1la2V5PmhpZ2h3YXk8
+L3RoZW1la2V5Pg0KICAgICAgPC90aGVtZT4NCiAgICAgIDxwbGFjZT4NCiAgICAgICAgPHBsYWNl
+a3Q+Tm9uZTwvcGxhY2VrdD4NCiAgICAgICAgPHBsYWNla2V5PlBhY2lmaWMgTm9ydGh3ZXN0PC9w
+bGFjZWtleT4NCiAgICAgICAgPHBsYWNla2V5Pldhc2hpbmd0b248L3BsYWNla2V5Pg0KICAgICAg
+ICA8cGxhY2VrZXk+V0E8L3BsYWNla2V5Pg0KICAgICAgICA8cGxhY2VrZXk+VW5pdGVkIFN0YXRl
+czwvcGxhY2VrZXk+DQogICAgICAgIDxwbGFjZWtleT5VU0E8L3BsYWNla2V5Pg0KICAgICAgPC9w
+bGFjZT4NCiAgICA8L2tleXdvcmRzPg0KICAgIDxhY2Njb25zdD5Ob25lPC9hY2Njb25zdD4NCiAg
+ICA8dXNlY29uc3Q+VGhlIFdhc2hpbmd0b24gU3RhdGUgRGVwYXJ0bWVudCBvZiBUcmFuc3BvcnRh
+dGlvbiBzaGFsbCBub3QgYmUgbGlhYmxlIGZvciBhbnkgYWN0aXZpdHkgaW52b2x2aW5nIHRoaXMg
+ZGF0YSB3aXRoIHJlZ2FyZCB0byBsb3N0IHByb2ZpdHMgb3Igc2F2aW5ncyBvciBhbnkgb3RoZXIg
+Y29uc2VxdWVudGlhbCBkYW1hZ2VzOyBvciB0aGUgZml0bmVzcyBmb3IgdXNlIG9mIHRoZSBkYXRh
+IGZvciBhIHBhcnRpY3VsYXIgcHVycG9zZTsgb3IgdGhlIGluc3RhbGxhdGlvbiBvZiB0aGUgZGF0
+YSwgaXRzIHVzZSwgb3IgdGhlIHJlc3VsdHMgb2J0YWluZWQuPC91c2Vjb25zdD4NCiAgICA8cHRj
+b250YWM+DQogICAgICA8Y250aW5mbz4NCiAgICAgICAgPGNudG9yZ3A+DQogICAgICAgICAgPGNu
+dG9yZz5XYXNoaW5ndG9uIFN0YXRlIERlcGFydG1lbnQgb2YgVHJhbnNwb3J0YXRpb248L2NudG9y
+Zz4NCiAgICAgICAgICA8Y250cGVyPlRob21hcyBBLiBCbGFrZTwvY250cGVyPg0KICAgICAgICA8
+L2NudG9yZ3A+DQogICAgICAgIDxjbnRwb3M+R0lTIERhdGEgUHJvZHVjdHMgU3VwZXJ2aXNvcjwv
+Y250cG9zPg0KICAgICAgICA8Y250YWRkcj4NCiAgICAgICAgICA8YWRkcnR5cGU+bWFpbGluZzwv
+YWRkcnR5cGU+DQogICAgICAgICAgPGFkZHJlc3M+UE8gQm94IDQ3Mzg0PC9hZGRyZXNzPg0KICAg
+ICAgICAgIDxjaXR5Pk9seW1waWE8L2NpdHk+DQogICAgICAgICAgPHN0YXRlPldBPC9zdGF0ZT4N
+CiAgICAgICAgICA8cG9zdGFsPjk4NTA0LTczODQ8L3Bvc3RhbD4NCiAgICAgICAgICA8Y291bnRy
+eT5VUzwvY291bnRyeT4NCiAgICAgICAgPC9jbnRhZGRyPg0KICAgICAgICA8Y250dm9pY2U+MzYw
+LTU3MC0yMzYzPC9jbnR2b2ljZT4NCiAgICAgICAgPGNudGVtYWlsPmJsYWtldEB3c2RvdC53YS5n
+b3Y8L2NudGVtYWlsPg0KICAgICAgPC9jbnRpbmZvPg0KICAgIDwvcHRjb250YWM+DQogICAgPGRh
+dGFjcmVkPldhc2hpbmd0b24gU3RhdGUgRGVwYXJ0bWVudCBvZiBUcmFuc3BvcnRhdGlvbjwvZGF0
+YWNyZWQ+DQogICAgPG5hdGl2ZT5NaWNyb3NvZnQgV2luZG93cyA3IFZlcnNpb24gNi4xIChCdWls
+ZCA3NjAxKSBTZXJ2aWNlIFBhY2sgMTsgRXNyaSBBcmNHSVMgMTAuMy4wLjQzMjI8L25hdGl2ZT4N
+CiAgPC9pZGluZm8+DQogIDxkYXRhcXVhbD4NCiAgICA8YXR0cmFjYz4NCiAgICAgIDxhdHRyYWNj
+cj5TdGF0ZSBSb3V0ZSBudW1iZXJzIGFuZCBBY2N1bXVsYXRlZCBSb3V0ZSBNaWxlYWdlIHZhbHVl
+cyB3ZXJlIG9idGFpbmVkIGZyb20gdGhlIFN0YXRlIEhpZ2h3YXkgTG9nLjwvYXR0cmFjY3I+DQog
+ICAgPC9hdHRyYWNjPg0KICAgIDxsb2dpYz5UaGVzZSBkYXRhIGZvcm0gYSBuZXR3b3JrIHJlcHJl
+c2VudGluZyB0aGUgY29ubmVjdGl2aXR5IG9mIFN0YXRlIFJvdXRlcyAoU1IncykgZm9yIFdhc2hp
+bmd0b24gc3RhdGUuIE5vZGVzIG9jY3VyIGF0IFNSIGVuZHBvaW50cyBhbmQgYXQgcG9pbnRzIG9m
+IGludGVyc2VjdGlvbiB3aXRoIG90aGVyIFNSJ3MsIHJhbXBzLCBicmlkZ2VzLCBhbmQgY291bnR5
+IGJvdW5kYXJpZXMuIFRoaXMgaW5jbHVkZXMgYWxsIFN0YXRlIFJvdXRlcywgVVMgUm91dGVzLCBJ
+bnRlcnN0YXRlcywgRnJvbnRhZ2UgUm9hZHMsIExvY2FsIEFjY2VzcyByYW1wcywgRmVycnkgVGVy
+bWluYWxzIGFuZCBzb21lIFByb3Bvc2VkIHJvdXRlcyBsb2NhdGVkIHdpdGhpbiB0aGUgVFJJUFMg
+ZGF0YWJhc2UuPC9sb2dpYz4NCiAgICA8Y29tcGxldGU+VGhlIGRhdGEgc2V0IGNvbnRhaW5zIGFs
+bCBvZiB0aGUgc3RhdGUgcm91dGVzIGluIHRoZSBzdGF0ZSBvZiBXYXNoaW5ndG9uLjwvY29tcGxl
+dGU+DQogICAgPHBvc2FjYz4NCiAgICAgIDxob3JpenBhPg0KICAgICAgICA8aG9yaXpwYXI+UG9z
+aXRpb25hbCBhY2N1cmFjeSBvZiB0aGlzIGRhdGEgc2V0IGhhcyBub3QgYmVlbiBkZXRlcm1pbmVk
+LjwvaG9yaXpwYXI+DQogICAgICA8L2hvcml6cGE+DQogICAgPC9wb3NhY2M+DQogICAgPGxpbmVh
+Z2U+DQogICAgICA8c3JjaW5mbz4NCiAgICAgICAgPHR5cGVzcmM+Tm9uZTwvdHlwZXNyYz4NCiAg
+ICAgICAgPHNyY2NvbnRyPkdlb21ldHJ5IGRlcGljdGluZyBXYXNoaW5ndG9uIFN0YXRlIEhpZ2h3
+YXlzLCBhdHRyaWJ1dGVzLCBhbmQgbWVhc3VyZSB2YWx1ZXMgdG8gY3JlYXRlIHRoZSB2YXJpb3Vz
+IDI0ayBMUlNzLiBUaGVzZSBzb3VyY2VzIGhhdmUgaW5jbHVkZWQ6IFVTR1MgNy41IE1pbnV0ZSBR
+dWFkcmFuZ2xlcyBXU0RPVCBJbnRlcmNoYW5nZSBEaWFncmFtcyBXU0RPVCBTdGF0ZSBIaWdod2F5
+IExvZyBHUFMgQmFzZWQgTFJTIE9ydGhvaW1hZ2VyeSBmcm9tIEROUiwgTmllcyBNYXBwaW5nIEdy
+b3VwLCBJbmMuLCBOQUlQLCBhbmQgdGhlIFdTRE9UIFBob3RvZ3JhbW1lcnR5IE9mZmljZSBGb3Ig
+bW9yZSBkZXRhaWxlZCBpbmZvcm1hdGlvbiBhYm91dCB0aGVzZSBzb3VyY2VzIHJlZmVyIHRvIHRo
+ZSBtZXRhZGF0YSBmb3IgdGhlIDIwMDkgdmVyc2lvbiBvZiB0aGlzIGRhdGEgc2V0IG9yIGNvbnRh
+Y3QgdGhlIGRhdGEgc3Rld2FyZC48L3NyY2NvbnRyPg0KICAgICAgPC9zcmNpbmZvPg0KICAgICAg
+PHByb2NzdGVwPg0KICAgICAgICA8cHJvY2Rlc2M+DQowMS8wMS8xOTk2IC0gTWFyY2kgQ2FydGUN
+ClRoZSBzb3VyY2UgZmlsZSB3YXMgZGlnaXRpemVkIGZyb20gNy41IG1pbnV0ZSBVU0dTIHF1YWRy
+YW5nbGVzIHVzaW5nIEludGVyZ3JhcGgncyBNaWNyb3N0YXRpb24gc29mdHdhcmUuICBUaGUgTWlj
+cm9zdGF0aW9uIERHTiBmaWxlIHdhcyBjb252ZXJ0ZWQgdG8gYW4gQXJjL0luZm8gY292ZXJhZ2Ug
+d2l0aCB0aGUgQXJjIGNvbW1hbmQgIklHRFNBUkMiIGFuZCB0cmFuc2Zvcm1lZCB0byBnZW9ncmFw
+aGljIGNvb3JkaW5hdGVzIHdpdGggQXJjIGNvbW1hbmRzICJQUk9KRUNUREVGSU5FIiBhbmQgIlBS
+T0pFQ1QuIiAgQXR0cmlidXRlcyB3ZXJlIGFkZGVkIHRvIHRoZSBsaW5ld29yayBhbmQgcm91dGVz
+IHdlcmUgY3JlYXRlZCB3aXRoIHRoZSAiQVJDU0VDVElPTiIgIGNvbW1hbmQgYmFzZWQgb24gQWNj
+dW11bGF0ZWQgUm91dGUgTWlsZWFnZS4NCg0KMTAvMDEvMjAwMCAtIFRob21hcyBBLiBCbGFrZQ0K
+VGhlIHJvdXRlIGFuZCBzZWN0aW9uIHRhYmxlcyB3ZXJlIGRlbGV0ZWQgZnJvbSBhIGNvcHkgb2Yg
+dGhlIGV4aXN0aW5nIHN0YXRlIHJvdXRlIGZpbGVzLiAgR3JhcGhpYyBhbmQgYXR0cmlidXRlIHVw
+ZGF0aW5nIHdlcmUgZG9uZSB1c2luZyBEZXNrdG9wIEFyY0luZm8gOCdzIEFyY01hcCB3aXRoIFdT
+RE9UIDcuNSBtaW51dGUgcXVhZHMgZm9yIHJlZmVyZW5jZS4gIE5ldyByb3V0ZXMgd2VyZSBjcmVh
+dGVkIHVzaW5nIGFtbCdzIGluIEFyY0luZm8uDQoNCjExLzI4LzIwMDMgLSBKb3JkeW4gTWl0Y2hl
+bGwNCkV4aXN0aW5nIGxpbmVzIGZyb20gdGhlIHByZXZpb3VzIExSUyAoV2FzaGluZ3RvbiBTdGF0
+ZSBIaWdod2F5cywgMjAwMCkgd2VyZSByZWFsaWduZWQgdG8gbWF0Y2ggb3J0aG9pbWFnZXJ5LiBU
+aHJlZSBjb2x1bW5zIHdlcmUgYWRkZWQgdG8gdGhlIHRhYmxlIG9mIGF0dHJpYnV0ZXMuIFRoZXkg
+YXJlOiBEaXNwbGF5LCBSdF90eXBlQSwgJmFtcDsgUnRfdHlwZUIuIEEgLmRiZiBmaWxlIGNvbnRh
+aW5pbmcgdmFsdWVzIHRvIGJlIHVzZWQgd2FzIGpvaW5lZCBhbmQgdGhlIGF0dHJpYnV0ZSB2YWx1
+ZXMgZm9yIHRoZSBuZXcgY29sdW1ucyB3ZXJlIGNhbGN1bGF0ZWQuIFJvdXRlcyB3ZXJlIGNhbGN1
+bGF0ZWQgd2hpbGUgdGhlIGNvdmVyYWdlIHdhcyBpbiBXYXNoaW5ndG9uIFN0YXRlIFBsYW5lIFNv
+dXRoIE5BRCA4MyBjb29yZGluYXRlIHN5c3RlbS4gVGhlIGNvdmVyYWdlIHdhcyB0aGVuIHByb2pl
+Y3RlZCBpbnRvIEdlb2dyYXBoaWMgTkFEODMuDQoNCjEyLzAxLzIwMDQgLSBIZWF0aGVyIFNwYXRl
+cw0KVXBkYXRlcyB0byB0aGUgcmFtcHMgYW5kIHBvcnRpb25zIG9mIHRoZSBtYWlubGluZXMgd2Vy
+ZSBjb21wbGV0ZWQgaW4gYSBnZW9kYXRhYmFzZS4gIFBvbHlsaW5lcyB3ZXJlIHRoZW4gYnJva2Vu
+IG91dCBieSBkaXJlY3Rpb24gYW5kIGJ1aWx0IGludG8gcm91dGVzIHdoZW4gdGhlIGdlb2RhdGFi
+YXNlIHdhcyBpbiBXYXNoaW5ndG9uIFN0YXRlIFBsYW5lIFNvdXRoIE5BRCA4MyBjb29yZGluYXRl
+IHN5c3RlbS4gVGhlIHJvdXRlcyB3ZXJlIHRoZW4gcHJvamVjdGVkIGludG8gR2VvZ3JhcGhpYyBO
+QUQ4My4gIEZyb250YWdlIFJvYWRzIGFuZCBMb2NhbCBhY2Nlc3Mgcm9hZHMgd2VyZSBpbmNsdWRl
+ZCBpbiB0aGlzIGVkaXRpb24uDQoNCjAxLzE2LzIwMDYgLSBIZWF0aGVyIFNwYXRlcw0KRmVycnkg
+VGVybWluYWxzIGxvY2F0ZWQgaW4gdGhlIFRSSVBTIHN5c3RlbSBhbmQgc2VsZWN0ZWQgUHJvcG9z
+ZWQgcm91dGVzKCBmb3VuZCBib3RoIGluIFRSSVBTIGFuZCBvdGhlciByZWNvcmRzKSBhcmUgaW5j
+bHVkZWQgaW4gdGhpcyBlZGl0aW9uLiAgRmVycnkgdGVybWluYWxzIHdlcmUgbG9jYXRlZCB2aWEg
+b3J0aG9waG90b3Mgb3IgdGhlIGVuZCBvZiBjYXJ0b2dyYXBoaWNhbGx5IGRyYXduIGZlcnJ5IHJv
+dXRlcy4gUHJvcG9zZWQgcm91dGUgbGluZXdvcmsgYXJlIGNvbXBpbGVkIGZyb20gcGFwZXIgY29u
+dHJhY3Qgc2hlZXRzLg0KDQowNy8yNC8yMDA2IC0gSm9yZHluIE1pdGNoZWxsDQpGb3VyIG5ldyBh
+dHRyaWJ1dGVzIHdlcmUgYWRkZWQgd2l0aCB0aGUgMjAwNUIgdXBkYXRlLiAgU1JJRCwgUklELCBS
+UlQsIFJSUS4gIFRoZXNlIHdlcmUgYWRkZWQgdG8gZW5hYmxlIGVhc2llciBzb3J0aW5nIGFuZCBz
+ZWxlY3Rpbmcgb2YgcmVjb3Jkcy4gIFRoZXNlIHdlcmUgZGVyaXZlZCBmcm9tIHRoZSBTUiBmaWVs
+ZC4NCg0KMDUvMjEvMjAwOCAtIEp1bGllIEZvZ2RlDQpUaGUgMjAwNyBMUlMgaXMgYW4gdXBkYXRl
+IG9mIHRoZSAyMDA2IExSUy4gQSBjb3B5IG9mIHRoZSBMaW5lcyBmaWxlIG9mIHRoZSAyMDA2IExS
+UyB3YXMgdXBkYXRlZCB1c2luZyB0aGUgMjAwNyBIaWdod2F5IExvZywgR1BTIExSUywgb3J0aG9w
+aG90b3MsIGhpZ2h3YXkgY29udHJhY3QgcGxhbnMsIGFuZCBXU0RPVCBwcm9qZWN0IHdlYnNpdGVz
+LiANCg0KUG9seWxpbmVzIHdlcmUgdGhlbiBicm9rZW4gb3V0IGJ5IGRpcmVjdGlvbiBhbmQgYnVp
+bHQgaW50byByb3V0ZXMuDQoNCjA2LzAzLzIwMDkgLSBEZXJlayBEcmFrZQ0KVGhlIExSUyBkYXRh
+IHdhcyBlZGl0ZWQgdG8gcmVmbGVjdCBjaGFuZ2VzIGluIHRoZSBzdGF0ZSBoaWdod2F5IHN5c3Rl
+bSBhY2NvcmRpbmcgdG8gdGhlIDIwMDggV2FzaGluZ3RvbiBTdGF0ZSBSb2FkIExvZy4NCg0KMDUv
+MjUvMjAxMCAtIFRob21hcyBBLiBCbGFrZQ0KVGhlIExSUyBkYXRhIHdhcyBlZGl0ZWQgdG8gcmVm
+bGVjdCBjaGFuZ2VzIGluIHRoZSBzdGF0ZSBoaWdod2F5IHN5c3RlbSBhY2NvcmRpbmcgdG8gdGhl
+IDIwMDkgV2FzaGluZ3RvbiBTdGF0ZSBSb2FkIExvZy4gQSBuZXcgYXR0cmlidXRlIExSUyBEYXRl
+IHdhcyBhZGRlZCB0byBpbmRpY2F0ZSB0aGUgdmFsaWQgZGF0ZSBvZiB0aGUgbWVhc3VyZXMgKEFS
+TXMpIHVzZWQgdG8gdXBkYXRlIHRoZSBkYXRhIHNldC4NCg0KMDMvMzEvMjAxMSAtIFRob21hcyBB
+LiBCbGFrZQ0KVGhlIExSUyBkYXRhIHdhcyBlZGl0ZWQgdG8gcmVmbGVjdCBjaGFuZ2VzIGluIHRo
+ZSBzdGF0ZSBoaWdod2F5IHN5c3RlbSBhY2NvcmRpbmcgdG8gdGhlIDIwMTAgV2FzaGluZ3RvbiBT
+dGF0ZSBSb2FkIExvZy4NCg0KMTEvMTUvMjAxMSAtIFRob21hcyBBLiBCbGFrZQ0KVGhlIExSUyBk
+YXRhIHdhcyBlZGl0ZWQgdG8gcmVmbGVjdCBjaGFuZ2VzIGluIHRoZSBzdGF0ZSBoaWdod2F5IHN5
+c3RlbSBhY2NvcmRpbmcgdG8gdGhlIFdhc2hpbmd0b24gU3RhdGUgSGlnaHdheSBMb2cgYXMgb2Yg
+OS8zMC8yMDExLg0KDQowNC8xNS8yMDEyIC0gVGhvbWFzIEEuIEJsYWtlDQpUaGUgTFJTIGRhdGEg
+d2FzIGVkaXRlZCB0byByZWZsZWN0IGNoYW5nZXMgaW4gdGhlIHN0YXRlIGhpZ2h3YXkgc3lzdGVt
+IGFjY29yZGluZyB0byB0aGUgMjAxMSBXYXNoaW5ndG9uIFN0YXRlIFJvYWQgTG9nLg0KDQowMy8x
+NS8yMDEzIC0gVGhvbWFzIEEuIEJsYWtlDQpUaGUgTFJTIGRhdGEgd2FzIGVkaXRlZCB0byByZWZs
+ZWN0IGNoYW5nZXMgaW4gdGhlIHN0YXRlIGhpZ2h3YXkgc3lzdGVtIGFjY29yZGluZyB0byB0aGUg
+MjAxMiBXYXNoaW5ndG9uIFN0YXRlIFJvYWQgTG9nLg0KDQowNC81LzIwMTQgLSBUaG9tYXMgQS4g
+Qmxha2UNClRoZSBMUlMgZGF0YSB3YXMgZWRpdGVkIHRvIHJlZmxlY3QgY2hhbmdlcyBpbiB0aGUg
+c3RhdGUgaGlnaHdheSBzeXN0ZW0gYWNjb3JkaW5nIHRvIHRoZSAyMDEzIFdhc2hpbmd0b24gU3Rh
+dGUgUm9hZCBMb2cuDQoNCjA0LzEvMjAxNSAtIFRob21hcyBBLiBCbGFrZQ0KVGhlIExSUyBkYXRh
+IHdhcyBlZGl0ZWQgdG8gcmVmbGVjdCBjaGFuZ2VzIGluIHRoZSBzdGF0ZSBoaWdod2F5IHN5c3Rl
+bSBhY2NvcmRpbmcgdG8gdGhlIDIwMTQgV2FzaGluZ3RvbiBTdGF0ZSBSb2FkIExvZy4NCjwvcHJv
+Y2Rlc2M+DQogICAgICAgIDxwcm9jZGF0ZT4yMDE1MDQwMTwvcHJvY2RhdGU+DQogICAgICAgIDxw
+cm9jY29udD4NCiAgICAgICAgICA8Y250aW5mbz4NCiAgICAgICAgICAgIDxjbnRvcmdwPg0KICAg
+ICAgICAgICAgICA8Y250b3JnPldhc2hpbmd0b24gU3RhdGUgRGVwYXJ0bWVudCBvZiBUcmFuc3Bv
+cnRhdGlvbjwvY250b3JnPg0KICAgICAgICAgICAgICA8Y250cGVyPlRob21hcyBBLiBCbGFrZTwv
+Y250cGVyPg0KICAgICAgICAgICAgPC9jbnRvcmdwPg0KICAgICAgICAgICAgPGNudHBvcz5HSVMg
+RGF0YSBQcm9kdWN0cyBTdXBlcnZpc29yPC9jbnRwb3M+DQogICAgICAgICAgICA8Y250YWRkcj4N
+CiAgICAgICAgICAgICAgPGFkZHJ0eXBlPm1haWxpbmc8L2FkZHJ0eXBlPg0KICAgICAgICAgICAg
+ICA8YWRkcmVzcz5QTyBCb3ggNDczODQ8L2FkZHJlc3M+DQogICAgICAgICAgICAgIDxjaXR5Pk9s
+eW1waWE8L2NpdHk+DQogICAgICAgICAgICAgIDxzdGF0ZT5XQTwvc3RhdGU+DQogICAgICAgICAg
+ICAgIDxwb3N0YWw+OTg1MDQtNzM4NDwvcG9zdGFsPg0KICAgICAgICAgICAgICA8Y291bnRyeT5V
+UzwvY291bnRyeT4NCiAgICAgICAgICAgIDwvY250YWRkcj4NCiAgICAgICAgICAgIDxjbnR2b2lj
+ZT4zNjAtNTcwLTIzNjM8L2NudHZvaWNlPg0KICAgICAgICAgICAgPGNudGVtYWlsPmJsYWtldEB3
+c2RvdC53YS5nb3Y8L2NudGVtYWlsPg0KICAgICAgICAgIDwvY250aW5mbz4NCiAgICAgICAgPC9w
+cm9jY29udD4NCiAgICAgIDwvcHJvY3N0ZXA+DQogICAgPC9saW5lYWdlPg0KICA8L2RhdGFxdWFs
+Pg0KICA8c3Bkb2luZm8+DQogICAgPGluZHNwcmVmPlN0YXRlIFJvdXRlIGFuZCBBY2N1bXVsYXRl
+ZCBSb3V0ZSBNaWxlYWdlPC9pbmRzcHJlZj4NCiAgICA8ZGlyZWN0PlZlY3RvcjwvZGlyZWN0Pg0K
+ICAgIDxwdHZjdGluZj4NCiAgICAgIDxzZHRzdGVybT4NCiAgICAgICAgPHNkdHN0eXBlPlN0cmlu
+Zzwvc2R0c3R5cGU+DQogICAgICAgIDxwdHZjdGNudD43NjA8L3B0dmN0Y250Pg0KICAgICAgPC9z
+ZHRzdGVybT4NCiAgICA8L3B0dmN0aW5mPg0KICA8L3NwZG9pbmZvPg0KICA8c3ByZWY+DQogICAg
+PGhvcml6c3lzPg0KICAgICAgPHBsYW5hcj4NCiAgICAgICAgPG1hcHByb2o+DQogICAgICAgICAg
+PGxhbWJlcnRjPg0KICAgICAgICAgICAgPHN0ZHBhcmxsPjQ1LjgzMzMzMzMzMzMzMzM0PC9zdGRw
+YXJsbD4NCiAgICAgICAgICAgIDxzdGRwYXJsbD40Ny4zMzMzMzMzMzMzMzMzNDwvc3RkcGFybGw+
+DQogICAgICAgICAgICA8bG9uZ2NtPi0xMjAuNTwvbG9uZ2NtPg0KICAgICAgICAgICAgPGxhdHBy
+am8+NDUuMzMzMzMzMzMzMzMzMzQ8L2xhdHByam8+DQogICAgICAgICAgICA8ZmVhc3Q+MTY0MDQx
+Ni42NjY2NjY2Njc8L2ZlYXN0Pg0KICAgICAgICAgICAgPGZub3J0aD4wLjA8L2Zub3J0aD4NCiAg
+ICAgICAgICA8L2xhbWJlcnRjPg0KICAgICAgICA8L21hcHByb2o+DQogICAgICAgIDxwbGFuY2k+
+DQogICAgICAgICAgPHBsYW5jZT5jb29yZGluYXRlIHBhaXI8L3BsYW5jZT4NCiAgICAgICAgICA8
+Y29vcmRyZXA+DQogICAgICAgICAgICA8YWJzcmVzPjAuMDAwMzI4MDgzMzMzMzMzMzMzMzwvYWJz
+cmVzPg0KICAgICAgICAgICAgPG9yZHJlcz4wLjAwMDMyODA4MzMzMzMzMzMzMzM8L29yZHJlcz4N
+CiAgICAgICAgICA8L2Nvb3JkcmVwPg0KICAgICAgICAgIDxwbGFuZHU+Zm9vdF91czwvcGxhbmR1
+Pg0KICAgICAgICA8L3BsYW5jaT4NCiAgICAgIDwvcGxhbmFyPg0KICAgICAgPGdlb2RldGljPg0K
+ICAgICAgICA8aG9yaXpkbj5EIE5vcnRoIEFtZXJpY2FuIDE5ODMgSEFSTjwvaG9yaXpkbj4NCiAg
+ICAgICAgPGVsbGlwcz5HUlMgMTk4MDwvZWxsaXBzPg0KICAgICAgICA8c2VtaWF4aXM+NjM3ODEz
+Ny4wPC9zZW1pYXhpcz4NCiAgICAgICAgPGRlbmZsYXQ+Mjk4LjI1NzIyMjEwMTwvZGVuZmxhdD4N
+CiAgICAgIDwvZ2VvZGV0aWM+DQogICAgPC9ob3JpenN5cz4NCiAgPC9zcHJlZj4NCiAgPGVhaW5m
+bz4NCiAgICA8ZGV0YWlsZWQ+DQogICAgICA8ZW50dHlwPg0KICAgICAgICA8ZW50dHlwbD5MUlMu
+REJPLnNyMjRrSW5jcmVhc2VfMjAxNDEyMzE8L2VudHR5cGw+DQogICAgICAgIDxlbnR0eXBkPldh
+c2hpbmd0b24gU3RhdGUgRGVwYXJ0bWVudCBvZiBUcmFuc3BvcnRhdGlvbiAoV1NET1QpIGhpZ2h3
+YXlzLCBpbmNsdWRpbmcgaW50ZXJzdGF0ZSwgVS5TLiwgYW5kIHN0YXRlIHJvdXRlcy48L2VudHR5
+cGQ+DQogICAgICAgIDxlbnR0eXBkcz5TdGF0ZSBIaWdod2F5IExvZzwvZW50dHlwZHM+DQogICAg
+ICA8L2VudHR5cD4NCiAgICAgIDxhdHRyPg0KICAgICAgICA8YXR0cmxhYmw+RElTUExBWTwvYXR0
+cmxhYmw+DQogICAgICAgIDxhdHRyZGVmPkxhYmVscyBmb3Igc2hpZWxkcy4gIEZlcnJ5IHRlcm1p
+bmFscyBhcmUgbGFiZWxlZCBGVC48L2F0dHJkZWY+DQogICAgICA8L2F0dHI+DQogICAgICA8YXR0
+cj4NCiAgICAgICAgPGF0dHJsYWJsPkxSU19EYXRlPC9hdHRybGFibD4NCiAgICAgICAgPGF0dHJk
+ZWY+VGhlIGRhdGUgdGhlIG1lYXN1cmUgdmFsdWVzIChBUk1zKSB1c2VkIHRvIHVwZGF0ZSB0aGUg
+ZGF0YSBzZXQgd2VyZSB2YWxpZCBpbiB0aGUgVFJJUFMgc3lzdGVtLjwvYXR0cmRlZj4NCiAgICAg
+IDwvYXR0cj4NCiAgICAgIDxhdHRyPg0KICAgICAgICA8YXR0cmxhYmw+T0JKRUNUSUQ8L2F0dHJs
+YWJsPg0KICAgICAgICA8YXR0cmRlZj5JbnRlcm5hbCBmZWF0dXJlIG51bWJlci48L2F0dHJkZWY+
+DQogICAgICAgIDxhdHRyZGVmcz5FU1JJPC9hdHRyZGVmcz4NCiAgICAgICAgPGF0dHJkb212Pg0K
+ICAgICAgICAgIDx1ZG9tPlNlcXVlbnRpYWwgdW5pcXVlIHdob2xlIG51bWJlcnMgdGhhdCBhcmUg
+YXV0b21hdGljYWxseSBnZW5lcmF0ZWQuPC91ZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAg
+ICAgPC9hdHRyPg0KICAgICAgPGF0dHI+DQogICAgICAgIDxhdHRybGFibD5SZWxSb3V0ZVF1YWw8
+L2F0dHJsYWJsPg0KICAgICAgICA8YXR0cmRlZj5SZWxhdGVkIFJvYWR3YXkgUXVhbGlmaWVyIC0g
+YSBzaXggY2hhcmFjdGVyIGZpZWxkIHRoYXQgdW5pcXVlbHkgaWRlbnRpZmllcyB0aGUgUlJUIHNp
+bmNlIHRoZXJlIG1heSBiZSBtb3JlIHRoYW4gb25lIG9mIHRoZSBzYW1lIHR5cGVzIG9mIFJSVCBm
+b3IgYSByb3V0ZSAoc2FtZSBhcyBSUlEgY29sdW1uKTwvYXR0cmRlZj4NCiAgICAgICAgPGF0dHJk
+ZWZzPldTRE9UIFJvYWQgTG9nPC9hdHRyZGVmcz4NCiAgICAgIDwvYXR0cj4NCiAgICAgIDxhdHRy
+Pg0KICAgICAgICA8YXR0cmxhYmw+UmVsUm91dGVUeXBlPC9hdHRybGFibD4NCiAgICAgICAgPGF0
+dHJkZWY+UmVsYXRlZCBSb2Fkd2F5IFR5cGUgLSBhIHR3byBjaGFyYWN0ZXIgYWJicmV2aWF0aW9u
+IGZvciBhIHR5cGUgb2Ygcm9hZHdheSAoc2FtZSBhcyBSUlQgY29sdW1uKTwvYXR0cmRlZj4NCiAg
+ICAgICAgPGF0dHJkZWZzPldTRE9UIFJvYWQgTG9nPC9hdHRyZGVmcz4NCiAgICAgICAgPGF0dHJk
+b212Pg0KICAgICAgICAgIDxlZG9tPg0KICAgICAgICAgICAgPGVkb212Pk51bGw8L2Vkb212Pg0K
+ICAgICAgICAgICAgPGVkb212ZD5NYWlubGluZTwvZWRvbXZkPg0KICAgICAgICAgIDwvZWRvbT4N
+CiAgICAgICAgPC9hdHRyZG9tdj4NCiAgICAgICAgPGF0dHJkb212Pg0KICAgICAgICAgIDxlZG9t
+Pg0KICAgICAgICAgICAgPGVkb212PkFSPC9lZG9tdj4NCiAgICAgICAgICAgIDxlZG9tdmQ+QWx0
+ZXJuYXRlIFJvdXRlPC9lZG9tdmQ+DQogICAgICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJk
+b212Pg0KICAgICAgICA8YXR0cmRvbXY+DQogICAgICAgICAgPGVkb20+DQogICAgICAgICAgICA8
+ZWRvbXY+Q088L2Vkb212Pg0KICAgICAgICAgICAgPGVkb212ZD5Db3VwbGV0PC9lZG9tdmQ+DQog
+ICAgICAgICAgICA8ZWRvbXZkcz5XYXNoaW5ndG9uIFN0YXRlIEhpZ2h3YXkgTG9nPC9lZG9tdmRz
+Pg0KICAgICAgICAgIDwvZWRvbT4NCiAgICAgICAgPC9hdHRyZG9tdj4NCiAgICAgICAgPGF0dHJk
+b212Pg0KICAgICAgICAgIDxlZG9tPg0KICAgICAgICAgICAgPGVkb212PkNEPC9lZG9tdj4NCiAg
+ICAgICAgICAgIDxlZG9tdmQ+Q29sbGVjdG9yIERpc3RyaWJ1dG9yIERlY3JlYXNpbmc8L2Vkb212
+ZD4NCiAgICAgICAgICAgIDxlZG9tdmRzPldhc2hpbmd0b24gU3RhdGUgSGlnaHdheSBMb2c8L2Vk
+b212ZHM+DQogICAgICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8
+YXR0cmRvbXY+DQogICAgICAgICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+Q0k8L2Vkb212
+Pg0KICAgICAgICAgICAgPGVkb212ZD5Db2xsZWN0b3IgRGlzdHJpYnV0b3IgSW5jcmVhc2luZzwv
+ZWRvbXZkPg0KICAgICAgICAgICAgPGVkb212ZHM+V2FzaGluZ3RvbiBTdGF0ZSBIaWdod2F5IExv
+ZzwvZWRvbXZkcz4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRvbXY+DQogICAg
+ICAgIDxhdHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxlZG9tdj5GRDwv
+ZWRvbXY+DQogICAgICAgICAgICA8ZWRvbXZkPkZyb250YWdlIFJvYWQgRGVjcmVhc2luZzwvZWRv
+bXZkPg0KICAgICAgICAgICAgPGVkb212ZHM+V2FzaGluZ3RvbiBTdGF0ZSBIaWdod2F5IExvZzwv
+ZWRvbXZkcz4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRvbXY+DQogICAgICAg
+IDxhdHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxlZG9tdj5GSTwvZWRv
+bXY+DQogICAgICAgICAgICA8ZWRvbXZkPkZyb250YWdlIFJvYWQgSW5jcmVhc2luZzwvZWRvbXZk
+Pg0KICAgICAgICAgICAgPGVkb212ZHM+V2FzaGluZ3RvbiBTdGF0ZSBIaWdod2F5IExvZzwvZWRv
+bXZkcz4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRvbXY+DQogICAgICAgIDxh
+dHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxlZG9tdj5GVDwvZWRvbXY+
+DQogICAgICAgICAgICA8ZWRvbXZkPkZlcnJ5IFRlcm1pbmFsPC9lZG9tdmQ+DQogICAgICAgICAg
+ICA8ZWRvbXZkcz5XYXNoaW5ndG9uIFN0YXRlIEhpZ2h3YXkgTG9nPC9lZG9tdmRzPg0KICAgICAg
+ICAgIDwvZWRvbT4NCiAgICAgICAgPC9hdHRyZG9tdj4NCiAgICAgICAgPGF0dHJkb212Pg0KICAg
+ICAgICAgIDxlZG9tPg0KICAgICAgICAgICAgPGVkb212PkZVPC9lZG9tdj4NCiAgICAgICAgICAg
+IDxlZG9tdmQ+RnV0dXJlIFJvdXRlPC9lZG9tdmQ+DQogICAgICAgICAgPC9lZG9tPg0KICAgICAg
+ICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+DQogICAgICAgICAgPGVkb20+DQogICAg
+ICAgICAgICA8ZWRvbXY+SEQ8L2Vkb212Pg0KICAgICAgICAgICAgPGVkb212ZD5HcmFkZS1TZXBl
+cmF0ZWQgSE9WIERlY3JlYXNpbmc8L2Vkb212ZD4NCiAgICAgICAgICAgIDxlZG9tdmRzPldhc2hp
+bmd0b24gU3RhdGUgSGlnaHdheSBMb2c8L2Vkb212ZHM+DQogICAgICAgICAgPC9lZG9tPg0KICAg
+ICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+DQogICAgICAgICAgPGVkb20+DQog
+ICAgICAgICAgICA8ZWRvbXY+SEk8L2Vkb212Pg0KICAgICAgICAgICAgPGVkb212ZD5HcmFkZS1T
+ZXBlcmF0ZWQgSE9WIEluY3JlYXNpbmc8L2Vkb212ZD4NCiAgICAgICAgICAgIDxlZG9tdmRzPldh
+c2hpbmd0b24gU3RhdGUgSGlnaHdheSBMb2c8L2Vkb212ZHM+DQogICAgICAgICAgPC9lZG9tPg0K
+ICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+DQogICAgICAgICAgPGVkb20+
+DQogICAgICAgICAgICA8ZWRvbXY+TFg8L2Vkb212Pg0KICAgICAgICAgICAgPGVkb212ZD5Dcm9z
+c3JvYWQgd2l0aGluIEludGVyY2hhbmdlPC9lZG9tdmQ+DQogICAgICAgICAgICA8ZWRvbXZkcz5X
+YXNoaW5ndG9uIFN0YXRlIEhpZ2h3YXkgTG9nPC9lZG9tdmRzPg0KICAgICAgICAgIDwvZWRvbT4N
+CiAgICAgICAgPC9hdHRyZG9tdj4NCiAgICAgICAgPGF0dHJkb212Pg0KICAgICAgICAgIDxlZG9t
+Pg0KICAgICAgICAgICAgPGVkb212PlAxLVA5PC9lZG9tdj4NCiAgICAgICAgICAgIDxlZG9tdmQ+
+T2ZmIFJhbXAsIEluY3JlYXNpbmc8L2Vkb212ZD4NCiAgICAgICAgICAgIDxlZG9tdmRzPldhc2hp
+bmd0b24gU3RhdGUgSGlnaHdheSBMb2c8L2Vkb212ZHM+DQogICAgICAgICAgPC9lZG9tPg0KICAg
+ICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+DQogICAgICAgICAgPGVkb20+DQog
+ICAgICAgICAgICA8ZWRvbXY+UFI8L2Vkb212Pg0KICAgICAgICAgICAgPGVkb212ZD5Qcm9wb3Nl
+ZCBSb3V0ZTwvZWRvbXZkPg0KICAgICAgICAgICAgPGVkb212ZHM+V2FzaGluZ3RvbiBTdGF0ZSBI
+aWdod2F5IExvZzwvZWRvbXZkcz4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRv
+bXY+DQogICAgICAgIDxhdHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxl
+ZG9tdj5RMS1ROTwvZWRvbXY+DQogICAgICAgICAgICA8ZWRvbXZkPk9uIFJhbXAgSW5jcmVhc2lu
+ZzwvZWRvbXZkPg0KICAgICAgICAgICAgPGVkb212ZHM+V2FzaGluZ3RvbiBTdGF0ZSBIaWdod2F5
+IExvZzwvZWRvbXZkcz4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRvbXY+DQog
+ICAgICAgIDxhdHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxlZG9tdj5S
+MS1SOTwvZWRvbXY+DQogICAgICAgICAgICA8ZWRvbXZkPk9mZiBSYW1wIERlY3JlYXNpbmc8L2Vk
+b212ZD4NCiAgICAgICAgICAgIDxlZG9tdmRzPldhc2hpbmd0b24gU3RhdGUgSGlnaHdheSBMb2c8
+L2Vkb212ZHM+DQogICAgICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAg
+ICA8YXR0cmRvbXY+DQogICAgICAgICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+UzEtUzk8
+L2Vkb212Pg0KICAgICAgICAgICAgPGVkb212ZD5PbiBSYW1wIERlY3JlYXNpbmc8L2Vkb212ZD4N
+CiAgICAgICAgICAgIDxlZG9tdmRzPldhc2hpbmd0b24gU3RhdGUgSGlnaHdheSBMb2c8L2Vkb212
+ZHM+DQogICAgICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0
+cmRvbXY+DQogICAgICAgICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+Ukw8L2Vkb212Pg0K
+ICAgICAgICAgICAgPGVkb212ZD5SZXZlcnNpYmxlIExhbmU8L2Vkb212ZD4NCiAgICAgICAgICAg
+IDxlZG9tdmRzPldhc2hpbmd0b24gU3RhdGUgSGlnaHdheSBMb2c8L2Vkb212ZHM+DQogICAgICAg
+ICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+DQogICAg
+ICAgICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+U1A8L2Vkb212Pg0KICAgICAgICAgICAg
+PGVkb212ZD5TcHVyPC9lZG9tdmQ+DQogICAgICAgICAgICA8ZWRvbXZkcz5XYXNoaW5ndG9uIFN0
+YXRlIEhpZ2h3YXkgTG9nPC9lZG9tdmRzPg0KICAgICAgICAgIDwvZWRvbT4NCiAgICAgICAgPC9h
+dHRyZG9tdj4NCiAgICAgICAgPGF0dHJkb212Pg0KICAgICAgICAgIDxlZG9tPg0KICAgICAgICAg
+ICAgPGVkb212PlRCPC9lZG9tdj4NCiAgICAgICAgICAgIDxlZG9tdmQ+VHVybmJhY2s8L2Vkb212
+ZD4NCiAgICAgICAgICAgIDxlZG9tdmRzPldhc2hpbmd0b24gU3RhdGUgSGlnaHdheSBMb2c8L2Vk
+b212ZHM+DQogICAgICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgPC9h
+dHRyPg0KICAgICAgPGF0dHI+DQogICAgICAgIDxhdHRybGFibD5Sb3V0ZUlEPC9hdHRybGFibD4N
+CiAgICAgICAgPGF0dHJkZWY+Um91dGUgSUQgLSBhIHVuaXF1ZSBSb3V0ZSBpZGVudGlmaWVyIGFz
+c2lnbmVkIGJ5IFdTRE9UJ3MgR0lTIGFuZCBSb2Fkd2F5IERhdGEgT2ZmaWNlLiAgRXZlcnkgV1NE
+T1QgaGlnaHdheSBpbiBXYXNoaW5ndG9uIFN0YXRlIGlzIGFzc2lnbmVkIGEgdW5pcXVlIFJvdXRl
+IElELCBpbmNsdWRpbmcgaW50ZXJzdGF0ZXMgYW5kIFUuUy4gUm91dGVzLjwvYXR0cmRlZj4NCiAg
+ICAgIDwvYXR0cj4NCiAgICAgIDxhdHRyPg0KICAgICAgICA8YXR0cmxhYmw+UlRfVFlQRUE8L2F0
+dHJsYWJsPg0KICAgICAgICA8YXR0cmRlZj5Sb3V0ZSBUeXBlICh0ZXh0KTwvYXR0cmRlZj4NCiAg
+ICAgICAgPGF0dHJkb212Pg0KICAgICAgICAgIDxlZG9tPg0KICAgICAgICAgICAgPGVkb212PklT
+PC9lZG9tdj4NCiAgICAgICAgICAgIDxlZG9tdmQ+SW50ZXJzdGF0ZSBSb3V0ZTwvZWRvbXZkPg0K
+ICAgICAgICAgIDwvZWRvbT4NCiAgICAgICAgPC9hdHRyZG9tdj4NCiAgICAgICAgPGF0dHJkb212
+Pg0KICAgICAgICAgIDxlZG9tPg0KICAgICAgICAgICAgPGVkb212PlVTPC9lZG9tdj4NCiAgICAg
+ICAgICAgIDxlZG9tdmQ+VVMgUm91dGU8L2Vkb212ZD4NCiAgICAgICAgICA8L2Vkb20+DQogICAg
+ICAgIDwvYXR0cmRvbXY+DQogICAgICAgIDxhdHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAg
+ICAgICAgICAgIDxlZG9tdj5SQTwvZWRvbXY+DQogICAgICAgICAgICA8ZWRvbXZkPlJhbXA8L2Vk
+b212ZD4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRvbXY+DQogICAgICAgIDxh
+dHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxlZG9tdj5TUjwvZWRvbXY+
+DQogICAgICAgICAgICA8ZWRvbXZkPlN0YXRlIFJvdXRlPC9lZG9tdmQ+DQogICAgICAgICAgPC9l
+ZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+DQogICAgICAgICAg
+PGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+TEM8L2Vkb212Pg0KICAgICAgICAgICAgPGVkb212
+ZD5Mb2NhbCBSb2FkIGVpdGhlciBmcm9udGFnZSByb2FkIG9mIExvY2FsIGFjY2VzcyBhcHByb2Fj
+aC48L2Vkb212ZD4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRvbXY+DQogICAg
+ICAgIDxhdHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxlZG9tdj5GVDwv
+ZWRvbXY+DQogICAgICAgICAgICA8ZWRvbXZkPkZlcnJ5IFRlcm1pbmFsPC9lZG9tdmQ+DQogICAg
+ICAgICAgICA8ZWRvbXZkcz5Db21waWxlZCBmcm9tIFRSSVBTIGRhdGFiYXNlLjwvZWRvbXZkcz4N
+CiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRvbXY+DQogICAgICAgIDxhdHRyZG9t
+dj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxlZG9tdj5QUjwvZWRvbXY+DQogICAg
+ICAgICAgICA8ZWRvbXZkPlByb3Bvc2VkIFJvdXRlPC9lZG9tdmQ+DQogICAgICAgICAgICA8ZWRv
+bXZkcz5Db21waWxlZCBmcm9tIFRSSVBTIGRhdGFiYXNlIHdpdGggc2VsZWN0ZWQgcmVjb3JkcyB0
+aGF0IGFyZSBub3QgY3VycmVudGx5IGluIHRoZSBUUklQUyBkYXRhYmFzZS48L2Vkb212ZHM+DQog
+ICAgICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+
+DQogICAgICAgICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+Q048L2Vkb212Pg0KICAgICAg
+ICAgICAgPGVkb212ZD5Db25uZWN0b3IgLSBhIHNlZ21lbnQgdXNlZCB0byBjb25uZWN0IHN0YXRl
+IHJvdXRlcyB0byBvdGhlciByb3V0ZXMvcm9hZHdheXMgZm9yIGZ1dHVyZSB1c2UgaW4gYSBnZW9t
+ZXRyaWMgbmV0d29yay48L2Vkb212ZD4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0
+cmRvbXY+DQogICAgICA8L2F0dHI+DQogICAgICA8YXR0cj4NCiAgICAgICAgPGF0dHJsYWJsPlJU
+X1RZUEVCPC9hdHRybGFibD4NCiAgICAgICAgPGF0dHJkZWY+Um91dGUgVHlwZSAoaW50ZWdlcik8
+L2F0dHJkZWY+DQogICAgICAgIDxhdHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAg
+ICAgIDxlZG9tdj4wPC9lZG9tdj4NCiAgICAgICAgICAgIDxlZG9tdmQ+U3RhdGUgUm91dGU8L2Vk
+b212ZD4NCiAgICAgICAgICA8L2Vkb20+DQogICAgICAgIDwvYXR0cmRvbXY+DQogICAgICAgIDxh
+dHRyZG9tdj4NCiAgICAgICAgICA8ZWRvbT4NCiAgICAgICAgICAgIDxlZG9tdj4xPC9lZG9tdj4N
+CiAgICAgICAgICAgIDxlZG9tdmQ+SW50ZXJzdGF0ZSBSb3V0ZTwvZWRvbXZkPg0KICAgICAgICAg
+IDwvZWRvbT4NCiAgICAgICAgPC9hdHRyZG9tdj4NCiAgICAgICAgPGF0dHJkb212Pg0KICAgICAg
+ICAgIDxlZG9tPg0KICAgICAgICAgICAgPGVkb212PjI8L2Vkb212Pg0KICAgICAgICAgICAgPGVk
+b212ZD5VUyBSb3V0ZTwvZWRvbXZkPg0KICAgICAgICAgIDwvZWRvbT4NCiAgICAgICAgPC9hdHRy
+ZG9tdj4NCiAgICAgICAgPGF0dHJkb212Pg0KICAgICAgICAgIDxlZG9tPg0KICAgICAgICAgICAg
+PGVkb212PjM8L2Vkb212Pg0KICAgICAgICAgICAgPGVkb212ZD5SYW1wPC9lZG9tdmQ+DQogICAg
+ICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+DQog
+ICAgICAgICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+NDwvZWRvbXY+DQogICAgICAgICAg
+ICA8ZWRvbXZkPkxvY2FsIEFjY2VzcyBhcHByb2FjaCAoTFgpIEZyb250YWdlIFJvYWRzIChGRCwg
+RkkpPC9lZG9tdmQ+DQogICAgICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAg
+ICAgICA8YXR0cmRvbXY+DQogICAgICAgICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+NTwv
+ZWRvbXY+DQogICAgICAgICAgICA8ZWRvbXZkPkZlcnJ5IFRlcm1pbmFscyAoRlQpPC9lZG9tdmQ+
+DQogICAgICAgICAgPC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRv
+bXY+DQogICAgICAgICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+NjwvZWRvbXY+DQogICAg
+ICAgICAgICA8ZWRvbXZkPlByb3Bvc2VkIFJvdXRlcyAoUFIpPC9lZG9tdmQ+DQogICAgICAgICAg
+PC9lZG9tPg0KICAgICAgICA8L2F0dHJkb212Pg0KICAgICAgICA8YXR0cmRvbXY+DQogICAgICAg
+ICAgPGVkb20+DQogICAgICAgICAgICA8ZWRvbXY+NzwvZWRvbXY+DQogICAgICAgICAgICA8ZWRv
+bXZkPkNvbm5lY3RvciAtIGEgc2VnbWVudCB1c2VkIHRvIGNvbm5lY3Qgc3RhdGUgcm91dGVzIHRv
+IG90aGVyIHJvdXRlcy9yb2Fkd2F5cyBmb3IgZnV0dXJlIHVzZSBpbiBhIGdlb21ldHJpYyBuZXR3
+b3JrLjwvZWRvbXZkPg0KICAgICAgICAgIDwvZWRvbT4NCiAgICAgICAgPC9hdHRyZG9tdj4NCiAg
+ICAgIDwvYXR0cj4NCiAgICAgIDxhdHRyPg0KICAgICAgICA8YXR0cmxhYmw+U2hhcGU8L2F0dHJs
+YWJsPg0KICAgICAgICA8YXR0cmRlZj5GZWF0dXJlIGdlb21ldHJ5LjwvYXR0cmRlZj4NCiAgICAg
+ICAgPGF0dHJkZWZzPkVTUkk8L2F0dHJkZWZzPg0KICAgICAgICA8YXR0cmRvbXY+DQogICAgICAg
+ICAgPHVkb20+Q29vcmRpbmF0ZXMgZGVmaW5pbmcgdGhlIGZlYXR1cmVzLjwvdWRvbT4NCiAgICAg
+ICAgPC9hdHRyZG9tdj4NCiAgICAgIDwvYXR0cj4NCiAgICAgIDxhdHRyPg0KICAgICAgICA8YXR0
+cmxhYmw+U3RhdGVSb3V0ZU51bWJlcjwvYXR0cmxhYmw+DQogICAgICAgIDxhdHRyZGVmPlN0YXRl
+IFJvdXRlIE51bWJlciAtIGEgdGhyZWUgY2hhcmFjdGVyIG51bWJlciBhc3NpZ25lZCB0byBldmVy
+eSBTdGF0ZSBSb3V0ZSAoc2FtZSBhcyBSSUQgY29sdW1uKTwvYXR0cmRlZj4NCiAgICAgIDwvYXR0
+cj4NCiAgICAgIDxhdHRyPg0KICAgICAgICA8YXR0cmxhYmw+U0hBUEUuU1RMZW5ndGgoKTwvYXR0
+cmxhYmw+DQogICAgICA8L2F0dHI+DQogICAgPC9kZXRhaWxlZD4NCiAgICA8b3ZlcnZpZXc+DQog
+ICAgICA8ZWFvdmVyPlRoZSBkYXRhIHNldCBjb250YWlucyBTdGF0ZSBSb3V0ZSBudW1iZXJzLCBk
+aXJlY3Rpb24sIEJlZ2lubmluZyBBY2N1bXVsYXRlZCBSb3V0ZSBNaWxlYWdlLCBhbmQgRW5kaW5n
+IEFjY3VtdWxhdGVkIFJvdXRlIE1pbGVhZ2UgZm9yIGdyYXBoaWNzIGRlcGljdGluZyB0aGUgc3Rh
+dGUgcm91dGVzIGFuZCAgcmFtcHMuPC9lYW92ZXI+DQogICAgPC9vdmVydmlldz4NCiAgPC9lYWlu
+Zm8+DQogIDxkaXN0aW5mbz4NCiAgICA8ZGlzdHJpYj4NCiAgICAgIDxjbnRpbmZvPg0KICAgICAg
+ICA8Y250b3JncD4NCiAgICAgICAgICA8Y250b3JnPldhc2hpbmd0b24gU3RhdGUgRGVwYXJ0bWVu
+dCBvZiBUcmFuc3BvcnRhdGlvbiwgT2ZmaWNlIG9mIEluZm9ybWF0aW9uIFRlY2hub2xvZ3k8L2Nu
+dG9yZz4NCiAgICAgICAgICA8Y250cGVyPkpvcmR5biBNaXRjaGVsbDwvY250cGVyPg0KICAgICAg
+ICA8L2NudG9yZ3A+DQogICAgICAgIDxjbnRwb3M+R0lTIERhdGFiYXNlIEFkbWluaXN0cmF0b3I8
+L2NudHBvcz4NCiAgICAgICAgPGNudGFkZHI+DQogICAgICAgICAgPGFkZHJ0eXBlPm1haWxpbmc8
+L2FkZHJ0eXBlPg0KICAgICAgICAgIDxhZGRyZXNzPlBPIEJveCA0NzQzMDwvYWRkcmVzcz4NCiAg
+ICAgICAgICA8Y2l0eT5PbHltcGlhPC9jaXR5Pg0KICAgICAgICAgIDxzdGF0ZT5XQTwvc3RhdGU+
+DQogICAgICAgICAgPHBvc3RhbD45ODUwNC03NDMwPC9wb3N0YWw+DQogICAgICAgICAgPGNvdW50
+cnk+VVM8L2NvdW50cnk+DQogICAgICAgIDwvY250YWRkcj4NCiAgICAgICAgPGNudHZvaWNlPjM2
+MC03MDUtNzY0NTwvY250dm9pY2U+DQogICAgICAgIDxjbnRlbWFpbD5taXRjaGVqb0B3c2RvdC53
+YS5nb3Y8L2NudGVtYWlsPg0KICAgICAgPC9jbnRpbmZvPg0KICAgIDwvZGlzdHJpYj4NCiAgICA8
+ZGlzdGxpYWI+VGhlIFdhc2hpbmd0b24gU3RhdGUgRGVwYXJ0bWVudCBvZiBUcmFuc3BvcnRhdGlv
+biBzaGFsbCBub3QgYmUgbGlhYmxlIGZvciBhbnkgYWN0aXZpdHkgaW52b2x2aW5nIHRoaXMgZGF0
+YSB3aXRoIHJlZ2FyZCB0byBsb3N0IHByb2ZpdHMgb3Igc2F2aW5ncyBvciBhbnkgb3RoZXIgY29u
+c2VxdWVudGlhbCBkYW1hZ2VzOyBvciB0aGUgZml0bmVzcyBmb3IgdXNlIG9mIHRoZSBkYXRhIGZv
+ciBhIHBhcnRpY3VsYXIgcHVycG9zZTsgb3IgdGhlIGluc3RhbGxhdGlvbiBvZiB0aGUgZGF0YSwg
+aXRzIHVzZSwgb3IgdGhlIHJlc3VsdHMgb2J0YWluZWQuPC9kaXN0bGlhYj4NCiAgICA8c3Rkb3Jk
+ZXI+DQogICAgICA8ZmVlcz5ub25lPC9mZWVzPg0KICAgICAgPG9yZGVyaW5nPkRvd25sb2FkIGlu
+ZGl2aWR1YWwgZGF0YSBzZXRzIGZyb20gaHR0cDovL3d3dy53c2RvdC53YS5nb3YvbWFwc2RhdGEv
+Z2VvZGF0YWNhdGFsb2cvZGVmYXVsdC5odG08L29yZGVyaW5nPg0KICAgIDwvc3Rkb3JkZXI+DQog
+IDwvZGlzdGluZm8+DQogIDxtZXRhaW5mbz4NCiAgICA8bWV0ZD4yMDE1MDQyOTwvbWV0ZD4NCiAg
+ICA8bWV0Yz4NCiAgICAgIDxjbnRpbmZvPg0KICAgICAgICA8Y250b3JncD4NCiAgICAgICAgICA8
+Y250b3JnPldhc2hpbmd0b24gU3RhdGUgRGVwYXJ0bWVudCBvZiBUcmFuc3BvcnRhdGlvbjwvY250
+b3JnPg0KICAgICAgICAgIDxjbnRwZXI+VGhvbWFzIEEuIEJsYWtlPC9jbnRwZXI+DQogICAgICAg
+IDwvY250b3JncD4NCiAgICAgICAgPGNudHBvcz5HSVMgRGF0YSBQcm9kdWN0cyBTdXBlcnZpc29y
+PC9jbnRwb3M+DQogICAgICAgIDxjbnRhZGRyPg0KICAgICAgICAgIDxhZGRydHlwZT5waHlzaWNh
+bDwvYWRkcnR5cGU+DQogICAgICAgICAgPGFkZHJlc3M+NzM0NSBMaW5kZXJzb24gV2F5IFNXPC9h
+ZGRyZXNzPg0KICAgICAgICAgIDxjaXR5PlR1bXdhdGVyPC9jaXR5Pg0KICAgICAgICAgIDxzdGF0
+ZT5XQTwvc3RhdGU+DQogICAgICAgICAgPHBvc3RhbD45ODUwMTwvcG9zdGFsPg0KICAgICAgICAg
+IDxjb3VudHJ5PlVTPC9jb3VudHJ5Pg0KICAgICAgICA8L2NudGFkZHI+DQogICAgICAgIDxjbnR2
+b2ljZT4zNjAtNTcwLTIzNjM8L2NudHZvaWNlPg0KICAgICAgICA8Y250ZW1haWw+Ymxha2V0QHdz
+ZG90LndhLmdvdjwvY250ZW1haWw+DQogICAgICA8L2NudGluZm8+DQogICAgPC9tZXRjPg0KICAg
+IDxtZXRzdGRuPkZHREMgQ29udGVudCBTdGFuZGFyZCBmb3IgRGlnaXRhbCBHZW9zcGF0aWFsIE1l
+dGFkYXRhPC9tZXRzdGRuPg0KICAgIDxtZXRzdGR2PkZHREMtU1RELTAwMS0xOTk4PC9tZXRzdGR2
+Pg0KICAgIDxtZXR0Yz5sb2NhbCB0aW1lPC9tZXR0Yz4NCiAgPC9tZXRhaW5mbz4NCjwvbWV0YWRh
+dGE+</Data>
+    </Enclosure>
+  </Binary>
+</metadata>

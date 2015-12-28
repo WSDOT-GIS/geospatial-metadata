@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MD_Metadata xmlns="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <language>
+    <LanguageCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#LanguageCode" codeListValue="eng">eng</LanguageCode>
+  </language>
+  <hierarchyLevel>
+    <MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+  </hierarchyLevel>
+  <contact>
+    <CI_ResponsibleParty>
+      <individualName>
+        <gco:CharacterString>Thomas A. Blake</gco:CharacterString>
+      </individualName>
+      <organisationName>
+        <gco:CharacterString>Washington State Department of Transportation</gco:CharacterString>
+      </organisationName>
+      <positionName>
+        <gco:CharacterString>GIS Data Products Supervisor</gco:CharacterString>
+      </positionName>
+      <contactInfo>
+        <CI_Contact>
+          <phone>
+            <CI_Telephone>
+              <voice>
+                <gco:CharacterString>360-570-2363</gco:CharacterString>
+              </voice>
+            </CI_Telephone>
+          </phone>
+          <address>
+            <CI_Address>
+              <deliveryPoint>
+                <gco:CharacterString>7345 Linderson Way SW</gco:CharacterString>
+              </deliveryPoint>
+              <city>
+                <gco:CharacterString>Tumwater</gco:CharacterString>
+              </city>
+              <administrativeArea>
+                <gco:CharacterString>WA</gco:CharacterString>
+              </administrativeArea>
+              <postalCode>
+                <gco:CharacterString>98501</gco:CharacterString>
+              </postalCode>
+              <country>
+                <Country codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CountryCode" codeListValue="US" codeSpace="ISO3166-alpha2">US</Country>
+              </country>
+              <electronicMailAddress>
+                <gco:CharacterString>blaket@wsdot.wa.gov</gco:CharacterString>
+              </electronicMailAddress>
+            </CI_Address>
+          </address>
+        </CI_Contact>
+      </contactInfo>
+      <role>
+        <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="ISOTC211/19115">pointOfContact</CI_RoleCode>
+      </role>
+    </CI_ResponsibleParty>
+  </contact>
+  <dateStamp>
+    <gco:Date>2015-04-29</gco:Date>
+  </dateStamp>
+  <metadataStandardName>
+    <gco:CharacterString>ISO 19139 Geographic Information - Metadata - Implementation Specification</gco:CharacterString>
+  </metadataStandardName>
+  <metadataStandardVersion>
+    <gco:CharacterString>2007</gco:CharacterString>
+  </metadataStandardVersion>
+  <spatialRepresentationInfo>
+    <MD_VectorSpatialRepresentation>
+      <geometricObjects>
+        <MD_GeometricObjects>
+          <geometricObjectType>
+            <MD_GeometricObjectTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_GeometricObjectTypeCode" codeListValue="composite" codeSpace="ISOTC211/19115">composite</MD_GeometricObjectTypeCode>
+          </geometricObjectType>
+          <geometricObjectCount>
+            <gco:Integer>760</gco:Integer>
+          </geometricObjectCount>
+        </MD_GeometricObjects>
+      </geometricObjects>
+    </MD_VectorSpatialRepresentation>
+  </spatialRepresentationInfo>
+  <identificationInfo>
+    <MD_DataIdentification>
+      <citation>
+        <CI_Citation>
+          <title>
+            <gco:CharacterString>State Routes of Washington State 1:24,000 (2014), Routes in the Increasing Direction</gco:CharacterString>
+          </title>
+          <date>
+            <CI_Date>
+              <date>
+                <gco:Date>2015-04-15</gco:Date>
+              </date>
+              <dateType>
+                <CI_DateTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication" codeSpace="ISOTC211/19115">publication</CI_DateTypeCode>
+              </dateType>
+            </CI_Date>
+          </date>
+          <citedResponsibleParty>
+            <CI_ResponsibleParty>
+              <organisationName>
+                <gco:CharacterString>Washington State Department of Transportation</gco:CharacterString>
+                <!-- WARNING: translation from FGDC is ambiguous, this may require correction -->
+              </organisationName>
+              <role>
+                <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher" codeSpace="ISOTC211/19115">publisher</CI_RoleCode>
+              </role>
+            </CI_ResponsibleParty>
+          </citedResponsibleParty>
+          <citedResponsibleParty>
+            <CI_ResponsibleParty>
+              <organisationName>
+                <gco:CharacterString>Washington State Department of Transportation</gco:CharacterString>
+                <!-- WARNING: translation from FGDC is ambiguous, this may require correction -->
+              </organisationName>
+              <role>
+                <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="originator" codeSpace="ISOTC211/19115">originator</CI_RoleCode>
+              </role>
+            </CI_ResponsibleParty>
+          </citedResponsibleParty>
+          <presentationForm>
+            <CI_PresentationFormCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_PresentationFormCode" codeListValue="mapDigital" codeSpace="ISOTC211/19115">mapDigital</CI_PresentationFormCode>
+          </presentationForm>
+        </CI_Citation>
+      </citation>
+      <abstract>
+        <gco:CharacterString>State Routes are depicted as lines with State Route identifiers and route measure attributes. Routes in this featureclass are for the increasing side of the highway mileposting.</gco:CharacterString>
+      </abstract>
+      <purpose>
+        <gco:CharacterString>This data set is used: 1) for general-purpose base mapping; 2) as a Linear Referencing System (LRS); 3) for locating features on the State Route network by State Route Accumulated Route Mileage (dynamic segmentation). This dataset is a snapshot of the roadway system, effective 12/31/2014, also known as the 2014 LRS.</gco:CharacterString>
+      </purpose>
+      <credit>
+        <gco:CharacterString>Washington State Department of Transportation</gco:CharacterString>
+      </credit>
+      <status>
+        <MD_ProgressCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ProgressCode" codeListValue="completed" codeSpace="ISOTC211/19115">completed</MD_ProgressCode>
+      </status>
+      <pointOfContact>
+        <CI_ResponsibleParty>
+          <individualName>
+            <gco:CharacterString>Thomas A. Blake</gco:CharacterString>
+          </individualName>
+          <organisationName>
+            <gco:CharacterString>Washington State Department of Transportation</gco:CharacterString>
+          </organisationName>
+          <positionName>
+            <gco:CharacterString>GIS Data Products Supervisor</gco:CharacterString>
+          </positionName>
+          <contactInfo>
+            <CI_Contact>
+              <phone>
+                <CI_Telephone>
+                  <voice>
+                    <gco:CharacterString>360-570-2363</gco:CharacterString>
+                  </voice>
+                </CI_Telephone>
+              </phone>
+              <address>
+                <CI_Address>
+                  <deliveryPoint>
+                    <gco:CharacterString>PO Box 47384</gco:CharacterString>
+                  </deliveryPoint>
+                  <city>
+                    <gco:CharacterString>Olympia</gco:CharacterString>
+                  </city>
+                  <administrativeArea>
+                    <gco:CharacterString>WA</gco:CharacterString>
+                  </administrativeArea>
+                  <postalCode>
+                    <gco:CharacterString>98504-7384</gco:CharacterString>
+                  </postalCode>
+                  <country>
+                    <Country codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CountryCode" codeListValue="US" codeSpace="ISO3166-alpha2">US</Country>
+                  </country>
+                  <electronicMailAddress>
+                    <gco:CharacterString>blaket@wsdot.wa.gov</gco:CharacterString>
+                  </electronicMailAddress>
+                </CI_Address>
+              </address>
+            </CI_Contact>
+          </contactInfo>
+          <role>
+            <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="ISOTC211/19115">pointOfContact</CI_RoleCode>
+          </role>
+        </CI_ResponsibleParty>
+      </pointOfContact>
+      <resourceMaintenance>
+        <MD_MaintenanceInformation>
+          <maintenanceAndUpdateFrequency>
+            <MD_MaintenanceFrequencyCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="annually" codeSpace="ISOTC211/19115">annually</MD_MaintenanceFrequencyCode>
+          </maintenanceAndUpdateFrequency>
+        </MD_MaintenanceInformation>
+      </resourceMaintenance>
+      <descriptiveKeywords>
+        <MD_Keywords>
+          <keyword>
+            <gco:CharacterString>state route</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>LRS</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>highway</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>SR</gco:CharacterString>
+          </keyword>
+          <type>
+            <MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="ISOTC211/19115">theme</MD_KeywordTypeCode>
+          </type>
+        </MD_Keywords>
+      </descriptiveKeywords>
+      <descriptiveKeywords>
+        <MD_Keywords>
+          <keyword>
+            <gco:CharacterString>Washington</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>United States</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>Pacific Northwest</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>USA</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>WA</gco:CharacterString>
+          </keyword>
+          <type>
+            <MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="place" codeSpace="ISOTC211/19115">place</MD_KeywordTypeCode>
+          </type>
+        </MD_Keywords>
+      </descriptiveKeywords>
+      <spatialRepresentationType>
+        <MD_SpatialRepresentationTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector" codeSpace="ISOTC211/19115">vector</MD_SpatialRepresentationTypeCode>
+      </spatialRepresentationType>
+      <language>
+        <LanguageCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#LanguageCode" codeListValue="eng">eng</LanguageCode>
+      </language>
+      <environmentDescription>
+        <gco:CharacterString>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.3.0.4322</gco:CharacterString>
+      </environmentDescription>
+      <extent>
+        <EX_Extent>
+          <geographicElement>
+            <EX_GeographicBoundingBox>
+              <westBoundLongitude>
+                <gco:Decimal>-124.674937</gco:Decimal>
+              </westBoundLongitude>
+              <eastBoundLongitude>
+                <gco:Decimal>-116.861308</gco:Decimal>
+              </eastBoundLongitude>
+              <southBoundLatitude>
+                <gco:Decimal>45.504776</gco:Decimal>
+              </southBoundLatitude>
+              <northBoundLatitude>
+                <gco:Decimal>49.042695</gco:Decimal>
+              </northBoundLatitude>
+            </EX_GeographicBoundingBox>
+          </geographicElement>
+        </EX_Extent>
+      </extent>
+      <extent>
+        <EX_Extent>
+          <description>
+            <gco:CharacterString>ground condition</gco:CharacterString>
+          </description>
+          <temporalElement>
+            <EX_TemporalExtent>
+              <extent>
+                <gml:TimeInstant gml:id="_6162a91989299ddb2b04f25028b8623c">
+                  <gml:timePosition>2014-12-31</gml:timePosition>
+                </gml:TimeInstant>
+              </extent>
+            </EX_TemporalExtent>
+          </temporalElement>
+        </EX_Extent>
+      </extent>
+      <supplementalInformation>
+        <gco:CharacterString>San Juan County contains no State Routes. This release of the State Highway LRS, continues with the road alignments being matched to orthoimagery and the GPS/LRS.</gco:CharacterString>
+      </supplementalInformation>
+    </MD_DataIdentification>
+  </identificationInfo>
+  <distributionInfo>
+    <MD_Distribution>
+      <distributor>
+        <MD_Distributor>
+          <distributorContact>
+            <CI_ResponsibleParty>
+              <individualName>
+                <gco:CharacterString>Jordyn Mitchell</gco:CharacterString>
+              </individualName>
+              <organisationName>
+                <gco:CharacterString>Washington State Department of Transportation, Office of Information Technology</gco:CharacterString>
+              </organisationName>
+              <positionName>
+                <gco:CharacterString>GIS Database Administrator</gco:CharacterString>
+              </positionName>
+              <contactInfo>
+                <CI_Contact>
+                  <phone>
+                    <CI_Telephone>
+                      <voice>
+                        <gco:CharacterString>360-705-7645</gco:CharacterString>
+                      </voice>
+                    </CI_Telephone>
+                  </phone>
+                  <address>
+                    <CI_Address>
+                      <deliveryPoint>
+                        <gco:CharacterString>PO Box 47430</gco:CharacterString>
+                      </deliveryPoint>
+                      <city>
+                        <gco:CharacterString>Olympia</gco:CharacterString>
+                      </city>
+                      <administrativeArea>
+                        <gco:CharacterString>WA</gco:CharacterString>
+                      </administrativeArea>
+                      <postalCode>
+                        <gco:CharacterString>98504-7430</gco:CharacterString>
+                      </postalCode>
+                      <country>
+                        <Country codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CountryCode" codeListValue="US" codeSpace="ISO3166-alpha2">US</Country>
+                      </country>
+                      <electronicMailAddress>
+                        <gco:CharacterString>mitchejo@wsdot.wa.gov</gco:CharacterString>
+                      </electronicMailAddress>
+                    </CI_Address>
+                  </address>
+                </CI_Contact>
+              </contactInfo>
+              <role>
+                <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor" codeSpace="ISOTC211/19115">distributor</CI_RoleCode>
+              </role>
+            </CI_ResponsibleParty>
+          </distributorContact>
+          <distributionOrderProcess>
+            <MD_StandardOrderProcess>
+              <fees>
+                <gco:CharacterString>none</gco:CharacterString>
+              </fees>
+              <orderingInstructions>
+                <gco:CharacterString>Download individual data sets from http://www.wsdot.wa.gov/mapsdata/geodatacatalog/default.htm</gco:CharacterString>
+              </orderingInstructions>
+            </MD_StandardOrderProcess>
+          </distributionOrderProcess>
+        </MD_Distributor>
+      </distributor>
+    </MD_Distribution>
+  </distributionInfo>
+  <dataQualityInfo>
+    <DQ_DataQuality>
+      <scope>
+        <DQ_Scope>
+          <level>
+            <MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="ISOTC211/19115">dataset</MD_ScopeCode>
+          </level>
+        </DQ_Scope>
+      </scope>
+      <report>
+        <DQ_ConceptualConsistency>
+          <measureDescription>
+            <gco:CharacterString>These data form a network representing the connectivity of State Routes (SR's) for Washington state. Nodes occur at SR endpoints and at points of intersection with other SR's, ramps, bridges, and county boundaries. This includes all State Routes, US Routes, Interstates, Frontage Roads, Local Access ramps, Ferry Terminals and some Proposed routes located within the TRIPS database.</gco:CharacterString>
+          </measureDescription>
+        </DQ_ConceptualConsistency>
+      </report>
+      <report>
+        <DQ_CompletenessOmission>
+          <measureDescription>
+            <gco:CharacterString>The data set contains all of the state routes in the state of Washington.</gco:CharacterString>
+          </measureDescription>
+        </DQ_CompletenessOmission>
+      </report>
+      <report>
+        <DQ_QuantitativeAttributeAccuracy>
+          <measureDescription>
+            <gco:CharacterString>State Route numbers and Accumulated Route Mileage values were obtained from the State Highway Log.</gco:CharacterString>
+          </measureDescription>
+          <result gco:nilReason="missing" />
+        </DQ_QuantitativeAttributeAccuracy>
+      </report>
+      <report>
+        <DQ_AbsoluteExternalPositionalAccuracy>
+          <measureDescription>
+            <gco:CharacterString>Positional accuracy of this data set has not been determined.</gco:CharacterString>
+          </measureDescription>
+          <result gco:nilReason="missing" />
+        </DQ_AbsoluteExternalPositionalAccuracy>
+      </report>
+      <lineage>
+        <LI_Lineage>
+          <processStep>
+            <LI_ProcessStep>
+              <description>
+                <gco:CharacterString>
+01/01/1996 - Marci Carte
+The source file was digitized from 7.5 minute USGS quadrangles using Intergraph's Microstation software. The Microstation DGN file was converted to an Arc/Info coverage with the Arc command "IGDSARC" and transformed to geographic coordinates with Arc commands "PROJECTDEFINE" and "PROJECT." Attributes were added to the linework and routes were created with the "ARCSECTION" command based on Accumulated Route Mileage.
+10/01/2000 - Thomas A. Blake
+The route and section tables were deleted from a copy of the existing state route files. Graphic and attribute updating were done using Desktop ArcInfo 8's ArcMap with WSDOT 7.5 minute quads for reference. New routes were created using aml's in ArcInfo.
+11/28/2003 - Jordyn Mitchell
+Existing lines from the previous LRS (Washington State Highways, 2000) were realigned to match orthoimagery. Three columns were added to the table of attributes. They are: Display, Rt_typeA, &amp; Rt_typeB. A .dbf file containing values to be used was joined and the attribute values for the new columns were calculated. Routes were calculated while the coverage was in Washington State Plane South NAD 83 coordinate system. The coverage was then projected into Geographic NAD83.
+12/01/2004 - Heather Spates
+Updates to the ramps and portions of the mainlines were completed in a geodatabase. Polylines were then broken out by direction and built into routes when the geodatabase was in Washington State Plane South NAD 83 coordinate system. The routes were then projected into Geographic NAD83. Frontage Roads and Local access roads were included in this edition.
+01/16/2006 - Heather Spates
+Ferry Terminals located in the TRIPS system and selected Proposed routes( found both in TRIPS and other records) are included in this edition. Ferry terminals were located via orthophotos or the end of cartographically drawn ferry routes. Proposed route linework are compiled from paper contract sheets.
+07/24/2006 - Jordyn Mitchell
+Four new attributes were added with the 2005B update. SRID, RID, RRT, RRQ. These were added to enable easier sorting and selecting of records. These were derived from the SR field.
+05/21/2008 - Julie Fogde
+The 2007 LRS is an update of the 2006 LRS. A copy of the Lines file of the 2006 LRS was updated using the 2007 Highway Log, GPS LRS, orthophotos, highway contract plans, and WSDOT project websites. Polylines were then broken out by direction and built into routes.
+06/03/2009 - Derek Drake
+The LRS data was edited to reflect changes in the state highway system according to the 2008 Washington State Road Log.
+05/25/2010 - Thomas A. Blake
+The LRS data was edited to reflect changes in the state highway system according to the 2009 Washington State Road Log. A new attribute LRS Date was added to indicate the valid date of the measures (ARMs) used to update the data set.
+03/31/2011 - Thomas A. Blake
+The LRS data was edited to reflect changes in the state highway system according to the 2010 Washington State Road Log.
+11/15/2011 - Thomas A. Blake
+The LRS data was edited to reflect changes in the state highway system according to the Washington State Highway Log as of 9/30/2011.
+04/15/2012 - Thomas A. Blake
+The LRS data was edited to reflect changes in the state highway system according to the 2011 Washington State Road Log.
+03/15/2013 - Thomas A. Blake
+The LRS data was edited to reflect changes in the state highway system according to the 2012 Washington State Road Log.
+04/5/2014 - Thomas A. Blake
+The LRS data was edited to reflect changes in the state highway system according to the 2013 Washington State Road Log.
+04/1/2015 - Thomas A. Blake
+The LRS data was edited to reflect changes in the state highway system according to the 2014 Washington State Road Log.
+                </gco:CharacterString>
+              </description>
+              <dateTime>
+                <gco:DateTime>2015-04-01T00:00:00</gco:DateTime>
+              </dateTime>
+              <processor>
+                <CI_ResponsibleParty>
+                  <individualName>
+                    <gco:CharacterString>Thomas A. Blake</gco:CharacterString>
+                  </individualName>
+                  <organisationName>
+                    <gco:CharacterString>Washington State Department of Transportation</gco:CharacterString>
+                  </organisationName>
+                  <positionName>
+                    <gco:CharacterString>GIS Data Products Supervisor</gco:CharacterString>
+                  </positionName>
+                  <contactInfo>
+                    <CI_Contact>
+                      <phone>
+                        <CI_Telephone>
+                          <voice>
+                            <gco:CharacterString>360-570-2363</gco:CharacterString>
+                          </voice>
+                        </CI_Telephone>
+                      </phone>
+                      <address>
+                        <CI_Address>
+                          <deliveryPoint>
+                            <gco:CharacterString>PO Box 47384</gco:CharacterString>
+                          </deliveryPoint>
+                          <city>
+                            <gco:CharacterString>Olympia</gco:CharacterString>
+                          </city>
+                          <administrativeArea>
+                            <gco:CharacterString>WA</gco:CharacterString>
+                          </administrativeArea>
+                          <postalCode>
+                            <gco:CharacterString>98504-7384</gco:CharacterString>
+                          </postalCode>
+                          <country>
+                            <Country codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CountryCode" codeListValue="US" codeSpace="ISO3166-alpha2">US</Country>
+                          </country>
+                          <electronicMailAddress>
+                            <gco:CharacterString>blaket@wsdot.wa.gov</gco:CharacterString>
+                          </electronicMailAddress>
+                        </CI_Address>
+                      </address>
+                    </CI_Contact>
+                  </contactInfo>
+                  <role>
+                    <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="processor" codeSpace="ISOTC211/19115">processor</CI_RoleCode>
+                  </role>
+                </CI_ResponsibleParty>
+              </processor>
+            </LI_ProcessStep>
+          </processStep>
+          <source>
+            <LI_Source>
+              <description>
+                <gco:CharacterString>Geometry depicting Washington State Highways, attributes, and measure values to create the various 24k LRSs. These sources have included: USGS 7.5 Minute Quadrangles WSDOT Interchange Diagrams WSDOT State Highway Log GPS Based LRS Orthoimagery from DNR, Nies Mapping Group, Inc., NAIP, and the WSDOT Photogrammerty Office For more detailed information about these sources refer to the metadata for the 2009 version of this data set or contact the data steward.</gco:CharacterString>
+              </description>
+            </LI_Source>
+          </source>
+        </LI_Lineage>
+      </lineage>
+    </DQ_DataQuality>
+  </dataQualityInfo>
+</MD_Metadata>
