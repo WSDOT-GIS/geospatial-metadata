@@ -7,12 +7,12 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(["./fgdcAliases"], factory);
+        define(["./csdgmAliases"], factory);
     } else {
         // Browser globals
-        root.gisMetadata = factory(root.fgdcAliases);
+        root.gisMetadata = factory(root.csdgmAliases);
     }
-}(this, function (fgdcAliases) {
+}(this, function (csdgmAliases) {
     "use strict";
     var dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
 
@@ -398,7 +398,7 @@
                     // Create the section header if this is not the root element.
                     if (currentNode.parentElement !== null) { // In IE, the parentElement property will be undefined.
                         heading = document.createElement("h1");
-                        heading.textContent = fgdcAliases[currentNode.nodeName] || capitalizeFirstCharacter(currentNode.nodeName);
+                        heading.textContent = csdgmAliases[currentNode.nodeName] || capitalizeFirstCharacter(currentNode.nodeName);
                     } else {
                         heading = null;
                     }

@@ -4,7 +4,7 @@
         define(factory);
     } else {
         // Browser globals
-        root.fgdcAliases = factory();
+        root.csdgmAliases = factory();
     }
 }(this, function () {
     return {
