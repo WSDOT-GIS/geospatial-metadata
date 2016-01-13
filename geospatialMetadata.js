@@ -257,22 +257,25 @@
          * @param {Element} keywordNode
          */
         Array.from(node.childNodes, function (keywordNode) {
-            var frag = document.createDocumentFragment();
-            var rootName = keywordNode.nodeName;
-            var heading = document.createElement("h2");
-            var keyword_thesaurus = keywordNode.querySelector(rootName + "kt");
-            heading.textContent = rootName;
-            frag.appendChild(heading);
+            var frag, rootName, heading, keyword_thesaurus, list, keys;
+            if (!keywordNode.name instanceof Text) {
+                frag = document.createDocumentFragment();
+                rootName = keywordNode.nodeName;
+                heading = document.createElement("h2");
+                keyword_thesaurus = keywordNode.querySelector(rootName + "kt");
+                heading.textContent = rootName;
+                frag.appendChild(heading);
 
-            var list = document.createElement("ul");
-            var keys = keywordNode.querySelectorAll(rootName + "key");
-            Array.from(keys, function (keyNode) {
-                var item = document.createElement("li");
-                item.textContent = keyNode.textContent;
-                list.appendChild(item);
-            });
-            frag.appendChild(list);
-            section.appendChild(frag);
+                list = document.createElement("ul");
+                keys = keywordNode.querySelectorAll(rootName + "key");
+                Array.from(keys, function (keyNode) {
+                    var item = document.createElement("li");
+                    item.textContent = keyNode.textContent;
+                    list.appendChild(item);
+                });
+                frag.appendChild(list);
+                section.appendChild(frag);
+            }
         });
 
 
