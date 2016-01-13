@@ -378,7 +378,7 @@
         "gco:Decimal": formatNumber,
         "gco:Integer": formatNumber,
 
-        Enclosure: convertEnclosureToDataUriLink,
+        Enclosure: convertEnclosureToDataUriLink
     };
 
     /**

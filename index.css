@@ -93,7 +93,7 @@ section:scope {
     border: none;
 }
 
-.country-us .address, .country-us .country, a.p-tel, a.u-email {
+.country-us .address, .country-us .country, .p-tel, .u-email {
     display: block;
 }
 
