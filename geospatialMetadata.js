@@ -376,7 +376,9 @@
         electronicMailAddress: formatEmail,
         voice: formatPhoneNumber,
         "gco:Decimal": formatNumber,
-        "gco:Integer": formatNumber
+        "gco:Integer": formatNumber,
+
+        Enclosure: convertEnclosureToDataUriLink,
     };
 
     /**
@@ -410,12 +412,44 @@
     }
 
     /**
-     * 
+     * Gets the metadata tile from an XML geospatial metadata document.
      * @param {XMLDocument} doc - XML document
+     * @returns {string} Returns the title. If title cannot be found, "Untitled" is returned.
      */
     function getTitle(doc) {
         var title = doc.querySelector("title,resTitle");
         return title ? title.textContent : "Untitled";
+    }
+
+    /**
+     * Converts the base-64 encoded source metadata XML document from an ESRI format metadata XML document
+     * and converts it into a data URI link.
+     * @param {Element} enclosureNode - A Binary/Enclosure element.
+     * @returns {HTMLAnchorElement} - An HTML link pointing to the data URI.
+     */
+    function convertEnclosureToDataUriLink(enclosureNode) {
+        var dataNode = enclosureNode.querySelector("Data");
+        var description = enclosureNode.querySelector("Descript").textContent;
+        var propertyType = dataNode.getAttribute("EsriPropertyType"); // should be "Base64";
+        var metadataSchema = dataNode.getAttribute("SourceMetadataSchema"); // e.g., "fgdc";
+        var sourceMetadata = dataNode.getAttribute("SourceMetadata");
+        var originalFilename = dataNode.getAttribute("OriginalFileName");
+        sourceMetadata = /^yes$/i.test(sourceMetadata);
+        var data = dataNode.textContent;
+        // Remove newline characters.
+        data = data.replace(/[\r\n]/g, "");
+        // Create data URI (Assuming XML for now. Metadata may possibly have other enclosures besides source metadata XML document.)
+        var uri = "data:text/xml;base64," + data;
+
+        // Create the link.
+        var a = document.createElement("a");
+        a.href = uri;
+        a.textContent = description;
+        if (originalFilename) {
+            a.textContent += [" (", originalFilename, ")"].join("");
+        }
+        a.target = "_blank";
+        return a;
     }
 
     /**

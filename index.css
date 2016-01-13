@@ -110,3 +110,8 @@ section:scope {
 .LanguageCode {
     border: none;
 }
+
+.Binary > a {
+    display: list-item;
+    list-style-position: inside;
+}

@@ -46,7 +46,7 @@ The code currently only has special handiling for [CSDGM] metadata XML. Newer st
 
 ### Add handling for ArcGIS Metadata XML format ###
 
-Add code for handling [ArcGIS metadata format] XML. This format can contain one or more other XML documents as base-64 encoded strings.
+Add code for handling [ArcGIS metadata format] XML elements. Only `Binary/Enclosure` elements are currently handled.
 
 [ArcGIS metadata format]:http://desktop.arcgis.com/en/desktop/latest/manage-data/metadata/the-arcgis-metadata-format.htm
 [CSDGM]:http://www.fgdc.gov/metadata/geospatial-metadata-standards#csdgm
