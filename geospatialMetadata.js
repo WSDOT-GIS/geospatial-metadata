@@ -357,6 +357,13 @@
         return a;
     }
 
+    function formatNumber(numberNode) {
+        var dataElement = document.createElement("data");
+        dataElement.classList.add(numberNode.name);
+        dataElement.textContent = numberNode.textContent;
+        return dataElement;
+    }
+
     // Create a mapping of node names to formatting functions.
     var nodeNameToFunction = {
         eainfo: createAttributesTable,
@@ -364,7 +371,12 @@
         keywords: createKeywordsLists,
         sngdate: formatSngdate,
         cntemail: formatEmail,
-        cntvoice: formatPhoneNumber
+        cntvoice: formatPhoneNumber,
+
+        electronicMailAddress: formatEmail,
+        voice: formatPhoneNumber,
+        "gco:Decimal": formatNumber,
+        "gco:Integer": formatNumber
     };
 
     /**
@@ -398,6 +410,15 @@
     }
 
     /**
+     * 
+     * @param {XMLDocument} doc - XML document
+     */
+    function getTitle(doc) {
+        var title = doc.querySelector("title,resTitle");
+        return title ? title.textContent : "Untitled";
+    }
+
+    /**
      * Converts an XML document or node into an HTML document fragment.
      * @param {XMLDocument|Element} node - Either an XML document or one of its children.
      * @returns {DocumentFragment} An HTML document fragment
@@ -407,11 +428,12 @@
         var currentNode;
 
         var heading, section, title, date, attributesTable, frag, i, l, attrList;
+        var treatAsTextRE = /(CharacterString)|(LanguageCode)|(((CI)|(MD))_\w+Code)/;
 
 
         // Add page title if this is the root element.
         if (node.nodeName === "#document") {
-            title = node.querySelector("title").textContent || "Untitled";
+            title = getTitle(node);
             heading = document.createElement("header");
             heading.innerHTML = ["<h1>", title, "</h1>"].join("");
             document.body.appendChild(heading);
@@ -438,7 +460,7 @@
                 }
                 if (nodeNameToFunction.hasOwnProperty(currentNode.nodeName)) {
                     output.appendChild(nodeNameToFunction[currentNode.nodeName](currentNode));
-                } else if (currentNode instanceof Text || currentNode.nodeName.match(/characterstring/i)) {
+                } else if (currentNode instanceof Text || currentNode.nodeName.match(treatAsTextRE)) {
                     output.appendChild(insertBreaksAtNewlines(currentNode.textContent));
                 } else {
                     // Create the section header if this is not the root element.

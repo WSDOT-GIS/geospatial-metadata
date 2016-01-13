@@ -104,3 +104,9 @@ section:scope {
 .country-us .postal:before {
     content: '  '
 }
+
+.CI_Contact, .CI_Telephone, .CI_Address, .CI_ResponsibleParty, .CI_RoleCode, 
+.MD_Distribution, .MD_Distributor, .MD_ScopeCode, .MD_VectorSpatialRepresentation, .MD_GeometricObjects, .MD_GeometricObjectTypeCode
+.LanguageCode {
+    border: none;
+}
