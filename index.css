@@ -40,6 +40,18 @@ section > h1, h2 {
     display: inline;
 }
 
+.p-tel:before {
+    content: '☎ ';
+}
+
+.p-tel-fax:before {
+    content: '📠 ';
+}
+
+.u-email:before {
+    content: '📧 ';
+}
+
 table {
     border: 1px solid black;
     border-collapse: collapse;
@@ -82,26 +94,23 @@ section:scope {
 .cntinfo, .cntinfo section {
     border: none;
     margin: auto;
-    padding: 0;
-}
-
-.cntinfo h1 {
-    display: none;
+    /*padding: 0;*/
 }
 
 .distinfo section {
     border: none;
 }
 
+.country-usa .address, .country-usa .country,
 .country-us .address, .country-us .country, .p-tel, .u-email {
     display: block;
 }
 
-.country-us .city:after{
+.country-us .city:after, .country-usa .city:after{
     content: ', '
 }
 
-.country-us .postal:before {
+.country-us .postal:before, .country-usa .postal:before {
     content: '  '
 }
 
@@ -114,4 +123,21 @@ section:scope {
 .Binary > a {
     display: list-item;
     list-style-position: inside;
+}
+
+progress[title=loading] {
+    display: none;
+}
+
+.loading progress {
+    display:block;
+}
+
+.loading form, .loaded form {
+    display: none;
+}
+
+.error {
+    background-color: #ffb0b0;
+    color: red;
 }

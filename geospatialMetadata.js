@@ -16,6 +16,18 @@
     "use strict";
     var dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
 
+    /**
+     * Converts a string to a valid class name.
+     * @param {string} s - A string.
+     * @returns {string} valid class name string
+     */
+    function toValidClassName(s) {
+        if (s) {
+            s = s.replace(/[^\-a-z0-9]+/i, "-");
+        }
+        return s;
+    }
+
     var microFormats = {
         address: "p-street-address",
         city: "p-locality",
@@ -34,31 +46,9 @@
      * @param {string} yyyyMMdd - Date string - Parts can optionally be separated by dashes or slashes.
      * @param {string} [hhmmss] - Time string
      * @returns {Date} Returns a date object equivalent to the input date and time strings.
+     * @throws {Error} Throws an error if yyyyMMdd is in an unexpected format.
      */
     function parseDate(yyyyMMdd, hhmmss) {
-        var re = /(\d{4})[-\/]?(\d{2})[-\/]?(\d{2})/i;
-        var match = yyyyMMdd.match(re);
-        if (match) {
-            // Remove the first element, which is the entire matched part of the string.
-            // We only want the digit groups.
-            match = match.slice(1);
-            //match = match.map(function (s) { return parseInt(s, 10); });
-        }
-        var timeMatch;
-        if (hhmmss) {
-            // Match each occurance of a number
-            re = /\d+/g;
-            timeMatch = hhmmss.match(re);
-            if (timeMatch) {
-                match = match.concat(timeMatch);
-            }
-        }
-
-        //var parts = match.map(parseInt);
-        var parts = match.map(function (p) {
-            return parseInt(p, 10);
-        });
-
 
         //var date = new Date(...parts); // ES6 - doesn't work in IE.
         function createDate(a, b, c, d, e, f) {
@@ -67,20 +57,52 @@
             f = f || 0;
             return new Date(a, b, c, d, e, f);
         }
-        var date = createDate.apply(null, parts);
+
+        var re = /(\d{4})[-\/]?(\d{2})[-\/]?(\d{2})/i;
+        var match = yyyyMMdd.match(re);
+        var date, timeMatch, parts;
+        if (match) {
+            // Remove the first element, which is the entire matched part of the string.
+            // We only want the digit groups.
+            match = match.slice(1);
+            //match = match.map(function (s) { return parseInt(s, 10); });
+
+            if (hhmmss) {
+                // Match each occurance of a number
+                re = /\d+/g;
+                timeMatch = hhmmss.match(re);
+                if (timeMatch) {
+                    match = match.concat(timeMatch);
+                }
+            }
+
+            parts = match.map(function (p) {
+                return parseInt(p, 10);
+            });
+
+
+
+            date = createDate.apply(null, parts);
+        } else {
+            throw new Error("Unexpected date format");
+        }
 
         return date;
     }
 
     /**
      * Converts a Date into a <time> element
-     * @param {string} dateString - A Date object
+     * @param {string} dateString - A string representation of a date.
      * @param {string} [time] - An optional time string.
      * @return {HTMLTimeElement|HTMLUnknownElement} - If the browser supports it, an HTMLTimeElement will be returned. Otherwise an HTMLUnknownElement will be returned.
+     * @throws {TypeError} Thrown if dateString is null, empty, undefined, or otherwise inproperly formatted.
      */
     function toTimeNode(dateString, time) {
-        var output = document.createElement("time");
-        var date;
+        var output, date;
+        if (!dateString) {
+            throw new TypeError("No date provided");
+        }
+        output = document.createElement("time");
         if (!(time && !/Unknown/i.test(time))) {
             date = parseDate(dateString);
             output.setAttribute("datetime", date.toISOString().replace(/T.+$/, ""));
@@ -90,6 +112,7 @@
             output.setAttribute("datetime", date.toISOString());
             output.textContent = date.toLocaleString();
         }
+
         return output;
     }
 
@@ -127,22 +150,17 @@
      * @returns {HTMLElement} Returns an HTML element.
      */
     function formatSngdate(sngDateElement) {
-        var dateString = sngDateElement.querySelector("caldate").textContent;
-        var time = sngDateElement.querySelector("time");
-        time = time && time.textContent ? time.textContent : undefined;
-        return toTimeNode(dateString, time);
-        //var output = document.createElement("time");
-        //var date;
-        //if (/Unknown/i.test(time.textContent)) {
-        //    date = parseDate(dateString);
-        //    output.setAttribute("datetime", date.toISOString().replace(/T.+$/, ""));
-        //    output.textContent = date.toLocaleDateString();
-        //} else {
-        //    date = parseDate(dateString, time.textContent);
-        //    output.setAttribute("datetime", date.toISOString());
-        //    output.textContent = date.toLocaleString();
-        //}
-        //return output;
+        var calDateNode = sngDateElement.querySelector("caldate");
+        var dateString, time, output;
+        if (calDateNode) {
+            dateString = sngDateElement.querySelector("caldate").textContent;
+            time = sngDateElement.querySelector("time");
+            time = time && time.textContent ? time.textContent : undefined;
+            output = toTimeNode(dateString, time);
+        } else {
+            createErrorPreElement(sngDateElement);
+        }
+        return output;
     }
 
     /**
@@ -161,16 +179,19 @@
         var output = document.createElement("section");
         var addrtype = node.querySelector("addrtype");
         addrtype = addrtype.textContent || "";
+        var addrClass = toValidClassName(addrtype);
         var label = document.createElement("h1");
         if (addrtype) {
-            label.textContent = [addrtype, "address"].join(" ");
+            label.textContent = addrtype;
             output.appendChild(label);
         }
         
         var p = document.createElement("p");
         p.setAttribute("class", "h-addr address");
-        p.classList.add(addrtype);
-        p.classList.add("h-addr-" + addrtype);
+        if (addrClass) {
+            p.classList.add(addrClass);
+            p.classList.add("h-addr-" + addrClass);
+        }
 
 
 
@@ -339,24 +360,25 @@
 
     /**
      * Converts a phone number string into an <a href="tel:..."> link.
-     * @param {Node|string} phone - A phone number.
+     * @param {Element} phoneElement - A phone number.
      * @returns {HTMLAnchorElement} An anchor element with a link to the input phone number. Microdata class "p-tel" is also added.
      */
-    function formatPhoneNumber(phone) {
+    function formatPhoneNumber(phoneElement) {
         var re = /\d+/g;
-        phone = phone.textContent || phone;
+        var phone = phoneElement.textContent;
         var parts = phone.match(re);
         var unseparatedPhone = parts.join("");
-        var url;
+        var isFax = /fax/i.test(phoneElement.nodeName);
+        var url = isFax ? "fax:" : "tel:";
         if (unseparatedPhone.length === 10) {
-            url = ["tel:+1-", phone].join("");
+            url += ["+1-", phone].join("");
         } else {
-            url = "tel:" + phone;
+            url += phone;
         }
         var a = document.createElement("a");
         a.textContent = phone;
         a.href = url;
-        a.classList.add("p-tel");
+        a.classList.add(isFax ? "p-tel-fax" : "p-tel");
         return a;
     }
 
@@ -375,14 +397,16 @@
         sngdate: formatSngdate,
         cntemail: formatEmail,
         cntvoice: formatPhoneNumber,
+        cntfax: formatPhoneNumber,
 
         electronicMailAddress: formatEmail,
         voice: formatPhoneNumber,
+        fax: formatPhoneNumber,
         "gco:Decimal": formatNumber,
         "gco:Integer": formatNumber,
 
         Enclosure: convertEnclosureToDataUriLink,
-        Thumbnail: convertThumbnailToImage,
+        Thumbnail: convertThumbnailToImage
     };
 
     /**
@@ -470,6 +494,24 @@
     }
 
     /**
+     * Creates a <pre class="error"> element with the contents of an XML node.
+     * @param {Element} errorElement - An XML element that is to be displayed in a <pre> node.
+     * @returns {HTMLPreElement} - A <pre> containing the XML markup of the input element.
+     */
+    function createErrorPreElement(errorElement) {
+        var pre, xmlSerializer;
+        pre = document.createElement("pre");
+        pre.classList.add("error");
+        if (errorElement.outerHTML) {
+            pre.textContent = errorElement.outerHTML;
+        } else {
+            xmlSerializer = new XMLSerializer();
+            pre.textContent = xmlSerializer.serializeToString(errorElement);
+        }
+        return pre;
+    }
+
+    /**
      * Converts an XML document or node into an HTML document fragment.
      * @param {XMLDocument|Element} node - Either an XML document or one of its children.
      * @returns {DocumentFragment} An HTML document fragment
@@ -510,7 +552,11 @@
                     continue;
                 }
                 if (nodeNameToFunction.hasOwnProperty(currentNode.nodeName)) {
-                    output.appendChild(nodeNameToFunction[currentNode.nodeName](currentNode));
+                    try {
+                        output.appendChild(nodeNameToFunction[currentNode.nodeName](currentNode));
+                    } catch (err) {
+                        output.appendChild(createErrorPreElement(currentNode));
+                    }
                 } else if (currentNode instanceof Text || currentNode.nodeName.match(treatAsTextRE)) {
                     output.appendChild(insertBreaksAtNewlines(currentNode.textContent));
                 } else {
@@ -530,7 +576,11 @@
 
                     // Handle date nodes
                     if (dateNodeNamesRe.test(currentNode.nodeName)) {
-                        section.appendChild(toTimeNode(currentNode.textContent));
+                        try {
+                            section.appendChild(toTimeNode(currentNode.textContent));
+                        } catch (e) {
+                            section.appendChild(createErrorPreElement(currentNode));
+                        }
                     } else if (currentNode) {
                         frag = toHtmlFragment(currentNode);
                         if (frag) {
