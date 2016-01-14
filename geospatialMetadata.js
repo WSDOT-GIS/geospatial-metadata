@@ -381,7 +381,8 @@
         "gco:Decimal": formatNumber,
         "gco:Integer": formatNumber,
 
-        Enclosure: convertEnclosureToDataUriLink
+        Enclosure: convertEnclosureToDataUriLink,
+        Thumbnail: convertThumbnailToImage,
     };
 
     /**
@@ -453,6 +454,19 @@
         }
         a.target = "_blank";
         return a;
+    }
+
+    function convertThumbnailToImage(thumbnailNode) {
+        var dataElement = thumbnailNode.querySelector("Data");
+        var propertyType = dataElement.getAttribute("EsriPropertyType");
+        var data = dataElement.textContent;
+        data = data.replace(/[\r\n]/g, "");
+        var src = "data:image/png;base64," + data;
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = "thumbnail";
+        img.classList.add("thumbnail");
+        return img;
     }
 
     /**
