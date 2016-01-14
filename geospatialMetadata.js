@@ -389,25 +389,7 @@
         return dataElement;
     }
 
-    // Create a mapping of node names to formatting functions.
-    var nodeNameToFunction = {
-        eainfo: createAttributesTable,
-        cntaddr: formatAddress,
-        keywords: createKeywordsLists,
-        sngdate: formatSngdate,
-        cntemail: formatEmail,
-        cntvoice: formatPhoneNumber,
-        cntfax: formatPhoneNumber,
 
-        electronicMailAddress: formatEmail,
-        voice: formatPhoneNumber,
-        fax: formatPhoneNumber,
-        "gco:Decimal": formatNumber,
-        "gco:Integer": formatNumber,
-
-        Enclosure: convertEnclosureToDataUriLink,
-        Thumbnail: convertThumbnailToImage
-    };
 
     /**
      * Creates a list of an XML node's attributes. Attributes with names starting with "xmlns", and "codeList..." and "codeSpace" will be omitted.
@@ -512,6 +494,39 @@
     }
 
     /**
+     * Converts an XML comment into a paragraph element.
+     * @param {Comment} comment - an XML commenet
+     * @returns {HTMLParagraphElement}
+     */
+    function commentToParagraph(comment) {
+        var p = document.createElement("p");
+        p.classList.add("comment");
+        p.textContent = comment.textContent;
+        return p;
+    }
+
+    // Create a mapping of node names to formatting functions.
+    var nodeNameToFunction = {
+        "#comment": commentToParagraph,
+        eainfo: createAttributesTable,
+        cntaddr: formatAddress,
+        keywords: createKeywordsLists,
+        sngdate: formatSngdate,
+        cntemail: formatEmail,
+        cntvoice: formatPhoneNumber,
+        cntfax: formatPhoneNumber,
+
+        electronicMailAddress: formatEmail,
+        voice: formatPhoneNumber,
+        fax: formatPhoneNumber,
+        "gco:Decimal": formatNumber,
+        "gco:Integer": formatNumber,
+
+        Enclosure: convertEnclosureToDataUriLink,
+        Thumbnail: convertThumbnailToImage
+    };
+
+    /**
      * Converts an XML document or node into an HTML document fragment.
      * @param {XMLDocument|Element} node - Either an XML document or one of its children.
      * @returns {DocumentFragment} An HTML document fragment
@@ -548,7 +563,7 @@
 
             for (i = 0; i < node.childNodes.length; i++) {
                 currentNode = node.childNodes[i];
-                if (!currentNode || currentNode instanceof Comment) {
+                if (!currentNode) {
                     continue;
                 }
                 if (nodeNameToFunction.hasOwnProperty(currentNode.nodeName)) {

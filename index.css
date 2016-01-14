@@ -18,6 +18,11 @@ section {
     display: inline-block;
 }
 
+.comment {
+    font-style: italic;
+    font-weight: bold;
+}
+
 .metainfo > section {
     border: none;
 }
