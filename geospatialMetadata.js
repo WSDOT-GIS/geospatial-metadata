@@ -496,10 +496,10 @@
     /**
      * Converts an XML comment into a paragraph element.
      * @param {Comment} comment - an XML commenet
-     * @returns {HTMLParagraphElement}
+     * @returns {HTMLParagraphElement} A paragraph containing the text of the comment.
      */
     function commentToParagraph(comment) {
-        var p = document.createElement("p");
+        var p = document.createElement("pre");
         p.classList.add("comment");
         p.textContent = comment.textContent;
         return p;
