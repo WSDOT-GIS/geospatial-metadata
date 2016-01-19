@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Geospatial Metadata XML to HTML conversion</title>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="http://www.wsdot.wa.gov/favicon.ico" async="async" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" />
@@ -11,16 +11,20 @@
 <body>
     <noscript>JavaScript must be enabled.</noscript>
     <progress title="loading">Loading...</progress>
+    <h1>Geospatial Metadata XML to HTML conversion</h1>
+    <p>Specify either the URL to an XML file or specify an XML file from your computer, then click the <em>Submit</em> button.</p>
     <form role="form">
         <div class="form-group">
             <label class="control-label" for="urlInput">Geospatial Metadata URL</label>
             <input name="url" type="url" class="form-control" id="urlInput" placeholder="Geospatial Metadata URL" autocomplete="on" />
         </div>
 
+        <p>or</p>
+
         <div class="form-group">
-            <label class="control-label" for="fileInput">Upload XML File</label>
+            <label class="control-label" for="fileInput">Local XML File</label>
             <input type="file" class="form-control" id="fileInput" 
-                   placeholder="Upload XML File" accept="text/xml">
+                   placeholder="Select local XML File" accept="text/xml">
         </div>
 
         <button type="submit" class="btn btn-default">Submit</button>

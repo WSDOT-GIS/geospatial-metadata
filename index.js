@@ -111,7 +111,7 @@
         var reader = new FileReader();
         reader.onloadend = function (progressEvent) {
             var xml = this.result;
-            document.body.innertHTML = "";
+            document.body.innerHTML = "";
             document.body.classList.add("loaded");
             handleXml(xml);
             history.pushState(xml, null, "#localfile");
