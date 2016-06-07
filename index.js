@@ -1,4 +1,4 @@
-﻿/// <reference path="gisMetadata.js" />
+﻿/// <reference path="geospatialMetadata.js" />
 (function () {
     "use strict";
     var url, request, dataUrlRe, match, xml;
