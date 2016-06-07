@@ -1,4 +1,10 @@
-﻿body > header > h1 {
+html {
+    font-family: 'Lato', 'Arial', sans-serif;
+    color: #1E252B;
+    font-size: 11pt;
+}
+
+body > header > h1 {
     text-align: center;
 }
 
@@ -37,7 +43,7 @@ body > section {
 }
 
 section > h1, h2 {
-    color: blue;
+    color: #00795F;
     font-size: 1em;
 }
 
@@ -119,7 +125,7 @@ section:scope {
     content: '  '
 }
 
-.CI_Contact, .CI_Telephone, .CI_Address, .CI_ResponsibleParty, .CI_RoleCode, 
+.CI_Contact, .CI_Telephone, .CI_Address, .CI_ResponsibleParty, .CI_RoleCode,
 .MD_Distribution, .MD_Distributor, .MD_ScopeCode, .MD_VectorSpatialRepresentation, .MD_GeometricObjects, .MD_GeometricObjectTypeCode
 .LanguageCode {
     border: none;
@@ -143,6 +149,6 @@ progress[title=loading] {
 }
 
 .error {
-    background-color: #ffb0b0;
-    color: red;
+    background-color: #ffa0a0;
+    color: #b00000;
 }

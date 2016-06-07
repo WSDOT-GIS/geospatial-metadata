@@ -1,5 +1,4 @@
 /// <reference path="./typings/globals/es2015-array/index.d.ts" />
-/// <reference path="./interfaces.d.ts" />
 (function (factory) {
     if (typeof module === 'object' && typeof module.exports === 'object') {
         var v = factory(require, exports); if (v !== undefined) module.exports = v;
@@ -9,7 +8,8 @@
     }
 })(function (require, exports) {
     "use strict";
-    var csdgmAliases = require("./csdgmAliases");
+    var csdgm = require("./csdgmAliases");
+    var csdgmAliases = csdgm.default;
     /**
      * XMLDocument
      * @external XMLDocument
@@ -47,8 +47,10 @@
      * @throws {Error} Throws an error if yyyyMMdd is in an unexpected format.
      */
     function parseDate(yyyyMMdd, hhmmss) {
-        //let date = new Date(...parts); // ES6 - doesn't work in IE.
         function createDate(a, b, c, d, e, f) {
+            if (d === void 0) { d = 0; }
+            if (e === void 0) { e = 0; }
+            if (f === void 0) { f = 0; }
             d = d || 0;
             e = e || 0;
             f = f || 0;
@@ -56,7 +58,7 @@
         }
         var re = /(\d{4})[-\/]?(\d{2})[-\/]?(\d{2})/i;
         var match = yyyyMMdd.match(re);
-        var date, timeMatch, parts;
+        var date;
         if (match) {
             // Remove the first element, which is the entire matched part of the string.
             // We only want the digit groups.
@@ -65,18 +67,25 @@
             if (hhmmss) {
                 // Match each occurance of a number
                 re = /\d+/g;
-                timeMatch = hhmmss.match(re);
+                var timeMatch = hhmmss.match(re);
                 if (timeMatch) {
                     match = match.concat(timeMatch);
                 }
             }
-            parts = match.map(function (p) {
+            var parts = match.map(function (p) {
                 return parseInt(p, 10);
             });
+            // let date = new Date(...parts); // ES6 - doesn't work in IE.
             date = createDate.apply(null, parts);
         }
         else {
-            throw new Error("Unexpected date format");
+            var dateInt = Date.parse(yyyyMMdd);
+            if (!isNaN(dateInt)) {
+                date = new Date(dateInt);
+            }
+            else {
+                throw new Error("Unexpected date format");
+            }
         }
         return date;
     }

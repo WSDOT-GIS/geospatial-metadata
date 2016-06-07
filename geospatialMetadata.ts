@@ -1,7 +1,8 @@
 /// <reference path="./typings/globals/es2015-array/index.d.ts" />
-/// <reference path="./interfaces.d.ts" />
 
-import * as csdgmAliases from "./csdgmAliases"
+import * as csdgm from "./csdgmAliases"
+
+let csdgmAliases = csdgm.default;
 
 /**
  * XMLDocument
@@ -45,8 +46,7 @@ let microFormats = {
  */
 function parseDate(yyyyMMdd: string, hhmmss?: string): Date {
 
-    //let date = new Date(...parts); // ES6 - doesn't work in IE.
-    function createDate(a, b, c, d, e, f) {
+    function createDate(a:number, b:number, c:number, d:number=0, e:number=0, f:number=0) {
         d = d || 0;
         e = e || 0;
         f = f || 0;
@@ -55,7 +55,7 @@ function parseDate(yyyyMMdd: string, hhmmss?: string): Date {
 
     let re = /(\d{4})[-\/]?(\d{2})[-\/]?(\d{2})/i;
     let match = yyyyMMdd.match(re);
-    let date, timeMatch, parts;
+    var date;
     if (match) {
         // Remove the first element, which is the entire matched part of the string.
         // We only want the digit groups.
@@ -65,21 +65,27 @@ function parseDate(yyyyMMdd: string, hhmmss?: string): Date {
         if (hhmmss) {
             // Match each occurance of a number
             re = /\d+/g;
-            timeMatch = hhmmss.match(re);
+            let timeMatch = hhmmss.match(re);
             if (timeMatch) {
                 match = match.concat(timeMatch);
             }
         }
 
-        parts = match.map(function (p) {
+        let parts = match.map(function (p) {
             return parseInt(p, 10);
         });
 
 
 
+        // let date = new Date(...parts); // ES6 - doesn't work in IE.
         date = createDate.apply(null, parts);
     } else {
-        throw new Error("Unexpected date format");
+        let dateInt = Date.parse(yyyyMMdd);
+        if (!isNaN(dateInt)) {
+            date = new Date(dateInt);
+        } else {
+            throw new Error("Unexpected date format");
+        }
     }
 
     return date;

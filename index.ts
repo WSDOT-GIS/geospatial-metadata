@@ -1,10 +1,8 @@
+/// <reference path="./typings/index.d.ts" />
+
 import { toObject, toHtmlFragment} from "./geospatialMetadata";
-
-(function(){
-
-let url, request, dataUrlRe, match, xml;
-
-dataUrlRe = /^data\:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+\/]+)/i; // [whole, MIME-type?, base64?, content]
+let url, request, match, xml;
+let dataUrlRe = /^data\:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+\/]+)/i; // [whole, MIME-type?, base64?, content]
 
 /**
  * Reset the page content to the data from the data URI link.
@@ -59,7 +57,7 @@ function handleXml(xml) {
     let links = document.querySelectorAll("a[href]"); // document.querySelectorAll("a[href^='data:text/xml;base64']"); // doesn't work in IE 11, always returns 0 nodes.
 
     // Setup special click event handler for data URI links.
-    Array.from(links, function (link) {
+    Array.from(links, function (link:HTMLAnchorElement) {
         if (dataUrlRe.test(link.href)) {
             link.onclick = handleDataUrlLinkClick;
         }
@@ -99,7 +97,7 @@ if (url) {
 } else {
     // Add bootstrap stylesheets
     (function () {
-        let template = document.getElementById("bootstrapStylesheetsTemplate");
+        let template:any = document.getElementById("bootstrapStylesheetsTemplate");
         document.head.appendChild(template.content);
     }());
 }
@@ -121,7 +119,7 @@ function openFile(file) {
 }
 
 if (document.forms.length > 0) {
-    let form = document.forms[0];
+    let form:any = document.forms[0];
 
     form.onsubmit = function () {
         let fileInput = form.querySelector("#fileInput");
@@ -149,7 +147,6 @@ window.onpopstate = function (popStateEvent) {
         window.scroll(0, 0); // scroll back to the top of the page.
     } else {
         // Reload the page if the state has no XML.
-        window.open(window.location, "_self");
+        window.open(window.location.href, "_self");
     }
 }
-}());
