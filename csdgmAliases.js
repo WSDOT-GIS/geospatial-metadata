@@ -1,24 +1,22 @@
-(function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(factory);
-    } else {
-        // Browser globals
-        root.csdgmAliases = factory();
+(function (factory) {
+    if (typeof module === 'object' && typeof module.exports === 'object') {
+        var v = factory(require, exports); if (v !== undefined) module.exports = v;
     }
-}(this, function () {
-    return {
+    else if (typeof define === 'function' && define.amd) {
+        define(["require", "exports"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.default = {
         accconst: "Access Constraints",
-
         attracc: "Attribute Accuracy",
         attraccr: "Attribute Accuracy Report",
-
         bounding: "Bounding Coordinates",
-            westbc: "West Bounding Coordinate",
-            eastbc: "East Bounding Coordinate",
-            northbc: "North Bounding Coordinate",
-            southbc: "South Bounding Coordinate",
-
+        westbc: "West Bounding Coordinate",
+        eastbc: "East Bounding Coordinate",
+        northbc: "North Bounding Coordinate",
+        southbc: "South Bounding Coordinate",
         citeinfo: "Citation Information",
         cntinfo: "Contact Info",
         cntorg: "Contact Organization",
@@ -36,7 +34,7 @@
         distrib: "Distributor",
         descript: "Description",
         geoform: "Geospatial Data Presentation Form",
-        idinfo:"Identification Information",
+        idinfo: "Identification Information",
         metainfo: "Metadata Reference Information",
         metc: "Metadata Contact",
         metd: "Metadata Date",
@@ -46,8 +44,8 @@
         native: "Native Data Set Environment",
         origin: "Originator",
         posacc: "Positional Accuracy",
-            horizpa: "Horizontal Positional Accuracy",
-            horizpar: "Horizontal Positional Accuracy Report",
+        horizpa: "Horizontal Positional Accuracy",
+        horizpar: "Horizontal Positional Accuracy Report",
         ptcontac: "Point of Contact",
         proccont: "Process Contact",
         procdate: "Process Date",
@@ -66,32 +64,25 @@
         timeperd: "Time Period",
         update: "Maintenance and Update Frequency",
         useconst: "Use Constraints",
-
-
         horizsys: "Horizontal Coordinate System Definition",
-            spref: "Spatial Reference Information",
-            mapproj: "Map Projection",
-            lambertc: "Lambert Conformal Conic",
-            stdparll: "Standard Parallel",
-            longcm: "Longitude of Central Meridian",
-            latprjo: "Latitude of Projection Origin",
-            feast: "False Easting",
-            fnorth: "False Northing",
-
+        spref: "Spatial Reference Information",
+        mapproj: "Map Projection",
+        lambertc: "Lambert Conformal Conic",
+        stdparll: "Standard Parallel",
+        longcm: "Longitude of Central Meridian",
+        latprjo: "Latitude of Projection Origin",
+        feast: "False Easting",
+        fnorth: "False Northing",
         planci: "Planar Coordinate Information",
-            plance: "Planar Coordinate Encoding Method",
-            coordrep: "Coordinate Representation",
-            absres: "Abscissa Resolution",
-            ordres: "Ordinate Resolution",
-            plandu: "Planar Distance Unit",
-
+        plance: "Planar Coordinate Encoding Method",
+        coordrep: "Coordinate Representation",
+        absres: "Abscissa Resolution",
+        ordres: "Ordinate Resolution",
+        plandu: "Planar Distance Unit",
         geodedic: "Geodedic Model",
-            horizdn: "Horizontal Datum Name",
-            ellips: "Ellipsoid Name",
-            semiaxis: "Semi-major Axis",
-            denflat: "Denominator of Flattening Ratio"
-
-
-
-    }
-}));
+        horizdn: "Horizontal Datum Name",
+        ellips: "Ellipsoid Name",
+        semiaxis: "Semi-major Axis",
+        denflat: "Denominator of Flattening Ratio"
+    };
+});
