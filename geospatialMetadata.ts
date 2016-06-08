@@ -1,6 +1,8 @@
 /// <reference path="./typings/globals/es2015-array/index.d.ts" />
 
-import * as csdgm from "./csdgmAliases"
+import * as csdgm from "./csdgmAliases";
+import { parseDate } from "./dateUtils";
+import { toValidClassName, capitalizeFirstCharacter } from "./stringUtils";
 
 let csdgmAliases = csdgm.default;
 
@@ -11,18 +13,6 @@ let csdgmAliases = csdgm.default;
  */
 
 let dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
-
-/**
- * Converts a string to a valid class name.
- * @param {string} s - A string.
- * @returns {string} valid class name string
- */
-function toValidClassName(s: string): string {
-    if (s) {
-        s = s.replace(/[^\-a-z0-9]+/i, "-");
-    }
-    return s;
-}
 
 let microFormats = {
     address: "p-street-address",
@@ -36,60 +26,6 @@ let microFormats = {
     cntinfo: "h-card",
     cntemail: "u-email"
 };
-
-/**
- * Parses a yyyyMMdd date string into a date object.
- * @param {string} yyyyMMdd - Date string - Parts can optionally be separated by dashes or slashes.
- * @param {string} [hhmmss] - Time string
- * @returns {Date} Returns a date object equivalent to the input date and time strings.
- * @throws {Error} Throws an error if yyyyMMdd is in an unexpected format.
- */
-function parseDate(yyyyMMdd: string, hhmmss?: string): Date {
-
-    function createDate(a:number, b:number, c:number, d:number=0, e:number=0, f:number=0) {
-        d = d || 0;
-        e = e || 0;
-        f = f || 0;
-        return new Date(a, b, c, d, e, f);
-    }
-
-    let re = /(\d{4})[-\/]?(\d{2})[-\/]?(\d{2})/i;
-    let match = yyyyMMdd.match(re);
-    var date;
-    if (match) {
-        // Remove the first element, which is the entire matched part of the string.
-        // We only want the digit groups.
-        match = match.slice(1);
-        //match = match.map(function (s) { return parseInt(s, 10); });
-
-        if (hhmmss) {
-            // Match each occurance of a number
-            re = /\d+/g;
-            let timeMatch = hhmmss.match(re);
-            if (timeMatch) {
-                match = match.concat(timeMatch);
-            }
-        }
-
-        let parts = match.map(function (p) {
-            return parseInt(p, 10);
-        });
-
-
-
-        // let date = new Date(...parts); // ES6 - doesn't work in IE.
-        date = createDate.apply(null, parts);
-    } else {
-        let dateInt = Date.parse(yyyyMMdd);
-        if (!isNaN(dateInt)) {
-            date = new Date(dateInt);
-        } else {
-            throw new Error("Unexpected date format");
-        }
-    }
-
-    return date;
-}
 
 /**
  * Converts a Date into a <time> element
@@ -305,22 +241,6 @@ function createKeywordsLists(node: XMLDocument | Element): HTMLElement {
 }
 
 /**
- * Capitalizes the first character in a string.
- * @param {string} s - A string
- * @returns {string} - A copy of the input string, but with the first character capitalized.
- */
-function capitalizeFirstCharacter(s: string): string {
-    let output = Array.from(s, function (char, i) {
-        if (i === 0) {
-            return char.toUpperCase();
-        } else {
-            return char;
-        }
-    });
-    return output.join("");
-}
-
-/**
  * Creates a document fragment from at text element, inserting <br> elements where there were newlines.
  * @param {string|Text} text - Either an XML text node or a string.
  * @returns {DocumentFragment} - An HTML document fragment.
@@ -463,6 +383,11 @@ function convertEnclosureToDataUriLink(enclosureNode: Element): HTMLAnchorElemen
     return a;
 }
 
+/**
+ * Converts a thumbnail image to an <img>.
+ * @param {Element} thumbnailNode
+ * @returns {HTMLImageElement}
+ */
 function convertThumbnailToImage(thumbnailNode: Element): HTMLImageElement {
     let dataElement = thumbnailNode.querySelector("Data");
     let propertyType = dataElement.getAttribute("EsriPropertyType");

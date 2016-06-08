@@ -4,11 +4,13 @@
         var v = factory(require, exports); if (v !== undefined) module.exports = v;
     }
     else if (typeof define === 'function' && define.amd) {
-        define(["require", "exports", "./csdgmAliases"], factory);
+        define(["require", "exports", "./csdgmAliases", "./dateUtils", "./stringUtils"], factory);
     }
 })(function (require, exports) {
     "use strict";
     var csdgm = require("./csdgmAliases");
+    var dateUtils_1 = require("./dateUtils");
+    var stringUtils_1 = require("./stringUtils");
     var csdgmAliases = csdgm.default;
     /**
      * XMLDocument
@@ -16,17 +18,6 @@
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/XMLDocument XMLDocument}
      */
     var dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
-    /**
-     * Converts a string to a valid class name.
-     * @param {string} s - A string.
-     * @returns {string} valid class name string
-     */
-    function toValidClassName(s) {
-        if (s) {
-            s = s.replace(/[^\-a-z0-9]+/i, "-");
-        }
-        return s;
-    }
     var microFormats = {
         address: "p-street-address",
         city: "p-locality",
@@ -39,56 +30,6 @@
         cntinfo: "h-card",
         cntemail: "u-email"
     };
-    /**
-     * Parses a yyyyMMdd date string into a date object.
-     * @param {string} yyyyMMdd - Date string - Parts can optionally be separated by dashes or slashes.
-     * @param {string} [hhmmss] - Time string
-     * @returns {Date} Returns a date object equivalent to the input date and time strings.
-     * @throws {Error} Throws an error if yyyyMMdd is in an unexpected format.
-     */
-    function parseDate(yyyyMMdd, hhmmss) {
-        function createDate(a, b, c, d, e, f) {
-            if (d === void 0) { d = 0; }
-            if (e === void 0) { e = 0; }
-            if (f === void 0) { f = 0; }
-            d = d || 0;
-            e = e || 0;
-            f = f || 0;
-            return new Date(a, b, c, d, e, f);
-        }
-        var re = /(\d{4})[-\/]?(\d{2})[-\/]?(\d{2})/i;
-        var match = yyyyMMdd.match(re);
-        var date;
-        if (match) {
-            // Remove the first element, which is the entire matched part of the string.
-            // We only want the digit groups.
-            match = match.slice(1);
-            //match = match.map(function (s) { return parseInt(s, 10); });
-            if (hhmmss) {
-                // Match each occurance of a number
-                re = /\d+/g;
-                var timeMatch = hhmmss.match(re);
-                if (timeMatch) {
-                    match = match.concat(timeMatch);
-                }
-            }
-            var parts = match.map(function (p) {
-                return parseInt(p, 10);
-            });
-            // let date = new Date(...parts); // ES6 - doesn't work in IE.
-            date = createDate.apply(null, parts);
-        }
-        else {
-            var dateInt = Date.parse(yyyyMMdd);
-            if (!isNaN(dateInt)) {
-                date = new Date(dateInt);
-            }
-            else {
-                throw new Error("Unexpected date format");
-            }
-        }
-        return date;
-    }
     /**
      * Converts a Date into a <time> element
      * @param {string} dateString - A string representation of a date.
@@ -103,12 +44,12 @@
         }
         output = document.createElement("time");
         if (!(time && !/Unknown/i.test(time))) {
-            date = parseDate(dateString);
+            date = dateUtils_1.parseDate(dateString);
             output.setAttribute("datetime", date.toISOString().replace(/T.+$/, ""));
             output.textContent = date.toLocaleDateString();
         }
         else {
-            date = parseDate(dateString, time);
+            date = dateUtils_1.parseDate(dateString, time);
             output.setAttribute("datetime", date.toISOString());
             output.textContent = date.toLocaleString();
         }
@@ -173,7 +114,7 @@
         var output = document.createElement("section");
         var addrtype = node.querySelector("addrtype");
         addrtype = addrtype.textContent || "";
-        var addrClass = toValidClassName(addrtype);
+        var addrClass = stringUtils_1.toValidClassName(addrtype);
         var label = document.createElement("h1");
         if (addrtype) {
             label.textContent = addrtype;
@@ -280,22 +221,6 @@
             }
         });
         return section;
-    }
-    /**
-     * Capitalizes the first character in a string.
-     * @param {string} s - A string
-     * @returns {string} - A copy of the input string, but with the first character capitalized.
-     */
-    function capitalizeFirstCharacter(s) {
-        var output = Array.from(s, function (char, i) {
-            if (i === 0) {
-                return char.toUpperCase();
-            }
-            else {
-                return char;
-            }
-        });
-        return output.join("");
     }
     /**
      * Creates a document fragment from at text element, inserting <br> elements where there were newlines.
@@ -432,6 +357,11 @@
         a.target = "_blank";
         return a;
     }
+    /**
+     * Converts a thumbnail image to an <img>.
+     * @param {Element} thumbnailNode
+     * @returns {HTMLImageElement}
+     */
     function convertThumbnailToImage(thumbnailNode) {
         var dataElement = thumbnailNode.querySelector("Data");
         var propertyType = dataElement.getAttribute("EsriPropertyType");
@@ -535,7 +465,7 @@
                     // Create the section header if this is not the root element.
                     if (currentNode.parentElement !== null) {
                         heading = document.createElement("h1");
-                        heading.textContent = csdgmAliases[currentNode.nodeName] || capitalizeFirstCharacter(currentNode.nodeName);
+                        heading.textContent = csdgmAliases[currentNode.nodeName] || stringUtils_1.capitalizeFirstCharacter(currentNode.nodeName);
                     }
                     else {
                         heading = null;

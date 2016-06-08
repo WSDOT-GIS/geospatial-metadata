@@ -45,7 +45,7 @@ function handleXml(xml) {
         xml = (function () {
             let parser = new DOMParser();
             return parser.parseFromString(xml, "text/xml");
-        }());
+        } ());
     }
     frag = toHtmlFragment(xml);
     document.body.appendChild(frag);
@@ -57,7 +57,7 @@ function handleXml(xml) {
     let links = document.querySelectorAll("a[href]"); // document.querySelectorAll("a[href^='data:text/xml;base64']"); // doesn't work in IE 11, always returns 0 nodes.
 
     // Setup special click event handler for data URI links.
-    Array.from(links, function (link:HTMLAnchorElement) {
+    Array.from(links, (link: HTMLAnchorElement) => {
         if (dataUrlRe.test(link.href)) {
             link.onclick = handleDataUrlLinkClick;
         }
@@ -66,40 +66,30 @@ function handleXml(xml) {
     disableBootstrapStylesheets();
 }
 
-
-
 if (location.search) {
     url = location.search.match(/ur[li]=([^&]+)/i); //location.search.replace(/^\?/, "");
 }
 
 if (url) {
-
     url = decodeURIComponent(url[1]);
-
-    request = new XMLHttpRequest();
-    request.open("get", url);
 
     document.body.classList.add("loading");
 
-    request.onloadend = function (e) {
-        let target = e.target || e.currentTarget || e.originalTarget;
+    fetch(url).then((response: Response) => {
         document.body.classList.remove("loading");
-        if (target.status === 200) {
-            document.body.innerHTML = "";
-            document.body.classList.add("loaded");
-            xml = target.responseXML;
-            history.replaceState(e.target.responseText, null, location.href);
-            handleXml(xml);
-        }
-    };
-
-    request.send();
+        return response.text();
+    }).then((text) => {
+        document.body.innerHTML = "";
+        document.body.classList.add("loaded");
+        history.replaceState(text, null, location.href);
+        let parser = new DOMParser();
+        let xml = parser.parseFromString(text, "text/xml");
+        handleXml(xml);
+    });
 } else {
     // Add bootstrap stylesheets
-    (function () {
-        let template:any = document.getElementById("bootstrapStylesheetsTemplate");
-        document.head.appendChild(template.content);
-    }());
+    let template: any = document.getElementById("bootstrapStylesheetsTemplate");
+    document.head.appendChild(template.content);
 }
 
 /**
@@ -119,9 +109,9 @@ function openFile(file) {
 }
 
 if (document.forms.length > 0) {
-    let form:any = document.forms[0];
+    let form: any = document.forms[0];
 
-    form.onsubmit = function () {
+    form.onsubmit = () => {
         let fileInput = form.querySelector("#fileInput");
         if (!form.url.value && !fileInput.value) {
             alert("No XML file specified.");

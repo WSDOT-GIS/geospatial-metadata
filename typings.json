@@ -1,5 +1,7 @@
 {
   "globalDependencies": {
-    "es2015-array": "registry:env/es2015-array#1.0.0+20160526151700"
+    "es2015-array": "registry:env/es2015-array#1.0.0+20160526151700",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
+    "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20160524142046"
   }
 }

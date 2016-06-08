@@ -71,28 +71,38 @@
     }
     if (url) {
         url = decodeURIComponent(url[1]);
-        request = new XMLHttpRequest();
-        request.open("get", url);
+        // request = new XMLHttpRequest();
+        // request.open("get", url);
+        // document.body.classList.add("loading");
+        // request.onloadend = function (e) {
+        //     let target = e.target || e.currentTarget || e.originalTarget;
+        //     document.body.classList.remove("loading");
+        //     if (target.status === 200) {
+        //         document.body.innerHTML = "";
+        //         document.body.classList.add("loaded");
+        //         xml = target.responseXML;
+        //         history.replaceState(e.target.responseText, null, location.href);
+        //         handleXml(xml);
+        //     }
+        // };
+        // request.send();
         document.body.classList.add("loading");
-        request.onloadend = function (e) {
-            var target = e.target || e.currentTarget || e.originalTarget;
+        fetch(url).then(function (response) {
             document.body.classList.remove("loading");
-            if (target.status === 200) {
-                document.body.innerHTML = "";
-                document.body.classList.add("loaded");
-                xml = target.responseXML;
-                history.replaceState(e.target.responseText, null, location.href);
-                handleXml(xml);
-            }
-        };
-        request.send();
+            return response.text();
+        }).then(function (text) {
+            document.body.innerHTML = "";
+            document.body.classList.add("loaded");
+            history.replaceState(text, null, location.href);
+            var parser = new DOMParser();
+            var xml = parser.parseFromString(text, "text/xml");
+            handleXml(xml);
+        });
     }
     else {
         // Add bootstrap stylesheets
-        (function () {
-            var template = document.getElementById("bootstrapStylesheetsTemplate");
-            document.head.appendChild(template.content);
-        }());
+        var template = document.getElementById("bootstrapStylesheetsTemplate");
+        document.head.appendChild(template.content);
     }
     /**
      * Opens a local XML file and formats it into HTML.
