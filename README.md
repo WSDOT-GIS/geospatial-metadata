@@ -3,7 +3,7 @@
 
 A JavaScript library for parsing and converting [Geospatial Metadata].
 
-[Try me!](http://wsdot-gis.github.io/geospatialMetadata/)
+[Try me!](http://wsdot-gis.github.io/geospatial-metadata/)
 
 Features
 --------
