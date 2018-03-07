@@ -1,5 +1,3 @@
-/// <reference path="../typings/globals/jasmine/index.d.ts" />
-
 let dateUtils = require("../dateUtils.js");
 parseDate = dateUtils.parseDate;
 

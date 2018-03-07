@@ -1,6 +1,4 @@
-/// <reference path="./typings/globals/es2015-array/index.d.ts" />
-
-let dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
+const dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
 
 /**
  * Parses a yyyyMMdd date string into a date object.
@@ -9,7 +7,7 @@ let dateNodeNamesRe = /(?:(?:(?:pub)|(?:cal)|(?:proc))date)|(?:metd)/;
  * @returns {Date} Returns a date object equivalent to the input date and time strings.
  * @throws {Error} Throws an error if yyyyMMdd is in an unexpected format.
  */
-export function parseDate(yyyyMMdd: string, hhmmss?: string): Date | string {
+export function parseDate(this: any, yyyyMMdd: string, hhmmss?: string): Date | string {
 
     /**
      * Calls the date constructor with a variable number of parameters.
@@ -20,7 +18,7 @@ export function parseDate(yyyyMMdd: string, hhmmss?: string): Date | string {
 
     let re = /^(\d{4})(?:[-\/]?([0-1]\d)(?:[-\/]?([0-3]\d)?)?)?$/i;
     let match = yyyyMMdd.match(re);
-    var date;
+    let date;
     if (match) {
         // Remove the first element, which is the entire matched part of the string.
         // We only want the digit groups.
@@ -30,8 +28,8 @@ export function parseDate(yyyyMMdd: string, hhmmss?: string): Date | string {
         let parts: number[] = [];
         // Loop through all of the matched parts, and add to number array,
         // stopping when a non-numerical string is found.
-        for (let s of match) {
-            let n: number;
+        for (const s of match) {
+            let n: number | undefined;
             if (s !== undefined && s.length) {
                 n = parseInt(s, 10);
                 if (!isNaN(n)) {
@@ -51,11 +49,11 @@ export function parseDate(yyyyMMdd: string, hhmmss?: string): Date | string {
         if (hhmmss && parts.length > 3) {
             // Match each occurance of a number
             re = /\d{2}/g;
-            let timeMatch = hhmmss.match(re);
+            const timeMatch = hhmmss.match(re);
             if (timeMatch) {
                 parts = parts.concat(timeMatch.map((s) => {
                     return parseInt(s, 10);
-                }))
+                }));
             }
         }
 
@@ -70,21 +68,21 @@ export function parseDate(yyyyMMdd: string, hhmmss?: string): Date | string {
             // date = new Date(...parts);
         } else {
             date = createDate.apply(this, parts);
-            let options: Intl.DateTimeFormatOptions = parts.length == 1 ? {
+            const options: Intl.DateTimeFormatOptions = parts.length === 1 ? {
                 year: "numeric",
-                month: "long"
+                month: "long",
             }
                 : {
-                    year: "numeric"
-                }
+                    year: "numeric",
+                };
 
-            let fmt = new Intl.DateTimeFormat(undefined, options);
+            const fmt = new Intl.DateTimeFormat(undefined, options);
             date = fmt.format(date);
         }
     } else {
         // If an unexpected date format is encountered,
         // try parsing using JavaScript built-in method.
-        let dateInt = Date.parse(yyyyMMdd);
+        const dateInt = Date.parse(yyyyMMdd);
         if (!isNaN(dateInt)) {
             date = new Date(dateInt);
         } else {

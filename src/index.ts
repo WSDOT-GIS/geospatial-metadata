@@ -1,64 +1,60 @@
-/// <reference path="./typings/index.d.ts" />
-
-import { toObject, toHtmlFragment} from "./geospatialMetadata";
-let url, request, match, xml;
-let dataUrlRe = /^data\:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+\/]+)/i; // [whole, MIME-type?, base64?, content]
+import { toHtmlFragment, toObject } from "./geospatialMetadata";
+const dataUrlRe = /^data\:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+\/]+)/i; // [whole, MIME-type?, base64?, content]
 
 /**
  * Reset the page content to the data from the data URI link.
  * @param {Event} e - Link click event
  * @returns {Boolean|undefined}
  */
-function handleDataUrlLinkClick(e) {
-    let a = e.target || e.currentTarget;
-    let match = a.href.match(dataUrlRe);
-    let xml;
+function handleDataUrlLinkClick(e: Event) {
+    const a = (e.target || e.currentTarget) as HTMLAnchorElement;
+    const match = a.href.match(dataUrlRe);
     if (match && match.length > 3) {
-        xml = atob(match[3]);
+        const xml = atob(match[3]);
         document.body.innerHTML = "";
         handleXml(xml);
+        const stateTitle = "Embedded HTML";
         try {
-            window.history.pushState(xml, "Embedded HTML", "#" + a.href);
+            window.history.pushState(xml, stateTitle, `#${a.href}`);
         } catch (e) {
-            window.history.pushState(xml, "Embedded HTML", "#embedded");
+            window.history.pushState(xml, stateTitle, "#embedded");
         }
         window.scroll(0, 0); // scroll back to the top of the page.
         // Stop the navigation.
-        return false;
+        e.stopPropagation();
     }
 
 }
 
+/**
+ * Disable all stylesheets in the document that have the text "bootstrap" in its "href" attribute.
+ */
 function disableBootstrapStylesheets() {
-    let i, l, ss, toDisable = /bootstrap/;
-    for (i = 0, l = document.styleSheets.length; i < l; i++) {
-        ss = document.styleSheets[i];
-        if (toDisable.test(ss.href)) {
-            ss.disabled = true;
-        }
+    if (document.stylesheets) {
+        const toDisable = /bootstrap/;
+        Array.from(document.stylesheets).filter(ss => toDisable.test(ss.href)).forEach(ss => ss.disabled = true);
     }
 }
 
-function handleXml(xml) {
-    let frag, title;
-    if (typeof xml == "string") {
-        xml = (function () {
-            let parser = new DOMParser();
+function handleXml(xml: string | Document) {
+    if (typeof xml === "string") {
+        xml = (() => {
+            const parser = new DOMParser();
             return parser.parseFromString(xml, "text/xml");
-        } ());
+        })();
     }
-    frag = toHtmlFragment(xml);
+    const frag = toHtmlFragment(xml);
     document.body.appendChild(frag);
-    title = document.body.querySelector("header > h1");
-    title = title ? title.textContent : null;
+    const titleElement = document.body.querySelector("header > h1");
+    const title = titleElement ? titleElement.textContent : null;
 
-    document.title = title;
+    document.title = title || "";
 
-    let links = document.querySelectorAll("a[href]"); // document.querySelectorAll("a[href^='data:text/xml;base64']"); // doesn't work in IE 11, always returns 0 nodes.
+    const links = document.querySelectorAll("a[href]"); // document.querySelectorAll("a[href^='data:text/xml;base64']"); // doesn't work in IE 11, always returns 0 nodes.
 
     // Setup special click event handler for data URI links.
-    Array.from(links, (link: HTMLAnchorElement) => {
-        if (dataUrlRe.test(link.href)) {
+    Array.from(links, (link) => {
+        if (link instanceof HTMLAnchorElement && dataUrlRe.test(link.href)) {
             link.onclick = handleDataUrlLinkClick;
         }
     });
@@ -66,8 +62,10 @@ function handleXml(xml) {
     disableBootstrapStylesheets();
 }
 
+let url: string | RegExpMatchArray | null = null;
+
 if (location.search) {
-    url = location.search.match(/ur[li]=([^&]+)/i); //location.search.replace(/^\?/, "");
+    url = location.search.match(/ur[li]=([^&]+)/i); // location.search.replace(/^\?/, "");
 }
 
 if (url) {
@@ -81,14 +79,17 @@ if (url) {
     }).then((text) => {
         document.body.innerHTML = "";
         document.body.classList.add("loaded");
-        history.replaceState(text, null, location.href);
-        let parser = new DOMParser();
-        let xml = parser.parseFromString(text, "text/xml");
+        history.replaceState(text, "", location.href);
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, "text/xml");
         handleXml(xml);
+    }).catch(err => {
+        // tslint:disable-next-line:no-console
+        console.error(`An error occured fetchcing ${url}.`, err);
     });
 } else {
     // Add bootstrap stylesheets
-    let template: any = document.getElementById("bootstrapStylesheetsTemplate");
+    const template: any = document.getElementById("bootstrapStylesheetsTemplate");
     document.head.appendChild(template.content);
 }
 
@@ -96,23 +97,23 @@ if (url) {
  * Opens a local XML file and formats it into HTML.
  * @param {File} file
  */
-function openFile(file) {
-    let reader = new FileReader();
+function openFile(file: File) {
+    const reader = new FileReader();
     reader.onloadend = function (progressEvent) {
-        let xml = this.result;
+        const xml = this.result;
         document.body.innerHTML = "";
         document.body.classList.add("loaded");
         handleXml(xml);
-        history.pushState(xml, null, "#localfile");
+        history.pushState(xml, "", "#localfile");
     };
     reader.readAsText(file);
 }
 
 if (document.forms.length > 0) {
-    let form: any = document.forms[0];
+    const form: any = document.forms[0];
 
     form.onsubmit = () => {
-        let fileInput = form.querySelector("#fileInput");
+        const fileInput = form.querySelector("#fileInput");
         if (!form.url.value && !fileInput.value) {
             alert("No XML file specified.");
             return false;
@@ -130,7 +131,7 @@ if (document.forms.length > 0) {
  * @param {PopStateEvent} popStateEvent
  * @param {Object} popStateEvent.state
  */
-window.onpopstate = function (popStateEvent) {
+window.onpopstate = (popStateEvent) => {
     if (popStateEvent.state) {
         document.body.innerHTML = "";
         handleXml(popStateEvent.state);
@@ -139,4 +140,4 @@ window.onpopstate = function (popStateEvent) {
         // Reload the page if the state has no XML.
         window.open(window.location.href, "_self");
     }
-}
+};

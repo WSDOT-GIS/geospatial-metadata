@@ -27,7 +27,7 @@ export default {
     distrib: "Distributor",
     descript: "Description",
     geoform: "Geospatial Data Presentation Form",
-    idinfo:"Identification Information",
+    idinfo: "Identification Information",
     metainfo: "Metadata Reference Information",
     metc: "Metadata Contact",
     metd: "Metadata Date",
@@ -58,7 +58,6 @@ export default {
     update: "Maintenance and Update Frequency",
     useconst: "Use Constraints",
 
-
     horizsys: "Horizontal Coordinate System Definition",
         spref: "Spatial Reference Information",
         mapproj: "Map Projection",
@@ -80,8 +79,6 @@ export default {
         horizdn: "Horizontal Datum Name",
         ellips: "Ellipsoid Name",
         semiaxis: "Semi-major Axis",
-        denflat: "Denominator of Flattening Ratio"
-
-
+        denflat: "Denominator of Flattening Ratio",
 
 };
