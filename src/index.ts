@@ -7,90 +7,94 @@ const dataUrlRe = /^data\:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+\/]+)/i; // [whole
  * @returns {Boolean|undefined}
  */
 function handleDataUrlLinkClick(e: Event) {
-    const a = (e.target || e.currentTarget) as HTMLAnchorElement;
-    const match = a.href.match(dataUrlRe);
-    if (match && match.length > 3) {
-        const xml = atob(match[3]);
-        document.body.innerHTML = "";
-        handleXml(xml);
-        const stateTitle = "Embedded HTML";
-        try {
-            window.history.pushState(xml, stateTitle, `#${a.href}`);
-        } catch (e) {
-            window.history.pushState(xml, stateTitle, "#embedded");
-        }
-        window.scroll(0, 0); // scroll back to the top of the page.
-        // Stop the navigation.
-        e.stopPropagation();
+  const a = (e.target || e.currentTarget) as HTMLAnchorElement;
+  const match = a.href.match(dataUrlRe);
+  if (match && match.length > 3) {
+    const xml = atob(match[3]);
+    document.body.innerHTML = "";
+    handleXml(xml);
+    const stateTitle = "Embedded HTML";
+    try {
+      window.history.pushState(xml, stateTitle, `#${a.href}`);
+    } catch (e) {
+      window.history.pushState(xml, stateTitle, "#embedded");
     }
-
+    window.scroll(0, 0); // scroll back to the top of the page.
+    // Stop the navigation.
+    e.stopPropagation();
+  }
 }
 
 /**
  * Disable all stylesheets in the document that have the text "bootstrap" in its "href" attribute.
  */
 function disableBootstrapStylesheets() {
-    if (document.stylesheets) {
-        const toDisable = /bootstrap/;
-        Array.from(document.stylesheets).filter(ss => toDisable.test(ss.href)).forEach(ss => ss.disabled = true);
-    }
+  if (document.stylesheets) {
+    const toDisable = /bootstrap/;
+    Array.from(document.stylesheets)
+      .filter(ss => toDisable.test(ss.href))
+      .forEach(ss => (ss.disabled = true));
+  }
 }
 
 function handleXml(xml: string | Document) {
-    if (typeof xml === "string") {
-        xml = (() => {
-            const parser = new DOMParser();
-            return parser.parseFromString(xml, "text/xml");
-        })();
+  if (typeof xml === "string") {
+    xml = (() => {
+      const parser = new DOMParser();
+      return parser.parseFromString(xml, "text/xml");
+    })();
+  }
+  const frag = toHtmlFragment(xml);
+  document.body.appendChild(frag);
+  const titleElement = document.body.querySelector("header > h1");
+  const title = titleElement ? titleElement.textContent : null;
+
+  document.title = title || "";
+
+  const links = document.querySelectorAll("a[href]"); // document.querySelectorAll("a[href^='data:text/xml;base64']"); // doesn't work in IE 11, always returns 0 nodes.
+
+  // Setup special click event handler for data URI links.
+  Array.from(links, link => {
+    if (link instanceof HTMLAnchorElement && dataUrlRe.test(link.href)) {
+      link.onclick = handleDataUrlLinkClick;
     }
-    const frag = toHtmlFragment(xml);
-    document.body.appendChild(frag);
-    const titleElement = document.body.querySelector("header > h1");
-    const title = titleElement ? titleElement.textContent : null;
+  });
 
-    document.title = title || "";
-
-    const links = document.querySelectorAll("a[href]"); // document.querySelectorAll("a[href^='data:text/xml;base64']"); // doesn't work in IE 11, always returns 0 nodes.
-
-    // Setup special click event handler for data URI links.
-    Array.from(links, (link) => {
-        if (link instanceof HTMLAnchorElement && dataUrlRe.test(link.href)) {
-            link.onclick = handleDataUrlLinkClick;
-        }
-    });
-
-    disableBootstrapStylesheets();
+  disableBootstrapStylesheets();
 }
 
 let url: string | RegExpMatchArray | null = null;
 
 if (location.search) {
-    url = location.search.match(/ur[li]=([^&]+)/i); // location.search.replace(/^\?/, "");
+  url = location.search.match(/ur[li]=([^&]+)/i); // location.search.replace(/^\?/, "");
 }
 
 if (url) {
-    url = decodeURIComponent(url[1]);
+  url = decodeURIComponent(url[1]);
 
-    document.body.classList.add("loading");
+  document.body.classList.add("loading");
 
-    fetch(url).then((response: Response) => {
-        document.body.classList.remove("loading");
-        return response.text();
-    }).then((text) => {
-        document.body.innerHTML = "";
-        document.body.classList.add("loaded");
-        history.replaceState(text, "", location.href);
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(text, "text/xml");
-        handleXml(xml);
-    }).catch(err => {
-        // tslint:disable-next-line:no-console
-        console.error(`An error occured fetchcing ${url}.`, err);
+  fetch(url)
+    .then((response: Response) => {
+      document.body.classList.remove("loading");
+      return response.text();
+    })
+    .then(text => {
+      document.body.innerHTML = "";
+      document.body.classList.add("loaded");
+      history.replaceState(text, "", location.href);
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(text, "text/xml");
+      handleXml(xml);
+    })
+    .catch(err => {
+      // tslint:disable-next-line:no-console
+      console.error(`An error occured fetchcing ${url}.`, err);
     });
 } else {
-    // Add bootstrap stylesheets
-    const template: any = document.getElementById("bootstrapStylesheetsTemplate");
-    document.head.appendChild(template.content);
+  // Add bootstrap stylesheets
+  const template: any = document.getElementById("bootstrapStylesheetsTemplate");
+  document.head.appendChild(template.content);
 }
 
 /**
@@ -98,32 +102,32 @@ if (url) {
  * @param {File} file
  */
 function openFile(file: File) {
-    const reader = new FileReader();
-    reader.onloadend = function (progressEvent) {
-        const xml = this.result;
-        document.body.innerHTML = "";
-        document.body.classList.add("loaded");
-        handleXml(xml);
-        history.pushState(xml, "", "#localfile");
-    };
-    reader.readAsText(file);
+  const reader = new FileReader();
+  reader.onloadend = function(progressEvent) {
+    const xml = this.result;
+    document.body.innerHTML = "";
+    document.body.classList.add("loaded");
+    handleXml(xml);
+    history.pushState(xml, "", "#localfile");
+  };
+  reader.readAsText(file);
 }
 
 if (document.forms.length > 0) {
-    const form: any = document.forms[0];
+  const form: any = document.forms[0];
 
-    form.onsubmit = () => {
-        const fileInput = form.querySelector("#fileInput");
-        if (!form.url.value && !fileInput.value) {
-            alert("No XML file specified.");
-            return false;
-        } else if (fileInput.files.length > 0) {
-            openFile(fileInput.files[0]);
-            return false;
-        }
-        // If none of the above conditions are true,
-        // The page will reload with the URL parameter.
-    };
+  form.onsubmit = () => {
+    const fileInput = form.querySelector("#fileInput");
+    if (!form.url.value && !fileInput.value) {
+      alert("No XML file specified.");
+      return false;
+    } else if (fileInput.files.length > 0) {
+      openFile(fileInput.files[0]);
+      return false;
+    }
+    // If none of the above conditions are true,
+    // The page will reload with the URL parameter.
+  };
 }
 
 /**
@@ -131,13 +135,13 @@ if (document.forms.length > 0) {
  * @param {PopStateEvent} popStateEvent
  * @param {Object} popStateEvent.state
  */
-window.onpopstate = (popStateEvent) => {
-    if (popStateEvent.state) {
-        document.body.innerHTML = "";
-        handleXml(popStateEvent.state);
-        window.scroll(0, 0); // scroll back to the top of the page.
-    } else {
-        // Reload the page if the state has no XML.
-        window.open(window.location.href, "_self");
-    }
+window.onpopstate = popStateEvent => {
+  if (popStateEvent.state) {
+    document.body.innerHTML = "";
+    handleXml(popStateEvent.state);
+    window.scroll(0, 0); // scroll back to the top of the page.
+  } else {
+    // Reload the page if the state has no XML.
+    window.open(window.location.href, "_self");
+  }
 };
