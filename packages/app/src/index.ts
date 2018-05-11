@@ -1,10 +1,9 @@
-import { toHtmlFragment, toObject } from "./geospatialMetadata";
+import { toHtmlFragment, toObject } from "geospatial-metadata";
 const dataUrlRe = /^data\:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+\/]+)/i; // [whole, MIME-type?, base64?, content]
 
 /**
  * Reset the page content to the data from the data URI link.
  * @param {Event} e - Link click event
- * @returns {Boolean|undefined}
  */
 function handleDataUrlLinkClick(e: Event) {
   const a = (e.target || e.currentTarget) as HTMLAnchorElement;

@@ -1,4 +1,4 @@
-dist/*
+packages/*/dist
 
 # Logs
 logs
