@@ -1,4 +1,5 @@
-import csdgmAliases from "./csdgmAliases";
+import csdgmAliases from "./csdgm/aliases";
+import { formatElementAsTable } from "./csdgm/attributeTables";
 import { parseDate } from "./dateUtils";
 import { capitalizeFirstCharacter, toValidClassName } from "./stringUtils";
 
@@ -195,56 +196,6 @@ function createAttributesTable(node: Element): HTMLTableElement {
   return table;
 }
 
-function formatElementAsTable(
-  rootElement: Element,
-  columns?: { [key: string]: string }
-) {
-  if (!columns) {
-    if (rootElement.nodeName === "attrdomv") {
-      columns = {
-        edomv: "Value",
-        edomvd: "Definition",
-        edomvds: "Definition Source"
-      };
-    } else {
-      throw Error(`Cannot autodetect columns for ${rootElement.nodeName}`);
-    }
-  }
-
-  const table = document.createElement("table");
-  const head = table.createTHead();
-  const tbody = table.createTBody();
-  let row = document.createElement("tr");
-  head.appendChild(row);
-  const colElementNames = new Array<string>();
-  for (const colName in columns) {
-    if (columns.hasOwnProperty(colName)) {
-      const colText = columns[colName];
-      const th = document.createElement("th");
-      th.scope = "col";
-      th.textContent = colText;
-      row.appendChild(th);
-      colElementNames.push(colName);
-    }
-  }
-
-  if (rootElement.hasChildNodes()) {
-    for (const domain of Array.from(rootElement.childNodes)) {
-      row = table.insertRow(-1);
-      const cellNodes = Array.from(domain.childNodes);
-      for (const name of colElementNames) {
-        const cell = row.insertCell(-1);
-        const node = cellNodes.find(n => n.nodeName === name);
-        if (node) {
-          cell.textContent = node.textContent;
-        }
-      }
-    }
-  }
-
-  return table;
-}
-
 /**
  * Converts a <keywords> XML element into a section containing lists.
  * @param {XMLDocument|Element} node - XML node: Either a <keywords> element or its parent.
@@ -370,13 +321,13 @@ function formatNumber(numberNode: Node): HTMLElement {
  * @param {Node} node - XML node
  * @returns {HTMLDListElement} List of attributes. If there were no attributes, null will be returned.
  */
-function createAttributeDL(node: Node) {
+function createAttributeDL(node: Element) {
   let dl: HTMLDListElement | null = null;
   const ignoredAttributes = /(^xmlns(?:\:\w+)?)|(codeList(Value)?)|(codeSpace)/;
   if (node.attributes && node.attributes.length > 0) {
     dl = document.createElement("dl");
     for (let i = 0; i < node.attributes.length; i++) {
-      const attr = node.attributes.item(i);
+      const attr = node.attributes.item(i)!;
       if (attr.name.match(ignoredAttributes)) {
         continue;
       }
@@ -545,7 +496,7 @@ function toHtmlFragment(node: XMLDocument | Element) {
 
   const output = document.createDocumentFragment();
 
-  const attrList = createAttributeDL(node);
+  const attrList = createAttributeDL(node as Element);
   if (attrList) {
     output.appendChild(attrList);
   }

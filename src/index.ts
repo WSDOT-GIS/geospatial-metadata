@@ -29,10 +29,10 @@ function handleDataUrlLinkClick(e: Event) {
  * Disable all stylesheets in the document that have the text "bootstrap" in its "href" attribute.
  */
 function disableBootstrapStylesheets() {
-  if (document.stylesheets) {
+  if (document.styleSheets) {
     const toDisable = /bootstrap/;
-    Array.from(document.stylesheets)
-      .filter(ss => toDisable.test(ss.href))
+    Array.from(document.styleSheets)
+      .filter(ss => ss.href && toDisable.test(ss.href))
       .forEach(ss => (ss.disabled = true));
   }
 }
