@@ -93,7 +93,7 @@ if (url) {
 } else {
   // Add bootstrap stylesheets
   const template: any = document.getElementById("bootstrapStylesheetsTemplate");
-  document.head.appendChild(template.content);
+  document.head!.appendChild(template.content);
 }
 
 /**
@@ -104,10 +104,12 @@ function openFile(file: File) {
   const reader = new FileReader();
   reader.onloadend = function(progressEvent) {
     const xml = this.result;
-    document.body.innerHTML = "";
-    document.body.classList.add("loaded");
-    handleXml(xml);
-    history.pushState(xml, "", "#localfile");
+    if (typeof xml === "string") {
+      document.body.innerHTML = "";
+      document.body.classList.add("loaded");
+      handleXml(xml);
+      history.pushState(xml, "", "#localfile");
+    }
   };
   reader.readAsText(file);
 }

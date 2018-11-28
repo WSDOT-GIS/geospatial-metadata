@@ -6,5 +6,11 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.DS_Store": true
+    },
+    "search.exclude": {
+        "**/*.js": true,
+        "**/*.txt": true,
+        "**/*.xml": true,
+        "yarn.lock": true
     }
 }
