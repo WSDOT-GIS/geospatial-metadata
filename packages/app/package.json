@@ -4,15 +4,17 @@
   "description": "Application that converts geospatial metadata XML to HTML",
   "main": "index.html",
   "scripts": {
-    "prepare": "webpack"
+    "prepare": "webpack",
+    "gh-pages": "node scripts/deploy.js"
   },
   "author": "WSDOT",
   "license": "Unlicense",
   "private": true,
   "dependencies": {
-    "geospatial-metadata": "^0.1.0"
+    "@wsdot/geospatial-metadata": "^0.1.0"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "prettier": "^1.15.2",
     "ts-loader": "^5.3.1",
     "tslint": "^5.11.0",

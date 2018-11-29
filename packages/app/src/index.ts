@@ -1,4 +1,4 @@
-import { toHtmlFragment, toObject } from "geospatial-metadata";
+import { toHtmlFragment, toObject } from "@wsdot/geospatial-metadata";
 const dataUrlRe = /^data\:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+\/]+)/i; // [whole, MIME-type?, base64?, content]
 
 /**
