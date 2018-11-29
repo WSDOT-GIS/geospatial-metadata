@@ -1,5 +1,5 @@
 {
-  "name": "geospatial-metadata",
+  "name": "@wsdot/geospatial-metadata",
   "version": "0.1.0",
   "description": "A library for parsing and converting Geospatial metadata XML",
   "main": "dist/index.js",
