@@ -1,8 +1,9 @@
 {
 	"devDependencies": {
-		"lerna": "^3.5.0"
+		"lerna": "^3.5.1"
 	},
 	"scripts": {
+		"updatedocs": "node scripts/copy-readme.js",
 		"prepare": "lerna bootstrap --hoist",
 		"serve": "serve packages/app"
 	},
