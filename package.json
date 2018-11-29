@@ -3,7 +3,8 @@
 		"lerna": "^3.5.0"
 	},
 	"scripts": {
-		"prepare": "lerna bootstrap --hoist"
+		"prepare": "lerna bootstrap --hoist",
+		"serve": "serve packages/app"
 	},
 	"private": true,
 	"workspaces": [

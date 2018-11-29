@@ -15,10 +15,10 @@ Features
 Resources
 ---------
 * [FGDC Geospatial Metadata Standards](http://www.fgdc.gov/metadata/geospatial-metadata-standards)
-* [NOAA Metadata Standards site](http://www.ncddc.noaa.gov/metadata-standards/)
+* [NOAA Metadata Standards site](https://www.ncddc.noaa.gov/metadata-standards/)
 
-[ArcGIS metadata format]:http://desktop.arcgis.com/en/desktop/latest/manage-data/metadata/the-arcgis-metadata-format.htm
-[CSDGM]:http://www.fgdc.gov/metadata/geospatial-metadata-standards#csdgm
-[FGDC]:http://www.fgdc.gov/metadata
-[Geospatial Metadata]:http://www.fgdc.gov/metadata/geospatial-metadata-standards
+[ArcGIS metadata format]:https://desktop.arcgis.com/en/desktop/latest/manage-data/metadata/the-arcgis-metadata-format.htm
+[CSDGM]:https://www.fgdc.gov/metadata/geospatial-metadata-standards#csdgm
+[FGDC]:https://www.fgdc.gov/metadata
+[Geospatial Metadata]:https://www.fgdc.gov/metadata/geospatial-metadata-standards
 [microformats]:http://microformats.org/

@@ -24,18 +24,6 @@ function handleDataUrlLinkClick(e: Event) {
   }
 }
 
-/**
- * Disable all stylesheets in the document that have the text "bootstrap" in its "href" attribute.
- */
-function disableBootstrapStylesheets() {
-  if (document.styleSheets) {
-    const toDisable = /bootstrap/;
-    Array.from(document.styleSheets)
-      .filter(ss => ss.href && toDisable.test(ss.href))
-      .forEach(ss => (ss.disabled = true));
-  }
-}
-
 function handleXml(xml: string | Document) {
   if (typeof xml === "string") {
     xml = (() => {
@@ -58,8 +46,6 @@ function handleXml(xml: string | Document) {
       link.onclick = handleDataUrlLinkClick;
     }
   });
-
-  disableBootstrapStylesheets();
 }
 
 let url: string | RegExpMatchArray | null = null;
@@ -90,10 +76,6 @@ if (url) {
       // tslint:disable-next-line:no-console
       console.error(`An error occured fetchcing ${url}.`, err);
     });
-} else {
-  // Add bootstrap stylesheets
-  const template: any = document.getElementById("bootstrapStylesheetsTemplate");
-  document.head!.appendChild(template.content);
 }
 
 /**

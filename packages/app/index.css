@@ -16,8 +16,8 @@ body > section > h1 {
 section {
     margin: 0.3em;
     padding: 0.5em;
-    border: 1px solid black;
-    border-radius: 1em;
+    border: 1px dashed rgb(110, 110, 110);
+    border-radius: 5px;
 }
 
 .spref section, .sdtsterm  section, .spdom section{
@@ -44,6 +44,23 @@ body > section {
 
 section > h1, h2 {
     color: #00795F;
+    font-size: 1.4em;
+    padding: 0;
+    margin: 0;
+}
+
+section.keyword > h1 {
+    display: none;
+}
+
+section.keyword {
+    display: inline-block;
+    border: solid 1px gray;
+    background-color: rgb(0, 88, 0);
+    color: white;
+}
+
+section > section > section h1 {
     font-size: 1em;
 }
 
@@ -151,4 +168,24 @@ progress[title=loading] {
 .error {
     background-color: #ffa0a0;
     color: #b00000;
+}
+
+form {
+    box-sizing: content-box;
+}
+
+form > div > * {
+    display: block;
+}
+
+form > div {
+    box-sizing: content-box;
+    border: outset 2px gray;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+form > div > input[type=url] {
+    width: 100%;
 }
