@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Application that converts geospatial metadata XML to HTML",
   "main": "index.html",
   "scripts": {
