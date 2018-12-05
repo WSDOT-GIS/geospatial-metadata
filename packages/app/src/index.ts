@@ -59,6 +59,7 @@ if (url) {
 
   document.body.classList.add("loading");
 
+  try {
   fetch(url)
     .then((response: Response) => {
       document.body.classList.remove("loading");
@@ -76,6 +77,17 @@ if (url) {
       // tslint:disable-next-line:no-console
       console.error(`An error occured fetchcing ${url}.`, err);
     });
+  } catch (error) {
+    document.body.innerHTML = "";
+    const p = document.createElement("p");
+    const te = document.createTextNode("Unfortunately, this browser does not support features required to format the metadata. ");
+    const a = document.createElement("a");
+    a.href = url;
+    a.textContent = "Go directly to metadata";
+    p.appendChild(te);
+    p.appendChild(a);
+    document.body.appendChild(p);
+  }
 }
 
 /**
