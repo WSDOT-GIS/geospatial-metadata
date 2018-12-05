@@ -3,13 +3,13 @@ geospatial-metadata
 
 A JavaScript library for parsing and converting [Geospatial Metadata].
 
-[Try me!](http://wsdot-gis.github.io/geospatial-metadata/)
+**[Try me!](http://wsdot-gis.github.io/geospatial-metadata/)**
 
-[![npm](https://img.shields.io/npm/v/@wsdot/geospatial-metadata.svg?style=flat-square)](https://www.npmjs.org/package/@wsdot/geospatial-metadata)
-[![npm](https://img.shields.io/npm/l/@wsdot/geospatial-metadata.svg?style=flat-square)](https://www.npmjs.org/package/@wsdot/geospatial-metadata)
-[![npm](https://img.shields.io/npm/dm/@wsdot/geospatial-metadata.svg?style=flat-square)](https://www.npmjs.org/package/@wsdot/geospatial-metadata)
+[![npm](https://img.shields.io/npm/v/@wsdot/geospatial-metadata.svg?style=flat-square)][NPM package]
+[![npm](https://img.shields.io/npm/l/@wsdot/geospatial-metadata.svg?style=flat-square)][NPM package]
+[![npm](https://img.shields.io/npm/dm/@wsdot/geospatial-metadata.svg?style=flat-square)][NPM package]
 [![GitHub](https://img.shields.io/github/issues/WSDOT-GIS/geospatial-metadata.svg?style=flat-square)](https://github.com/WSDOT-GIS/geospatial-metadata/issues)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)][Lerna]
 
 Features
 --------
@@ -44,6 +44,8 @@ async function getMetadataHtml(url) {
     document.body.append(frag);
 }
 
+// URL to retrieve XML metadata via ArcGIS Server SOE.
+// See https://github.com/WSDOT-GIS/LayerMetadataSoe
 const url = "https://data.wsdot.wa.gov/arcgis/rest/services/Shared/CityLimits/MapServer/exts/LayerMetadata/metadata/0?f=xml";
 
 getMetadataHtml(url).then(() => {
@@ -64,4 +66,6 @@ Resources
 [CSDGM]:https://www.fgdc.gov/metadata/geospatial-metadata-standards#csdgm
 [FGDC]:https://www.fgdc.gov/metadata
 [Geospatial Metadata]:https://www.fgdc.gov/metadata/geospatial-metadata-standards
+[Lerna]:https://lernajs.io/
 [microformats]:http://microformats.org/
+[NPM package]:https://www.npmjs.org/package/@wsdot/geospatial-metadata

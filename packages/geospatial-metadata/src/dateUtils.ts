@@ -76,10 +76,10 @@ export function parseDate(
     }
 
     if (parts.length >= 3) {
-      date = createDate.apply(null, parts);
+      date = createDate.apply(null, parts as any);
       // date = new Date(...parts);
     } else {
-      date = createDate.apply(this, parts);
+      date = createDate.apply(this, parts as any);
       const options: Intl.DateTimeFormatOptions =
         parts.length === 1
           ? {
