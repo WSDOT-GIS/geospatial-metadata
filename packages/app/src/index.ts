@@ -48,6 +48,24 @@ function handleXml(xml: string | Document) {
   });
 }
 
+/**
+ * Creates a link to the source XML file.
+ * @param xmlUrl URL of the XML metadata.
+ * @returns Returns a paragraph containing an anchor.
+ */
+function createRawXmlLink(xmlUrl: string) {
+  const className = "raw-metadata-link";
+  const p = document.createElement("p");
+  p.classList.add(className);
+  const a = document.createElement("a");
+  a.classList.add(`${className}__anchor`);
+  a.href = xmlUrl;
+  a.textContent = "view metadata XML";
+  a.target = "wsdot-metadata-raw";
+  p.appendChild(a);
+  return p;
+}
+
 let url: string | RegExpMatchArray | null = null;
 
 if (location.search) {
@@ -67,6 +85,8 @@ if (url) {
     })
     .then(text => {
       document.body.innerHTML = "";
+      const link = createRawXmlLink(url as string);
+      document.body.appendChild(link);
       document.body.classList.add("loaded");
       history.replaceState(text, "", location.href);
       const parser = new DOMParser();
