@@ -161,7 +161,7 @@ progress[title=loading] {
     display:block;
 }
 
-.loading form, .loaded form {
+.loading form, .loaded form, .loading .instructions {
     display: none;
 }
 
