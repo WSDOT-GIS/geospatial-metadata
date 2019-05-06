@@ -1,4 +1,4 @@
-let dateUtils = require("../dateUtils.js");
+let dateUtils = require("../dist/dateUtils.js");
 parseDate = dateUtils.parseDate;
 
 describe("dateUtils test", () => {

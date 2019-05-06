@@ -1,6 +1,6 @@
 {
 	"devDependencies": {
-		"lerna": "^3.5.1"
+		"lerna": "^3.14.1"
 	},
 	"scripts": {
 		"updatedocs": "node scripts/copy-readme.js",
