@@ -8,6 +8,7 @@
     "dist/*"
   ],
   "devDependencies": {
+    "jasmine": "^4.2.0",
     "prettier": "^2.2.1",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
