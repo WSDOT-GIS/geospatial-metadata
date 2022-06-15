@@ -1,5 +1,6 @@
 [serve]
 	directory=packages/app
+	open-browser
 	cors
 	brotli
 	gzip

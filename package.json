@@ -1,7 +1,7 @@
 {
 	"scripts": {
 		"updatedocs": "node scripts/copy-readme.js",
-		"serve": "serve packages/app"
+		"serve": "dotnet serve"
 	},
 	"private": true,
 	"workspaces": [
