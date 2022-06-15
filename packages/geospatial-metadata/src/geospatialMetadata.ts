@@ -160,7 +160,7 @@ function createAttributesTable(node: Element): HTMLTableElement {
   table.classList.add("attributes-table");
   const entityTypeLabel = node.querySelector("detailed > enttyp > enttypl");
   if (entityTypeLabel) {
-    table.createCaption().textContent = `Attributes for ${entityTypeLabel}`;
+    table.createCaption().textContent = `Attributes for ${entityTypeLabel.textContent}`;
   }
   const head = table.createTHead();
   head.innerHTML =

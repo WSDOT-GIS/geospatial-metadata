@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "prepare": "webpack",
+    "watch": "webpack -w",
     "gh-pages": "node scripts/deploy.js"
   },
   "author": "WSDOT",

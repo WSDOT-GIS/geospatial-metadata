@@ -17,6 +17,7 @@
   },
   "scripts": {
     "prepare": "tsc",
+    "watch": "tsc -w",
     "test": "jasmine"
   },
   "repository": {
