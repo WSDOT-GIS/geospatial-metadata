@@ -9,7 +9,6 @@ A JavaScript library for parsing and converting [Geospatial Metadata].
 [![npm](https://img.shields.io/npm/l/@wsdot/geospatial-metadata.svg?style=flat-square)][NPM package]
 [![npm](https://img.shields.io/npm/dm/@wsdot/geospatial-metadata.svg?style=flat-square)][NPM package]
 [![GitHub](https://img.shields.io/github/issues/WSDOT-GIS/geospatial-metadata.svg?style=flat-square)](https://github.com/WSDOT-GIS/geospatial-metadata/issues)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)][Lerna]
 
 Features
 --------

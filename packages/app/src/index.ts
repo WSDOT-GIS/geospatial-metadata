@@ -150,7 +150,7 @@ if (document.forms.length > 0) {
  * @param {PopStateEvent} popStateEvent
  * @param {Object} popStateEvent.state
  */
-window.onpopstate = popStateEvent => {
+window.onpopstate = (popStateEvent: PopStateEvent) => {
   if (popStateEvent.state) {
     document.body.innerHTML = "";
     handleXml(popStateEvent.state);

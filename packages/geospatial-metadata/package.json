@@ -8,14 +8,16 @@
     "dist/*"
   ],
   "devDependencies": {
-    "prettier": "^1.17.0",
-    "tslint": "^5.16.0",
+    "jasmine": "^4.2.0",
+    "prettier": "^2.2.1",
+    "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.4.5"
+    "tslint-plugin-prettier": "^2.3.0",
+    "typescript": "^4.1.3"
   },
   "scripts": {
     "prepare": "tsc",
+    "watch": "tsc -w",
     "test": "jasmine"
   },
   "repository": {

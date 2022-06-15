@@ -160,7 +160,7 @@ function createAttributesTable(node: Element): HTMLTableElement {
   table.classList.add("attributes-table");
   const entityTypeLabel = node.querySelector("detailed > enttyp > enttypl");
   if (entityTypeLabel) {
-    table.createCaption().textContent = `Attributes for ${entityTypeLabel}`;
+    table.createCaption().textContent = `Attributes for ${entityTypeLabel.textContent}`;
   }
   const head = table.createTHead();
   head.innerHTML =
@@ -179,12 +179,16 @@ function createAttributesTable(node: Element): HTMLTableElement {
 
     cell = row.insertCell(-1);
     if (def && def.textContent) {
-      cell.textContent = def.textContent || "";
+      cell.innerHTML = def.textContent;
     }
 
     cell = row.insertCell(-1);
     if (attrdefs) {
-      cell.textContent = attrdefs.textContent;
+      if (attrdefs.textContent) {
+        cell.innerHTML = attrdefs.textContent;
+      } else {
+        cell.textContent = attrdefs.textContent;
+      }
     }
 
     cell = row.insertCell(-1);
@@ -452,8 +456,32 @@ function commentToParagraph(comment: Comment): HTMLParagraphElement {
   return p;
 }
 
+function formatTextContainingHtml(element: Element) {
+  const section = document.createElement("section");
+  section.classList.add(element.nodeName);
+  const h1 = document.createElement("h1");
+  h1.textContent = element.nodeName;
+  section.appendChild(h1);
+  if (element.textContent) {
+    const domParser = new DOMParser();
+    try {
+      const doc = domParser.parseFromString(element.textContent, "text/html");
+      console.log("doc", doc.body.childNodes);
+      doc.body.childNodes.forEach(node => section.appendChild(node.cloneNode(true)));
+    } catch (parseError) {
+      if (parseError instanceof TypeError) {
+        console.error(`error parsing ${element.textContent}`, parseError);
+      } else {
+        throw parseError;
+      }
+      section.innerText = element.textContent;
+    }
+  }
+  return section;
+}
+
 // Create a mapping of node names to formatting functions.
-const nodeNameToFunction: any = {
+const nodeNameToFunction: { [nodeName: string]: Function } = {
   "#comment": commentToParagraph,
   eainfo: createAttributesTable,
   cntaddr: formatAddress,
@@ -470,7 +498,9 @@ const nodeNameToFunction: any = {
   "gco:Integer": formatNumber,
 
   Enclosure: convertEnclosureToDataUriLink,
-  Thumbnail: convertThumbnailToImage
+  Thumbnail: convertThumbnailToImage,
+  idAbs: formatTextContainingHtml,
+  useLimit: formatTextContainingHtml,
 };
 
 /**

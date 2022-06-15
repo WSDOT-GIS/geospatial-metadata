@@ -1,0 +1,7 @@
+[serve]
+	directory=packages/app
+	cors
+	brotli
+	gzip
+	tls
+	quiet

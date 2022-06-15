@@ -1,10 +1,6 @@
 {
-	"devDependencies": {
-		"lerna": "^3.14.1"
-	},
 	"scripts": {
 		"updatedocs": "node scripts/copy-readme.js",
-		"prepare": "lerna bootstrap --hoist",
 		"serve": "serve packages/app"
 	},
 	"private": true,
