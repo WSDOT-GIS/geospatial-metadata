@@ -179,12 +179,16 @@ function createAttributesTable(node: Element): HTMLTableElement {
 
     cell = row.insertCell(-1);
     if (def && def.textContent) {
-      cell.textContent = def.textContent || "";
+      cell.innerHTML = def.textContent;
     }
 
     cell = row.insertCell(-1);
     if (attrdefs) {
-      cell.textContent = attrdefs.textContent;
+      if (attrdefs.textContent) {
+        cell.innerHTML = attrdefs.textContent;
+      } else {
+        cell.textContent = attrdefs.textContent;
+      }
     }
 
     cell = row.insertCell(-1);
