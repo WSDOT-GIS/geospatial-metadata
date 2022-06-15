@@ -1,10 +1,20 @@
+/**
+ * This module is for ArcGIS Metadata. 
+ * @module
+ */
+
 import { parseDate } from "../dateUtils";
 
+/**
+ * Date data extracted from an XML element.
+ */
 interface ExtractDateOutput {
     prefix: string | null;
     date: Date | string | null;
     timeElement: ChildNode | null;
 }
+
+const dateElementPrefixRe = /^\w+(?=Date)/;
 
 /**
  * Get the part of the element name that prefixes "Date".
@@ -14,7 +24,7 @@ interface ExtractDateOutput {
  * @returns If the input was in the expected format, return the part of the string 
  * that comes before "...Date". Returns null otherwise.
  */
-function getPrefixFromDateElementName(elementOrName: Element | string, prefixRe = /^\w+(?=Date)/) {
+function getPrefixFromDateElementName(elementOrName: Node | string, prefixRe = dateElementPrefixRe) {
     // Get the part of the element name that prefixes "Date".
     // E.g., "Sync" for "SyncDate".
     const elementName = typeof elementOrName === "string" ? elementOrName : elementOrName.nodeName;
@@ -32,10 +42,10 @@ function getPrefixFromDateElementName(elementOrName: Element | string, prefixRe 
  * @example A SyncDate element
  * @returns An object with all extracted date and time data that could be found.
  */
-export function extractDate(dateElement: Element): ExtractDateOutput {
+export function extractDate(dateElement: Node, prefixRe = dateElementPrefixRe): ExtractDateOutput {
 
     // Get matching time element from given date element.
-    const prefix = getPrefixFromDateElementName(dateElement);
+    const prefix = getPrefixFromDateElementName(dateElement, prefixRe);
 
     let timeString: string | undefined;
     let date: Date | string | null = null;
@@ -60,6 +70,23 @@ export function extractDate(dateElement: Element): ExtractDateOutput {
     return { prefix, date, timeElement };
 }
 
-export function extractDates(element: Element | Document) {
+function* iterateNodes(element: Node, prefixRe: RegExp = dateElementPrefixRe) {
+    for (const n of element.childNodes) {
+        const { date, prefix } = extractDate(n);
+        if (date) {
+            yield [prefix, date] as [string, Date | string];
+        }
+    };
+}
 
+/**
+ * Extracts the dates from child elements of input node
+ * @param element 
+ * @returns A mapping of dates keyed by prefix names.
+ */
+export function extractDates(element: Node, prefixRe = dateElementPrefixRe) {
+    if (!element.hasChildNodes()) {
+        return new Map<string, string | Date>(iterateNodes(element, prefixRe));
+    }
+    return null;
 }
