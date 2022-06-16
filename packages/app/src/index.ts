@@ -128,14 +128,14 @@ function openFile(file: File) {
 }
 
 if (document.forms.length > 0) {
-  const form: any = document.forms[0];
+  const form = document.forms[0];
 
   form.onsubmit = () => {
-    const fileInput = form.querySelector("#fileInput");
-    if (!form.url.value && !fileInput.value) {
+    const fileInput = form.querySelector<HTMLInputElement>("#fileInput");
+    if (!form.url.value && !fileInput?.value) {
       alert("No XML file specified.");
       return false;
-    } else if (fileInput.files.length > 0) {
+    } else if (fileInput?.files && fileInput.files.length > 0) {
       openFile(fileInput.files[0]);
       return false;
     }

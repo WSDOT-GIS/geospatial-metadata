@@ -15,7 +15,7 @@ Features
 
 * Convert XML document into JSON.
 * Convert XML document into HTML.
-    * Contact information uses [microformats] classes.
+  * Contact information uses [microformats] classes.
 
 Installation
 ------------
@@ -43,9 +43,8 @@ async function getMetadataHtml(url) {
     document.body.append(frag);
 }
 
-// URL to retrieve XML metadata via ArcGIS Server SOE.
-// See https://github.com/WSDOT-GIS/LayerMetadataSoe
-const url = "https://data.wsdot.wa.gov/arcgis/rest/services/Shared/CityLimits/MapServer/exts/LayerMetadata/metadata/0?f=xml";
+// URL to retrieve XML metadata via ArcGIS Server.
+const url = "https://data.wsdot.wa.gov/arcgis/rest/services/Shared/BridgeData/MapServer/2/metadata/";
 
 getMetadataHtml(url).then(() => {
     console.log(`Successfully added metadata from ${url}.`);
@@ -58,6 +57,7 @@ getMetadataHtml(url).then(() => {
 
 Resources
 ---------
+
 * [FGDC Geospatial Metadata Standards](http://www.fgdc.gov/metadata/geospatial-metadata-standards)
 * [NOAA Metadata Standards site](https://www.ncddc.noaa.gov/metadata-standards/)
 
