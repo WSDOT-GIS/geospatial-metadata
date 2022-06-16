@@ -7,10 +7,16 @@
             "name": "custom-dictionary",
             "path": "./.cspell/custom-dictionary.txt",
             "addWords": true
+        },
+        {
+            "name": "fgdc-dictionary",
+            "path": "./.cspell/fgdc-dictionary.txt",
+            "addWords": true
         }
     ],
     "dictionaries": [
-        "custom-dictionary"
+        "custom-dictionary",
+        "fgdc-dictionary"
     ],
     "words": [],
     "ignoreWords": [],
