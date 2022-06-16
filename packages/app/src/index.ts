@@ -94,7 +94,6 @@ if (url) {
       handleXml(xml);
     })
     .catch(err => {
-      // tslint:disable-next-line:no-console
       console.error(`An error occured fetchcing ${url}.`, err);
     });
   } catch (error) {
