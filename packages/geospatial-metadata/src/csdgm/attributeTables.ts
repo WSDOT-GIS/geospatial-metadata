@@ -51,7 +51,7 @@ export function formatElementAsTable(
 
   if (rootElement.hasChildNodes()) {
     for (const domain of Array.from(rootElement.childNodes)) {
-      row = table.insertRow(-1);
+      row = tbody.insertRow();
       const cellNodes = Array.from(domain.childNodes);
       for (const name of colElementNames) {
         const cell = row.insertCell(-1);
