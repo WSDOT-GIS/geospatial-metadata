@@ -18,15 +18,15 @@ export function parseDate(
   function createDate(
     a: number,
     b: number,
-    c: number = 0,
-    d: number = 0,
-    e: number = 0,
-    f: number = 0
+    c = 0,
+    d = 0,
+    e = 0,
+    f = 0
   ) {
     return new Date(a, b, c, d, e, f);
   }
 
-  let re = /^(\d{4})(?:[-\/]?([0-1]\d)(?:[-\/]?([0-3]\d)?)?)?$/i;
+  let re = /^(\d{4})(?:[-/]?([0-1]\d)(?:[-/]?([0-3]\d)?)?)?$/i;
   let match = yyyyMMdd.match(re);
   let date;
   if (match) {
@@ -57,7 +57,7 @@ export function parseDate(
     // if the date value represents a specific day
     // of the year (as opposed to just a year or a month.)
     if (hhmmss && parts.length > 3) {
-      // Match each occurance of a number
+      // Match each occurrence of a number
       re = /\d{2}/g;
       const timeMatch = hhmmss.match(re);
       if (timeMatch) {
@@ -76,10 +76,11 @@ export function parseDate(
     }
 
     if (parts.length >= 3) {
-      date = createDate.apply(null, parts as any);
+      // eslint-disable-next-line prefer-spread
+      date = createDate.apply(null, parts as never);
       // date = new Date(...parts);
     } else {
-      date = createDate.apply(this, parts as any);
+      date = createDate.apply(this, parts as never);
       const options: Intl.DateTimeFormatOptions =
         parts.length === 1
           ? {
