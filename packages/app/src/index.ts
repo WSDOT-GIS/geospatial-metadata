@@ -1,5 +1,5 @@
-import { toHtmlFragment, toObject } from "@wsdot/geospatial-metadata";
-const dataUrlRe = /^data\:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+\/]+)/i; // [whole, MIME-type?, base64?, content]
+import { toHtmlFragment } from "@wsdot/geospatial-metadata";
+const dataUrlRe = /^data:([^;,]+)?(?:;(base64))?,([A-Za-z0-9+/]+)/i; // [whole, MIME-type?, base64?, content]
 
 /**
  * Reset the page content to the data from the data URI link.
@@ -94,7 +94,7 @@ if (url) {
       handleXml(xml);
     })
     .catch(err => {
-      console.error(`An error occured fetchcing ${url}.`, err);
+      console.error(`An error occurred fetching ${url}.`, err);
     });
   } catch (error) {
     document.body.innerHTML = "";
