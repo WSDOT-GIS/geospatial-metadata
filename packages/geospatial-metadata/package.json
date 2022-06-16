@@ -9,14 +9,16 @@
     "dist/*"
   ],
   "devDependencies": {
-    "jasmine": "^4.2.0",
+    "@types/jest": "^28.1.1",
+    "jest": "^28.1.1",
     "prettier": "^2.2.1",
+    "ts-jest": "^28.0.5",
     "typescript": "^4.1.3"
   },
   "scripts": {
     "prepare": "tsc",
     "watch": "tsc -w",
-    "test": "jasmine"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
