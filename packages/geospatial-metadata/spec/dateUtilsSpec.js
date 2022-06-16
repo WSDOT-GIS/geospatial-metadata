@@ -1,5 +1,4 @@
-let dateUtils = require("../dist/dateUtils.js");
-parseDate = dateUtils.parseDate;
+import { parseDate } from "../dist/dateUtils.js";
 
 describe("dateUtils test", () => {
     it("should be able to parse valid dates", () => {
@@ -9,7 +8,7 @@ describe("dateUtils test", () => {
         expect(parsed).toEqual(expected);
 
         let hhMMss = "000000";
-        parsed = dateUtils.parseDate(yyyyMMdd, hhMMss);
+        parsed = parseDate(yyyyMMdd, hhMMss);
         expect(parsed).toEqual(expected);
 
         yyyyMMdd = "201606";
